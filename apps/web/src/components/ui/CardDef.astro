@@ -1,0 +1,33 @@
+---
+type PaddingPreset = 'none' | 'small' | 'middle' | 'large' | 'xlarge';
+
+interface Props {
+	/**
+	 * 余白プリセット（design token）
+	 * より細かい指定は class で上書き可能
+	 */
+	padding?: PaddingPreset;
+	class?: string;
+}
+
+const { padding, class: className = '' } = Astro.props;
+
+const paddingClasses: Record<PaddingPreset, string> = {
+	none: '',
+	small: 'p-(--pd-small)',
+	middle: 'p-(--pd-middle)',
+	large: 'p-(--pd-large)',
+	xlarge: 'p-(--pd-xlarge)',
+};
+---
+
+<div
+	class:list={[
+		'card-def w-full rounded-(--border-radius) border border-(--border) bg-(--white)',
+		padding && paddingClasses[padding],
+		className,
+	]}
+	data-name="card-def"
+>
+	<slot />
+</div>

@@ -1,0 +1,63 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "集客のチカラ" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img "集客のチカラ" [ref=e5]
+      - button "メニューを開く" [ref=e6]
+  - main [ref=e7]: TES
+  - region "まずはお気軽にご連絡ください" [ref=e8]:
+    - generic [ref=e13]:
+      - heading "まずはお気軽にご連絡ください" [level=2] [ref=e15]
+      - list [ref=e16]:
+        - listitem [ref=e17]:
+          - generic [ref=e20]: とりあえず話だけ聞いてみたい
+        - listitem [ref=e22]:
+          - generic [ref=e25]: 自分に合うサービスかな？
+        - listitem [ref=e27]:
+          - generic [ref=e30]: ○○は対応できますか？
+    - generic [ref=e34]:
+      - heading "ご相談・お問い合わせはこちら" [level=3] [ref=e36]
+      - generic [ref=e37]:
+        - generic [ref=e39]:
+          - generic [ref=e41]: 相談無料
+          - generic [ref=e42]:
+            - button "お問い合わせモーダルを開く" [ref=e43] [cursor=pointer]
+            - paragraph [ref=e44]: 電話のお問い合わせはこちら
+            - paragraph [ref=e46]: 03-5919-1170
+            - paragraph [ref=e47]: "[受付時間] 9:30～18:30（平日）"
+        - link "メールでのお問い合わせはこちら" [ref=e48] [cursor=pointer]:
+          - /url: /contact
+          - generic [ref=e49]: メールでのお問い合わせはこちら
+  - contentinfo [ref=e50]:
+    - generic [ref=e52]:
+      - link "集客のチカラ" [ref=e53] [cursor=pointer]:
+        - /url: /
+        - img "集客のチカラ" [ref=e54]
+      - navigation "フッターナビゲーション" [ref=e55]:
+        - list [ref=e56]:
+          - listitem [ref=e57]:
+            - link "集客のチカラとは" [ref=e58] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=e59]:
+            - link "プロ運用プラン" [ref=e60] [cursor=pointer]:
+              - /url: /pro-plan
+          - listitem [ref=e61]:
+            - link "専属顧問プラン" [ref=e62] [cursor=pointer]:
+              - /url: /advisor-plan
+          - listitem [ref=e63]:
+            - link "料金について" [ref=e64] [cursor=pointer]:
+              - /url: /pricing
+          - listitem [ref=e65]:
+            - link "お問い合わせ" [ref=e66] [cursor=pointer]:
+              - /url: /contact
+          - listitem [ref=e67]:
+            - link "会社概要" [ref=e68] [cursor=pointer]:
+              - /url: https://lab-u.co.jp/
+          - listitem [ref=e69]:
+            - link "利用規約" [ref=e70] [cursor=pointer]:
+              - /url: /terms
+          - listitem [ref=e71]:
+            - link "プライバシーポリシー" [ref=e72] [cursor=pointer]:
+              - /url: /privacy
+      - paragraph [ref=e73]: Copyright© LAB.U, Inc. All Rights Reserved.

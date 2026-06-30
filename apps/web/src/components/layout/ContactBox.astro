@@ -1,0 +1,99 @@
+---
+import {
+	EMAIL_CONTACT_PATH,
+	PHONE_HOURS,
+	PHONE_NUMBER,
+} from "../../data/navigation";
+
+interface Props {
+	variant?: "default" | "compact";
+	showModalTrigger?: boolean;
+	phoneLabel?: string;
+}
+
+const {
+	variant = "default",
+	showModalTrigger = true,
+	phoneLabel = "電話のお問い合わせはこちら",
+} = Astro.props;
+const isCompact = variant === "compact";
+---
+
+<div
+	class:list={[
+		"contact-box mx-auto w-full",
+		isCompact ? "max-w-none" : "max-w-[361px] lg:max-w-none",
+	]}
+>
+	<!-- 電話 -->
+	<div class="contact-box__phone relative mb-4">
+		<div
+			class:list={[
+				"contact-box__phone-card relative overflow-hidden rounded-lg border-2 border-(--cta_tel) bg-white shadow-[0_4px_2px_rgba(0,0,0,0.25)]",
+				"h-[114px]",
+			]}
+		>
+			<span
+				class="contact-box__badge absolute -top-px left-3 z-10 rounded-b-2xl bg-(--cta_tel) px-4 pb-2 pt-1 text-sm font-bold text-white"
+			>
+				相談無料
+			</span>
+
+			{
+				showModalTrigger ? (
+					<button
+						type="button"
+						class="contact-box__phone-trigger absolute inset-0 z-20 cursor-pointer"
+						@click="$store.layout.openContactModal()"
+						aria-label="お問い合わせモーダルを開く"
+					/>
+				) : (
+					<a
+						href={`tel:${PHONE_NUMBER.replace(/-/g, "")}`}
+						class="absolute inset-0 z-20"
+						aria-label={`電話でお問い合わせ ${PHONE_NUMBER}`}
+					/>
+				)
+			}
+
+			<div class="relative z-10 px-4 pt-8">
+				<p class="text-center text-sm font-semibold text-[#222]">
+					{phoneLabel}
+				</p>
+				<div class="mt-1 flex items-center justify-center gap-2">
+					<img
+						src="/svg/icon-tel.svg"
+						alt=""
+						class="size-7 shrink-0"
+						width="30"
+						height="30"
+					/>
+					<p
+						class="font-['Impact',sans-serif] text-3xl tracking-wide text-(--cta_tel)"
+					>
+						{PHONE_NUMBER}
+					</p>
+				</div>
+				<p class="mt-1 text-center text-xs text-[#222]">
+					{PHONE_HOURS}
+				</p>
+			</div>
+
+			<img
+				src="/images/pic-woman-cta.png"
+				alt=""
+				class="pointer-events-none absolute right-2 top-4 size-[72px] object-cover object-top"
+				width="94"
+				height="94"
+			/>
+		</div>
+	</div>
+
+	<!-- メール -->
+	<a
+		href={EMAIL_CONTACT_PATH}
+		class="contact-box__email flex min-h-[48px] items-center justify-center gap-3 rounded-lg border-2 border-(--cta_tel) bg-white px-6 py-3 shadow-[0_4px_2px_rgba(0,0,0,0.25)] transition-opacity hover:opacity-90"
+	>
+		<img src="/images/btn-mail.png" alt="" class="size-7 shrink-0" />
+	</a>
+</div>

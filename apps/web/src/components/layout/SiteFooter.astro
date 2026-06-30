@@ -1,0 +1,58 @@
+---
+import SiteLogo from './SiteLogo.astro';
+import { footerNavItems } from '../../data/navigation';
+---
+
+<footer class="site-footer bg-[#f5f5f5] px-4 py-6 lg:px-8 lg:py-8">
+	<div class="site-footer__inner mx-auto max-w-7xl">
+		<!-- SP / TAB: 縦並び -->
+		<div class="flex flex-col gap-4 lg:hidden">
+			<SiteLogo />
+			<nav aria-label="フッターナビゲーション">
+				<ul class="flex flex-col gap-1 text-xs leading-6 text-[#222]">
+					{
+						footerNavItems.map((item) => (
+							<li>
+								<a
+									href={item.href}
+									class="hover:text-[#2b5696] hover:underline"
+									{...(item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+								>
+									{item.label}
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</nav>
+			<p class="text-xs text-[#222]">Copyright© LAB.U, Inc. All Rights Reserved.</p>
+		</div>
+
+		<!-- PC: 左ロゴ / 右リンク＋コピーライト -->
+		<div class="hidden items-start justify-between gap-8 lg:flex">
+			<SiteLogo class="shrink-0" />
+
+			<div class="flex flex-col items-end gap-2">
+				<nav aria-label="フッターナビゲーション">
+					<ul class="flex flex-wrap justify-end gap-x-1 gap-y-1 text-sm leading-6 text-[#222]">
+						{
+							footerNavItems.map((item, index) => (
+								<li class="flex items-center">
+									{index > 0 && <span class="mx-1 text-[#999]" aria-hidden="true">｜</span>}
+									<a
+										href={item.href}
+										class="hover:text-[#2b5696] hover:underline"
+										{...(item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+									>
+										{item.label}
+									</a>
+								</li>
+							))
+						}
+					</ul>
+				</nav>
+				<p class="text-xs text-[#222]">Copyright© LAB.U, Inc. All Rights Reserved.</p>
+			</div>
+		</div>
+	</div>
+</footer>

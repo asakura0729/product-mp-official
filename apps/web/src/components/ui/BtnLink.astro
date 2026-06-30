@@ -1,0 +1,37 @@
+---
+interface Props {
+	href: string;
+	/** ボタン表示テキスト（slot 未指定時に使用） */
+	label?: string;
+	class?: string;
+}
+
+const { href, label = '詳細はこちら', class: className = '' } = Astro.props;
+const hasSlot = Astro.slots.has('default');
+---
+
+<a
+	href={href}
+	class:list={[
+		'btn-link relative flex w-[280px] max-w-full items-center justify-center gap-2.5 rounded-[24px] border border-(--border-link) bg-(--white) py-2 shadow-[0_2px_1px_rgba(0,0,0,0.25)] transition-opacity hover:opacity-90 md:w-[358px]',
+		className,
+	]}
+	data-name="btn-link"
+>
+	<svg
+		class="absolute top-1/2 left-[11px] size-[25px] -translate-y-1/2 text-(--main-text)"
+		width="25"
+		height="25"
+		viewBox="0 0 25 25"
+		fill="none"
+		aria-hidden="true"
+	>
+		<path
+			d="M2.5 12.5C2.5 18.0234 6.97656 22.5 12.5 22.5C18.0234 22.5 22.5 18.0234 22.5 12.5C22.5 6.97656 18.0234 2.5 12.5 2.5C6.97656 2.5 2.5 6.97656 2.5 12.5ZM11.9141 17.2266C11.5469 17.5938 10.9531 17.5938 10.5898 17.2266C10.2266 16.8594 10.2227 16.2656 10.5898 15.9023L13.9883 12.5039L10.5898 9.10547C10.2227 8.73828 10.2227 8.14453 10.5898 7.78125C10.957 7.41797 11.5508 7.41406 11.9141 7.78125L15.9766 11.8359C16.3438 12.2031 16.3438 12.7969 15.9766 13.1602L11.9141 17.2266Z"
+			fill="currentColor"></path>
+	</svg>
+
+	<span class="btn-link__label px-8 text-center text-[16px] leading-(--line-height-default) font-medium break-words whitespace-pre-wrap text-(--base-text)">
+		{hasSlot ? <slot /> : label}
+	</span>
+</a>

@@ -1,0 +1,17 @@
+---
+interface Props {
+	class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<p
+	class:list={[
+		'p-def w-full break-words pb-(--pd-small) text-(length:--font-size-default) leading-(--line-height-default) font-normal text-(--base-text)',
+		className,
+	]}
+	data-name="p-def"
+>
+	<slot />
+</p>

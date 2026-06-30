@@ -1,0 +1,43 @@
+---
+export type BreadcrumbItem = {
+	label: string;
+	href?: string;
+};
+
+interface Props {
+	items: BreadcrumbItem[];
+	class?: string;
+}
+
+const { items, class: className = '' } = Astro.props;
+---
+
+<nav
+	class:list={[
+		'layout-breadcrumb flex w-full items-center px-7 py-(--pd-middle) text-[10px] leading-[23px] font-semibold text-(--white)',
+		className,
+	]}
+	aria-label="パンくずリスト"
+	data-name="layout-breadcrumb"
+>
+	<ol class="flex flex-wrap items-center">
+		{
+			items.map((item, index) => (
+				<li class="inline-flex items-center">
+					{index > 0 && (
+						<span class="px-2" aria-hidden="true">
+							＞
+						</span>
+					)}
+					{item.href ? (
+						<a href={item.href} class="transition-opacity hover:opacity-80">
+							{item.label}
+						</a>
+					) : (
+						<span aria-current="page">{item.label}</span>
+					)}
+				</li>
+			))
+		}
+	</ol>
+</nav>

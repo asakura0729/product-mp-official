@@ -1,0 +1,94 @@
+---
+interface Props {
+	/**
+	 * bottom-left: Figma card-balloon 既定（しっぽ左下）
+	 * bottom-center: しっぽ下中央（PC横並び向け）
+	 * left: しっぽ左向き（SP・イラスト向け）
+	 * responsive: SP=left / PC・TAB=bottom-center
+	 */
+	tail?: 'bottom-left' | 'bottom-center' | 'left' | 'responsive';
+	/** compact: Figma CTA 吹き出し（14px / 20px行間） */
+	size?: 'default' | 'compact';
+	class?: string;
+}
+
+const { tail = 'bottom-left', size = 'default', class: className = '' } = Astro.props;
+const isCompact = size === 'compact';
+
+const isLeftTail = tail === 'left' || tail === 'responsive';
+const isBottomLeftTail = tail === 'bottom-left';
+const isBottomCenterTail = tail === 'bottom-center' || tail === 'responsive';
+---
+
+<div
+	class:list={[
+		'fukidashi relative inline-flex w-full flex-col items-start',
+		isLeftTail && 'pl-2 md:pl-0',
+		className,
+	]}
+	data-name="card-balloon"
+>
+	<div
+		class="fukidashi__body w-full rounded-(--border-radius) border border-(--border) bg-(--white) p-(--pd-small)"
+	>
+		<div
+			class:list={[
+				'break-words text-center text-(--base-text)',
+				isCompact ? 'text-(length:--font-size-small) leading-5' : 'text-(length:--font-size-default) leading-(--line-height-default)',
+			]}
+		>
+			<slot />
+		</div>
+	</div>
+
+	<!-- しっぽ: 左向き（SP） -->
+	{
+		isLeftTail && (
+			<img
+				src="/svg/card-balloon-bottom.svg"
+				alt=""
+				class:list={[
+					'fukidashi__tail fukidashi__tail--left absolute top-1/2 -left-2 size-[10px] -translate-y-1/2 -rotate-90',
+					tail === 'responsive' && 'md:hidden',
+				]}
+				width="10"
+				height="10"
+			/>
+		)
+	}
+
+	<!-- しっぽ: 左下（Figma既定） -->
+	{
+		isBottomLeftTail && (
+			<div class="relative flex h-[10px] w-[34px] shrink-0 flex-col items-start pl-6">
+				<img
+					src="/svg/card-balloon-bottom.svg"
+					alt=""
+					class="absolute -top-px left-6 size-[10px]"
+					width="10"
+					height="10"
+				/>
+			</div>
+		)
+	}
+
+	<!-- しっぽ: 下中央（PC・TAB） -->
+	{
+		isBottomCenterTail && (
+			<div
+				class:list={[
+					'relative flex h-[10px] w-full shrink-0 justify-center',
+					tail === 'responsive' && 'hidden md:flex',
+				]}
+			>
+				<img
+					src="/svg/card-balloon-bottom.svg"
+					alt=""
+					class="absolute -top-px size-[10px]"
+					width="10"
+					height="10"
+				/>
+			</div>
+		)
+	}
+</div>

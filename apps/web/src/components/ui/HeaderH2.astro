@@ -1,0 +1,43 @@
+---
+interface Props {
+	/** セクション見出しの id（aria-labelledby 等に使用） */
+	id?: string;
+	class?: string;
+}
+
+const { id, class: className = '' } = Astro.props;
+
+const readClasses =
+	'font-normal text-(--base-text) text-[16px] leading-[27px] md:text-(length:--font-size-h2-read) md:leading-(length:--line-height-h2-read) w-full';
+
+const titleClasses =
+	'font-semibold text-[24px] leading-[38px] text-(--base-text) md:text-(length:--font-size-h2) md:leading-(length:--line-height-h2) w-full';
+---
+
+<div
+	class:list={[
+		'header-h2 flex w-full flex-col items-center justify-center gap-1 break-words pb-(--pd-middle) text-center text-(--base-text)',
+		className,
+	]}
+	data-name="header-h2"
+>
+	{
+		Astro.slots.has('lead') && (
+			<p class:list={['header-h2__lead', readClasses]}>
+				<slot name="lead" />
+			</p>
+		)
+	}
+
+	<h2 id={id} class:list={['header-h2__title', titleClasses]}>
+		<slot />
+	</h2>
+
+	{
+		Astro.slots.has('summary') && (
+			<p class:list={['header-h2__summary', readClasses]}>
+				<slot name="summary" />
+			</p>
+		)
+	}
+</div>

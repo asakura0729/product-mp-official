@@ -1,0 +1,54 @@
+---
+import CardDef from './CardDef.astro';
+import { portfolioItems } from '../../data/portfolio';
+
+interface Props {
+	class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<div
+	class:list={[
+		'sec-portfolio flex w-full flex-col items-center gap-2 rounded-(--border-radius) py-4 md:gap-6',
+		className,
+	]}
+	data-name="sec-portfolio"
+>
+	<div class="flex w-full justify-center">
+		<img
+			src="/images/graph-portfolio-legend.png"
+			alt="Googleリスティング、Yahooリスティング、ディスプレイ広告、YouTube広告の凡例"
+			class="h-[14px] w-full max-w-[328px] object-contain object-center md:max-w-[432px]"
+			width="432"
+			height="14"
+			loading="lazy"
+		/>
+	</div>
+
+	<div class="grid w-full max-w-[328px] grid-cols-2 gap-2 md:flex md:max-w-none md:flex-row md:items-stretch md:justify-center md:gap-5">
+		{
+			portfolioItems.map((item) => (
+				<CardDef class="flex flex-col items-center gap-2.5 px-6 py-6 md:w-[210px] md:px-10">
+					<img
+						src={item.image}
+						alt={item.imageAlt}
+						class="aspect-[135/134] w-full max-w-[135px] object-contain"
+						width="135"
+						height="134"
+						loading="lazy"
+					/>
+					<p class="text-center text-base leading-6 font-bold whitespace-nowrap text-(--base-text) md:text-xl md:leading-6">
+						{item.title}
+					</p>
+					<p class="text-center text-base leading-6 text-(--base-text)">
+						{item.lines[0]}
+						<br />
+						{item.lines[1]}
+					</p>
+				</CardDef>
+			))
+		}
+	</div>
+</div>

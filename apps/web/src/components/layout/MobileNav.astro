@@ -1,0 +1,67 @@
+---
+import SiteLogo from './SiteLogo.astro';
+import ContactBox from './ContactBox.astro';
+import { mobileNavItems } from '../../data/navigation';
+---
+
+<div
+	class="mobile-nav fixed inset-0 z-[60] lg:hidden"
+	x-show="$store.layout.menuOpen"
+	x-cloak
+	@keydown.escape.window="$store.layout.closeMenu()"
+>
+	<!-- オーバーレイ -->
+	<div
+		class="mobile-nav__overlay absolute inset-0 bg-black/40"
+		@click="$store.layout.closeMenu()"
+		x-show="$store.layout.menuOpen"
+		x-transition:enter="transition ease-out duration-200"
+		x-transition:enter-start="opacity-0"
+		x-transition:enter-end="opacity-100"
+		x-transition:leave="transition ease-in duration-150"
+		x-transition:leave-start="opacity-100"
+		x-transition:leave-end="opacity-0"
+	></div>
+
+	<!-- ドロワー -->
+	<nav
+		class="mobile-nav__panel absolute inset-y-0 right-0 flex w-full max-w-[360px] flex-col pt-[60px] bg-white shadow-xl"
+		aria-label="モバイルナビゲーション"
+		x-show="$store.layout.menuOpen"
+		x-transition:enter="transition ease-out duration-300"
+		x-transition:enter-start="translate-x-full"
+		x-transition:enter-end="translate-x-0"
+		x-transition:leave="transition ease-in duration-200"
+		x-transition:leave-start="translate-x-0"
+		x-transition:leave-end="translate-x-full"
+	>
+		<ul class="mobile-nav__list flex-1 overflow-y-auto">
+			{
+				mobileNavItems.map((item) => (
+					<li class="border-b border-[#ddd]">
+						<a
+							href={item.href}
+							class="flex items-center gap-3 px-4 py-4 text-[#222] transition-colors hover:bg-[#f5f5f5]"
+							{...(item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+							@click="$store.layout.closeMenu()"
+						>
+							{item.href === '/' && (
+								<svg class="size-5 shrink-0 text-[#888]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+									<path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V9.5z" />
+								</svg>
+							)}
+							<span class="flex-1 text-base">{item.label}</span>
+							{item.external && (
+								<img src="/svg/icon-link.svg" alt="" class="size-4 shrink-0 opacity-60" width="16" height="16" />
+							)}
+						</a>
+					</li>
+				))
+			}
+		</ul>
+
+		<div class="mobile-nav__contact shrink-0 bg-[#f5f5f5] px-4 py-6">
+			<ContactBox variant="compact" />
+		</div>
+	</nav>
+</div>

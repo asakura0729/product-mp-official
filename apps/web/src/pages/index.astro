@@ -1,0 +1,148 @@
+---
+import Layout from '../layouts/Layout.astro';
+import KeyVisual from '../components/sections/KeyVisual.astro';
+import SectionPlans from '../components/sections/SectionPlans.astro';
+import HeaderH2 from '../components/ui/HeaderH2.astro';
+import CardDef from '../components/ui/CardDef.astro';
+import BtnLink from '../components/ui/BtnLink.astro';
+import { problems, solutions, features } from '../data/home';
+---
+
+<Layout title="集客のチカラ">
+	<KeyVisual />
+
+	<section class="section-problem px-4 pb-10 md:pb-16" aria-labelledby="section-problem-heading">
+		<div class="mx-auto w-full max-w-(--container)">
+			<HeaderH2 id="section-problem-heading" class="mx-auto max-w-[900px]">
+				<Fragment slot="lead">貴社の WEB 広告運用の</Fragment>
+				<span class="text-(--main-text)">悩みや不安</span>を解決します!
+			</HeaderH2>
+
+			<div class="relative mx-auto mt-4 flex max-w-[900px] flex-col items-center gap-4 md:flex-row md:items-start md:justify-center">
+				<div class="relative w-full max-w-[400px] rounded-(--border-radius) bg-(--base-bg-lgray) px-4 pb-4">
+					<div class="relative flex min-h-14 items-start justify-end pb-5 pt-6 md:pt-8">
+						<img
+							src="/images/pic-man_worry.png"
+							alt=""
+							class="pointer-events-none absolute top-[-14px] left-1 h-[93px] w-[110px] object-cover object-top md:top-[-118px] md:left-0 md:h-32 md:w-[180px]"
+							width="180"
+							height="128"
+						/>
+						<h3 class="relative z-10 max-w-[210px] text-center text-base leading-6 font-bold text-(--base-text) md:max-w-none md:text-xl md:leading-6">
+							このようなお悩み<br />ありませんか？
+						</h3>
+					</div>
+
+					<ul class="flex flex-col gap-2">
+						{
+							problems.map(({ image, text }) => (
+								<li class="flex items-center gap-4 rounded-(--border-radius) border border-(--border) bg-(--white) px-[15px] py-2.5">
+									<img src={image} alt="" class="size-11 shrink-0 object-contain" width="45" height="45" />
+									<p class="text-sm leading-[22px] whitespace-pre-line text-(--base-text)">{text}</p>
+								</li>
+							))
+						}
+					</ul>
+				</div>
+
+				<div class="flex shrink-0 items-center justify-center py-2 md:w-20 md:py-16">
+					<img
+						src="/svg/arrow-down.svg"
+						alt=""
+						class="size-16 md:rotate-[-90deg]"
+						width="64"
+						height="64"
+						aria-hidden="true"
+					/>
+				</div>
+
+				<div class="relative w-full max-w-[400px] rounded-(--border-radius) bg-(--base-bg-lblue) px-4 pb-4">
+					<div class="relative -mx-4 mb-2 rounded-t-(--border-radius) bg-(--main-bg) px-4 py-4">
+						<h3 class="text-center text-base leading-6 font-bold text-(--white) md:text-xl md:leading-6">
+							"集客のチカラ" におまかせください
+						</h3>
+					</div>
+
+					<img
+						src="/images/pic-woman-cta.png"
+						alt=""
+						class="pointer-events-none absolute top-[-100px] right-0 hidden h-[140px] w-[137px] object-cover md:block"
+						width="137"
+						height="170"
+					/>
+
+					<ul class="flex flex-col gap-2">
+						{
+							solutions.map(({ title, subtitle }) => (
+								<li class="relative flex items-center justify-center rounded-(--border-radius) border border-(--border) bg-(--white) px-4 py-2.5">
+									<img
+										src="/svg/icon-check.svg"
+										alt=""
+										class="absolute top-1/2 left-[18px] size-6 -translate-y-1/2"
+										width="25"
+										height="25"
+										aria-hidden="true"
+									/>
+									<p class="text-center">
+										<span class="block text-xl leading-[21px] font-bold text-(--base-text)">{title}</span>
+										<span class="block text-sm leading-[21px] text-(--base-text)">{subtitle}</span>
+									</p>
+								</li>
+							))
+						}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section
+		class="section-features relative bg-(--base-bg-lblue) px-4 pt-12 pb-16 md:pt-16"
+		aria-labelledby="section-features-heading"
+	>
+		<div class="mx-auto w-full max-w-(--container)">
+			<HeaderH2 id="section-features-heading" class="mx-auto">
+				<span>集客のチカラ</span><span class="text-(--main-text)">４つの特徴</span>
+			</HeaderH2>
+
+			<div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-6">
+				{
+					features.map((feature) => (
+						<CardDef class="relative flex flex-col items-center px-6 py-6 md:px-10 md:py-6">
+							<img
+								src="/svg/icon-check.svg"
+								alt=""
+								class="absolute top-3.5 left-3.5 size-6"
+								width="25"
+								height="25"
+								aria-hidden="true"
+							/>
+
+							<div class="mb-5 flex h-[100px] items-center justify-center">
+								<img
+									src={feature.image}
+									alt={feature.imageAlt}
+									class="max-h-[111px] w-auto max-w-full object-contain"
+									width="111"
+									height="111"
+									loading="lazy"
+								/>
+							</div>
+
+							<div class="flex w-full flex-col items-center gap-2.5 py-4 text-center">
+								<h3 class="text-xl leading-6 font-bold text-(--base-text)">{feature.title}</h3>
+								<p class="text-sm leading-[22px] whitespace-pre-line text-(--base-text)">
+									{feature.description}
+								</p>
+							</div>
+
+							{feature.href && <BtnLink href={feature.href} class="mt-2" />}
+						</CardDef>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<SectionPlans />
+</Layout>
