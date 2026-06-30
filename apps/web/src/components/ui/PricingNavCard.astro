@@ -1,0 +1,55 @@
+---
+import { servicePlans, type ServicePlanVariant } from '../../data/service-plans';
+
+interface Props {
+	variant: ServicePlanVariant;
+	href: string;
+	class?: string;
+}
+
+const { variant, href, class: className = '' } = Astro.props;
+const plan = servicePlans[variant];
+---
+
+<a
+	href={href}
+	class:list={[
+		'pricing-nav-card group relative flex w-full flex-col overflow-hidden rounded-(--border-radius) border-[3px] bg-(--white) shadow-[0_4px_4px_rgba(0,0,0,0.25)] transition-opacity hover:opacity-90 md:max-w-[420px]',
+		plan.borderColorClass,
+		className,
+	]}
+>
+	<div class:list={['flex w-full items-center justify-center px-2 pt-2 pb-2.5', plan.headerBgClass]}>
+		<p class="text-center text-2xl leading-[30px] font-bold text-(--white)">{plan.title}</p>
+	</div>
+
+	<div class="relative h-[112px] w-full overflow-hidden">
+		<img
+			src={plan.imageSrc}
+			alt={plan.imageAlt}
+			class="size-full object-cover object-center"
+			width="420"
+			height="112"
+			loading="lazy"
+		/>
+	</div>
+
+	<div
+		class="flex h-[50px] w-full items-center justify-center gap-2 border-t border-(--border) bg-(--white) px-4"
+	>
+		<svg
+			class="size-[25px] shrink-0 text-(--main-text)"
+			width="25"
+			height="25"
+			viewBox="0 0 25 25"
+			fill="none"
+			aria-hidden="true"
+		>
+			<path
+				d="M2.5 12.5C2.5 18.0234 6.97656 22.5 12.5 22.5C18.0234 22.5 22.5 18.0234 22.5 12.5C22.5 6.97656 18.0234 2.5 12.5 2.5C6.97656 2.5 2.5 6.97656 2.5 12.5ZM11.9141 17.2266C11.5469 17.5938 10.9531 17.5938 10.5898 17.2266C10.2266 16.8594 10.2227 16.2656 10.5898 15.9023L13.9883 12.5039L10.5898 9.10547C10.2227 8.73828 10.2227 8.14453 10.5898 7.78125C10.957 7.41797 11.5508 7.41406 11.9141 7.78125L15.9766 11.8359C16.3438 12.2031 16.3438 12.7969 15.9766 13.1602L11.9141 17.2266Z"
+				fill="currentColor"
+				transform="rotate(90 12.5 12.5)"></path>
+		</svg>
+		<span class="text-base leading-6 font-bold text-(--base-text)">料金・サービス一覧へ</span>
+	</div>
+</a>

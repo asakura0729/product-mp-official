@@ -20,7 +20,7 @@ const { items, class: className = '' } = Astro.props;
 	aria-label="パンくずリスト"
 	data-name="layout-breadcrumb"
 >
-	<ol class="flex flex-wrap items-center">
+	<ol id="site-breadcrumb" class="flex flex-wrap items-center">
 		{
 			items.map((item, index) => (
 				<li class="inline-flex items-center">

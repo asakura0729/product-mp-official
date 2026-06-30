@@ -10,13 +10,13 @@ export type NavItem = {
 export const navItems: NavItem[] = [
 	{ href: '/', label: 'ホーム', mobileOnly: true },
 	{ href: '/about', label: '集客のチカラとは' },
-	{ href: '/pro-plan', label: 'プロ運用プラン' },
+	{ href: '/service/pro-light', label: 'プロ運用プラン' },
 	{ href: '/service/advisor', label: '専属顧問プラン' },
 	{ href: '/pricing', label: '料金について' },
 	{ href: '/contact', label: 'お問い合わせ', footerOnly: true },
-	{ href: 'https://lab-u.co.jp/', label: '会社概要', external: true },
-	{ href: '/terms', label: '利用規約', mobileOnly: true },
-	{ href: '/privacy', label: 'プライバシーポリシー', mobileOnly: true },
+	{ href: 'https://labu.co.jp/mission/', label: '会社概要', external: true },
+	{ href: '/info/terms', label: '利用規約', mobileOnly: true },
+	{ href: '/info/privacy', label: 'プライバシーポリシー', mobileOnly: true },
 ];
 
 export const headerNavItems = navItems.filter(

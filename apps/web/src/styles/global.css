@@ -46,6 +46,10 @@
   --z-index-header: 100;
 }
 
+.font-family-din {
+  font-family: "DIN 1451 Alt", system-ui;
+}
+
 [x-cloak] {
   display: none !important;
 }

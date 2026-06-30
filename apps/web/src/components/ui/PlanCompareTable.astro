@@ -1,0 +1,87 @@
+---
+import type { PlanMark } from '../../data/pricing';
+
+type TableRow =
+	| { type: 'category'; label: string }
+	| { type: 'item'; label: string; values: PlanMark[] };
+
+interface Props {
+	columns: readonly string[];
+	rows: TableRow[];
+	class?: string;
+}
+
+const { columns, rows, class: className = '' } = Astro.props;
+
+const labelColClass = columns.length === 1 ? 'w-[45%] min-w-[200px]' : 'w-[40%] min-w-[220px]';
+const valueColClass =
+	columns.length === 1 ? 'w-[55%] min-w-[120px]' : 'w-[20%] min-w-[100px]';
+---
+
+<div class:list={['plan-compare-table overflow-x-auto', className]}>
+	<table class="min-w-[720px] w-full border-collapse text-base leading-6">
+		<thead>
+			<tr>
+				<th
+					class:list={[
+						'border border-(--border) bg-(--main-bg) px-4 py-2 text-center font-medium text-(--white)',
+						labelColClass,
+					]}
+				>
+					項目
+				</th>
+				{
+					columns.map((col) => (
+						<th
+							class:list={[
+								'border border-(--border) bg-(--main-bg) px-4 py-2 text-center font-medium whitespace-pre-line text-(--white)',
+								valueColClass,
+							]}
+						>
+							{col}
+						</th>
+					))
+				}
+			</tr>
+		</thead>
+		<tbody>
+			{
+				rows.map((row) =>
+					row.type === 'category' ? (
+						<tr>
+							<td
+								colspan={columns.length + 1}
+								class="border border-(--border) bg-(--base-bg-lblue) px-4 py-2 font-bold text-(--base-text)"
+							>
+								{row.label}
+							</td>
+						</tr>
+					) : (
+						<tr>
+							<th
+								class:list={[
+									'border border-(--border) bg-(--white) px-4 py-2 text-left font-bold text-(--base-text)',
+									labelColClass,
+								]}
+							>
+								{row.label}
+							</th>
+							{
+								row.values.map((value) => (
+									<td
+										class:list={[
+											'border border-(--border) bg-(--white) px-4 py-2 text-center font-medium text-(--main-text)',
+											valueColClass,
+										]}
+									>
+										{value}
+									</td>
+								))
+							}
+						</tr>
+					),
+				)
+			}
+		</tbody>
+	</table>
+</div>

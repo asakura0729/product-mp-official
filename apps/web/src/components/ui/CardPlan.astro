@@ -1,0 +1,94 @@
+---
+type FeatureItem = {
+	text: string;
+	breakAfter?: boolean;
+};
+
+interface Props {
+	/** ヘッダー上段（例: プロ運用） */
+	planLead?: string;
+	/** ヘッダー下段（例: ライトプラン） */
+	planTitle: string;
+	/** キャッチコピー */
+	catchLine: string;
+	/** 月額価格（万円）。priceLabel 未指定時に使用 */
+	price?: string;
+	/** 価格表示をカスタム（例: 案件規模見積） */
+	priceLabel?: string;
+	/** 説明文 */
+	description: string;
+	/** 機能リスト */
+	features: FeatureItem[];
+	headerBgClass?: string;
+	catchColorClass?: string;
+	bulletColorClass?: string;
+	class?: string;
+}
+
+const {
+	planLead,
+	planTitle,
+	catchLine,
+	price,
+	priceLabel,
+	description,
+	features,
+	headerBgClass = 'bg-(--main-bg)',
+	catchColorClass = 'text-(--main-bg)',
+	bulletColorClass = 'text-(--main-bg)',
+	class: className = '',
+} = Astro.props;
+---
+
+<div
+	class:list={[
+		'card-plan flex w-full flex-col items-center overflow-hidden rounded-(--border-radius) border border-(--border) bg-(--white) pb-4',
+		className,
+	]}
+	data-name="card-plan"
+>
+	<div class:list={['flex w-full flex-col items-center justify-end p-2', headerBgClass]}>
+		{
+			planLead && (
+				<p class="w-full text-center text-base leading-8 font-medium text-(--white)">{planLead}</p>
+			)
+		}
+		<p class="w-full text-center text-xl leading-8 font-medium text-(--white)">{planTitle}</p>
+	</div>
+
+	<div class="flex w-full flex-col items-center gap-4 px-4 pt-4 pb-6">
+		<p class:list={['w-full text-center text-xl leading-6 font-bold', catchColorClass]}>{catchLine}</p>
+
+		<p class="w-full text-right text-(--base-text)">
+			{
+				priceLabel ? (
+					<span class="text-2xl leading-5 font-bold">{priceLabel}</span>
+				) : (
+					<>
+						<span class="text-2xl leading-5 font-bold">月額</span>{' '}
+						<span class="font-family-din text-[48px] leading-5 font-bold text-(--accent-strong)"
+							>{price}</span
+						>{' '}
+						<span class="text-2xl leading-5 font-bold">万円 ~</span>
+					</>
+				)
+			}
+		</p>
+
+		<p class="w-full text-sm leading-6 text-(--base-text)">{description}</p>
+	</div>
+
+	<div class="flex w-full flex-1 flex-col items-center bg-(--base-bg-lgray) px-4 pt-4 pb-6">
+		<p class="w-full text-sm leading-[27px] text-(--base-text)">
+			{
+				features.map((item) => (
+					<>
+						<span class:list={['leading-[27px]', bulletColorClass]}>●</span>
+						<span class="leading-[27px]"> {item.text}</span>
+						{item.breakAfter && <br />}
+					</>
+				))
+			}
+		</p>
+	</div>
+</div>

@@ -1,0 +1,78 @@
+---
+interface Props {
+	planLead?: string;
+	planTitle: string;
+	catchLine: string;
+	price?: string;
+	priceLabel?: string;
+	description: string;
+	budgetLabel: string;
+	class?: string;
+}
+
+const {
+	planLead,
+	planTitle,
+	catchLine,
+	price,
+	priceLabel,
+	description,
+	budgetLabel,
+	class: className = '',
+} = Astro.props;
+---
+
+<div
+	class:list={[
+		'pricing-plan-card flex w-full flex-col overflow-hidden rounded-(--border-radius) border border-(--border) bg-(--white)',
+		className,
+	]}
+>
+	<div class="flex h-20 w-full items-center justify-center bg-(--main-bg) px-2 py-2">
+		{
+			planLead ? (
+				<div class="text-center text-(--white)">
+					<p class="text-base leading-8 font-medium">{planLead}</p>
+					<p class="text-xl leading-8 font-bold tracking-wide">{planTitle}</p>
+				</div>
+			) : (
+				<p class="text-center text-xl leading-8 font-bold tracking-wide text-(--white)">{planTitle}</p>
+			)
+		}
+	</div>
+
+	<div class="flex flex-col items-center gap-4 px-4 pt-4 pb-6">
+		<p class="text-center text-xl leading-6 font-bold text-(--main-bg)">{catchLine}</p>
+		<p class="w-full text-right text-(--base-text)">
+			{
+				priceLabel ? (
+					<span class="text-2xl leading-5 font-bold">{priceLabel}</span>
+				) : (
+					<>
+						<span class="text-2xl leading-5 font-bold">月額</span>{' '}
+						<span class="font-family-din text-[48px] leading-5 font-bold text-(--accent-strong)"
+							>{price}</span
+						>{' '}
+						<span class="text-2xl leading-5 font-bold">万円 ~</span>
+					</>
+				)
+			}
+		</p>
+		<p class="w-full text-sm leading-6 text-(--base-text)">{description}</p>
+	</div>
+
+	<div class="border-t border-(--border) px-4 py-4 text-center">
+		<p class="text-xl leading-[21px] font-semibold text-(--base-text)">広告予算目安</p>
+		<p class="mt-2 text-lg leading-7 text-(--base-text)">{budgetLabel}</p>
+	</div>
+
+	<div class="border-t border-(--border) px-4 py-4 text-center">
+		<p class="text-xl leading-[21px] font-semibold text-(--base-text)">広告運用手数料</p>
+		<p class="mt-2 text-(--base-text)">
+			<span class="text-[40px] leading-7 font-bold">０</span><span class="text-2xl leading-7 font-bold"
+				>円</span
+			>
+		</p>
+		<p class="mt-4 text-sm leading-6 text-(--base-text)">※ 広告費は 100% 運用実費に充当</p>
+	</div>
+</div>

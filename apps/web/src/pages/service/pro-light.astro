@@ -1,7 +1,438 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import CtaSection from '../../components/sections/CtaSection.astro';
+import HeaderH2 from '../../components/ui/HeaderH2.astro';
+import HeaderH3 from '../../components/ui/HeaderH3.astro';
+import PDef from '../../components/ui/PDef.astro';
+import CardPlan from '../../components/ui/CardPlan.astro';
+import CardOl from '../../components/ui/CardOl.astro';
+import CardFaq from '../../components/ui/CardFaq.astro';
+import BtnLink from '../../components/ui/BtnLink.astro';
+import SecPortfolio from '../../components/ui/SecPortfolio.astro';
+import {
+	proPlans,
+	apoSteps,
+	onboardingSteps,
+	contractTable,
+	proFaqs,
+	traditionalComparison,
+	apoComparison,
+} from '../../data/pro-light';
 ---
 
 <Layout title="プロ運用プラン | 集客のチカラ" breadcrumb="プロ運用プラン">
-SAMPLE
+	<!-- キービジュアル -->
+	<section class="relative w-full overflow-hidden bg-(--main-bg)" aria-labelledby="pro-kv-heading">
+		<div class="relative min-h-[320px] w-full md:min-h-[350px]">
+			<img
+				src="/images/bg-office.jpg"
+				alt=""
+				class="pointer-events-none absolute inset-0 size-full object-cover opacity-25"
+				aria-hidden="true"
+			/>
+			<img
+				src="/images/keyvisual-home-zero.png"
+				alt="代理店 手数料ゼロ！"
+				class="pointer-events-none absolute top-6 left-4 z-10 h-[90px] w-auto object-contain md:top-12 md:left-[190px] md:h-[101px]"
+				width="101"
+				height="101"
+			/>
+			<img
+				src="/images/pic-human-service-pro_light.png"
+				alt=""
+				class="pointer-events-none absolute bottom-0 left-0 hidden h-[min(370px,85%)] w-auto object-contain object-bottom md:block"
+				width="445"
+				height="370"
+				aria-hidden="true"
+			/>
+
+			<div class="relative z-10 mx-auto flex w-full max-w-[363px] flex-col items-center px-4 py-10 text-center md:ml-auto md:mr-[calc(50%-450px)] md:items-start md:py-12 md:text-left">
+				<h1
+					id="pro-kv-heading"
+					class="text-[32px] font-semibold leading-[50px] tracking-[2.88px] text-(--white) md:text-[48px]"
+				>
+					プロ運用プラン
+				</h1>
+				<div class="mt-3 w-full bg-(--white) px-4 py-2">
+					<p class="text-2xl font-semibold leading-8 text-(--main-bg)">圧倒的なコスト削減</p>
+				</div>
+				<p class="mt-3 text-base leading-8 font-semibold text-(--white) md:text-lg">
+					もう、<span class="text-2xl">手数料に悩まない</span>。
+					<br />
+					プロの WEB 広告運用を驚きの低価格・定額性で！
+				</p>
+			</div>
+
+			<img
+				src="/images/pic-human-service-pro_light.png"
+				alt="プロ運用チームのイメージ"
+				class="pointer-events-none mx-auto mt-4 h-[220px] w-auto object-contain md:hidden"
+				width="280"
+				height="220"
+			/>
+		</div>
+	</section>
+
+	<!-- 第1セクション -->
+	<section class="px-4 pb-10 pt-8 md:pb-12" aria-labelledby="pro-sec1-heading">
+		<div class="mx-auto w-full max-w-(--container)">
+			<HeaderH2 id="pro-sec1-heading" class="mx-auto">
+				<Fragment slot="lead">WEB 広告の運用 2 つの選択肢には</Fragment>
+				<span class="text-(--base-text)">広告手数料は</span>全プラン「ゼロ」
+			</HeaderH2>
+
+			<div class="mt-6 md:hidden" x-data="{ active: 'light' }">
+				<div class="flex gap-2 overflow-x-auto pb-2">
+					{
+						proPlans.map((plan) => (
+							<button
+								type="button"
+								class="shrink-0 rounded-(--border-radius) border border-(--border) bg-(--white) px-3 py-2 text-sm leading-5 text-(--base-text)"
+								:class="active === plan.id ? 'border-(--main-bg) bg-(--main-bg) text-(--white)' : ''"
+								@click={`active = '${plan.id}'`}
+							>
+								プロ運用{plan.tabLabel}
+							</button>
+						))
+					}
+				</div>
+				<div class="mt-4">
+					{
+						proPlans.map((plan) => (
+							<div x-show={`active === '${plan.id}'`} x-cloak>
+								<CardPlan
+									planLead={plan.planLead}
+									planTitle={plan.planTitle}
+									catchLine={plan.catchLine}
+									price={plan.price}
+									priceLabel={plan.priceLabel}
+									description={plan.description}
+									features={plan.features}
+								/>
+							</div>
+						))
+					}
+				</div>
+			</div>
+
+			<div class="mx-auto mt-6 hidden max-w-[900px] grid-cols-3 gap-4 md:grid">
+				{
+					proPlans.map((plan) => (
+						<CardPlan
+							planLead={plan.planLead}
+							planTitle={plan.planTitle}
+							catchLine={plan.catchLine}
+							price={plan.price}
+							priceLabel={plan.priceLabel}
+							description={plan.description}
+							features={plan.features}
+						/>
+					))
+				}
+			</div>
+
+			<div class="mt-8 flex justify-center">
+				<BtnLink href="/pricing" label="サービス・料金の詳細はこちら" />
+			</div>
+		</div>
+	</section>
+
+	<CtaSection variant="contact-only" />
+
+	<!-- 第2セクション -->
+	<section class="px-4 py-8 md:py-12" aria-labelledby="pro-sec2-heading">
+		<div class="mx-auto w-full max-w-(--container)">
+			<HeaderH2 id="pro-sec2-heading" class="mx-auto">
+				<span class="text-(--base-text)">広告費に比例して膨らむ、その</span><span class="text-(--main-text)"
+					>手数料をゼロに</span
+				>
+			</HeaderH2>
+			<PDef class="mx-auto max-w-[826px] text-center">
+				中間マージンは、元々「<span class="text-(--main-text)">マスメディア時代のモデル</span>」。
+				広告費に比例して手数料が増えるコスト構造は、「世界の常識」とかけ離れた仕組みです。
+			</PDef>
+			<div class="mx-auto mt-8 flex max-w-[900px] flex-col gap-6 md:flex-row md:gap-8">
+				<img
+					src="/images/pic-2employees_commission.png"
+					alt="広告代理店の手数料に悩むビジネスパーソン"
+					class="w-full max-w-[453px] rounded-t-2xl object-cover"
+					width="453"
+					height="417"
+					loading="lazy"
+				/>
+				<img
+					src="/images/illust-bar_graph-costdown.png"
+					alt="コストダウンの比較イラスト"
+					class="w-full max-w-[412px] object-contain"
+					width="373"
+					height="297"
+					loading="lazy"
+				/>
+			</div>
+		</div>
+	</section>
+
+	<!-- 第3セクション -->
+	<section
+		class="relative bg-(--base-bg-lblue) px-4 py-8 md:py-12"
+		aria-labelledby="pro-sec3-heading"
+	>
+		<img
+			src="/images/fig-apo.png"
+			alt=""
+			class="pointer-events-none absolute top-[-56px] right-4 hidden h-[126px] w-[140px] object-contain md:block"
+			width="140"
+			height="126"
+			aria-hidden="true"
+		/>
+
+		<div class="mx-auto w-full max-w-(--container)">
+			<HeaderH2 id="pro-sec3-heading" class="mx-auto">
+				<Fragment slot="lead">横並びの広告に、終止符を</Fragment>
+				<span class="text-(--main-text)">ポートフォリオ</span>で運用する時代へ
+			</HeaderH2>
+			<PDef class="mx-auto max-w-[900px] text-center">
+				「APO」（AD Portfolio Optimizer）は、貴社の目的・目標に合わせて 媒体配分を専用設計する、新しい WEB
+				広告運用メソッドです。
+			</PDef>
+
+			<div class="mt-6 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-4 md:flex-wrap md:justify-center md:overflow-visible md:pb-0">
+				{
+					apoSteps.map((item, index) => (
+						<>
+							<CardOl
+								step={item.step}
+								title={item.title}
+								image={item.image}
+								imageAlt={item.imageAlt}
+								class="w-[250px] shrink-0 snap-center"
+							>
+								{item.body}
+							</CardOl>
+							{index < apoSteps.length - 1 && (
+								<div class="hidden shrink-0 items-center justify-center md:flex md:w-[75px]">
+									<img
+										src="/svg/arrow-right.svg"
+										alt=""
+										class="h-10 w-16 object-contain"
+										width="63"
+										height="41"
+										aria-hidden="true"
+									/>
+								</div>
+							)}
+						</>
+					))
+				}
+			</div>
+
+			<HeaderH3 align="center" class="mt-8">
+				貴社の目的・目標に合わせて、<span class="text-(--main-text)">媒体配分を専用設計</span>
+			</HeaderH3>
+			<SecPortfolio class="mx-auto mt-4" />
+		</div>
+	</section>
+
+	<!-- 第4セクション -->
+	<section class="relative px-4 py-8 md:py-12" aria-labelledby="pro-sec4-heading">
+		<div class="mx-auto w-full max-w-(--container)">
+			<p class="mb-2 text-center text-sm font-bold text-(--main-text) md:hidden">サービス比較</p>
+
+			<HeaderH2 id="pro-sec4-heading" class="mx-auto">
+				<Fragment slot="lead">自動運用が生む " 横並び " を</Fragment>
+				<span class="text-(--main-text)">プロの知見</span>が打ち破る
+			</HeaderH2>
+			<PDef class="mx-auto max-w-[900px] text-center">
+				横並びの広告から抜け出し、市場の主導権を握る。 プロの知見による専用設計が、圧倒的な集客の『差』を生み出します.
+			</PDef>
+
+			<div class="mx-auto mt-8 flex max-w-[900px] flex-col items-center gap-4 md:flex-row md:items-start md:justify-center">
+				<div class="w-full max-w-[400px] rounded-(--border-radius) border border-(--border) bg-(--base-bg-lgray) px-6 py-4">
+					<HeaderH3 align="center" class="pb-2">従来型の<br />自動運用システム</HeaderH3>
+					<img
+						src="/images/pic-automatic_operation.png"
+						alt="自動運用システムのイメージ"
+						class="mx-auto mb-4 h-[101px] w-full max-w-[401px] object-contain"
+						loading="lazy"
+					/>
+					<div class="flex flex-col gap-2.5">
+						{
+							traditionalComparison.map(({ num, title, body }) => (
+								<div class="bg-(--white) p-4">
+									<div class="mb-2 flex items-center gap-2.5">
+										<span class="flex size-[30px] items-center justify-center rounded-(--border-radius) bg-(--main-text) text-base text-(--white)">
+											{num}
+										</span>
+										<p class="text-base font-bold text-(--base-text)">{title}</p>
+									</div>
+									<p class="text-sm leading-[27px] text-(--base-text)">{body}</p>
+								</div>
+							))
+						}
+					</div>
+				</div>
+
+				<p class="text-center text-[56px] leading-6 font-bold text-[#99999999]">VS</p>
+
+				<div class="w-full max-w-[400px] rounded-(--border-radius) border border-(--border) bg-(--base-bg-lblue) px-6 py-4">
+					<div class="bg-(--main-bg) px-4 py-4 text-center text-(--white)">
+						<p class="text-2xl font-bold leading-6">集客のチカラ</p>
+						<p class="text-base leading-6">APO（AD Portfolio Optimizer）</p>
+					</div>
+					<img
+						src="/images/illust-not_automation.png"
+						alt="プロ運用のイメージ"
+						class="mx-auto my-4 h-[101px] w-full max-w-[401px] object-contain"
+						loading="lazy"
+					/>
+					<div class="flex flex-col gap-2.5">
+						{
+							apoComparison.map(({ num, title, body }) => (
+								<div class="bg-(--white) p-4">
+									<div class="mb-2 flex items-center gap-2.5">
+										<span class="flex size-[30px] items-center justify-center rounded-(--border-radius) bg-(--main-text) text-base text-(--white)">
+											{num}
+										</span>
+										<p class="text-base font-bold text-(--base-text)">{title}</p>
+									</div>
+									<p class="text-sm leading-[27px] text-(--base-text)">{body}</p>
+								</div>
+							))
+						}
+					</div>
+				</div>
+			</div>
+
+			<div class="mt-10">
+				<HeaderH3 align="left" class="mx-auto max-w-[900px]">プロ運用プラン</HeaderH3>
+				<PDef class="mx-auto max-w-[900px]">
+					広告代理 手数料をゼロに！WEB広告運用をプロが全面サポート
+				</PDef>
+				<div class="mx-auto mt-6 flex max-w-[900px] snap-x snap-mandatory gap-4 overflow-x-auto pb-4 md:grid md:grid-cols-3 md:overflow-visible md:pb-0">
+					{
+						proPlans.map((plan) => (
+							<CardPlan
+								planLead={plan.planLead}
+								planTitle={plan.planTitle}
+								catchLine={plan.catchLine}
+								price={plan.price}
+								priceLabel={plan.priceLabel}
+								description={plan.description}
+								features={plan.features}
+								class="w-[min(100%,280px)] shrink-0 snap-center md:w-full"
+							/>
+						))
+					}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<CtaSection variant="contact-only" />
+
+	<!-- 第5セクション -->
+	<section class="px-4 py-8 md:py-12" aria-labelledby="pro-sec5-heading">
+		<div class="mx-auto w-full max-w-(--container)">
+			<HeaderH2 id="pro-sec5-heading" class="mx-auto">
+				<Fragment slot="lead">透明な契約体系で、 無駄のない</Fragment>
+				「新スタンダード」 の広告運用を
+			</HeaderH2>
+			<PDef class="mx-auto max-w-[900px] text-center">
+				横並びの広告から抜け出し、市場の主導権を握る。 プロの知見による専用設計が、圧倒的な集客の『差』を生み出します
+			</PDef>
+
+			<HeaderH3 align="left" class="mx-auto mt-8 max-w-[900px]">ご契約条件</HeaderH3>
+			<div class="mx-auto mt-4 max-w-[900px] overflow-x-auto">
+				<table class="min-w-[720px] w-full border-collapse text-sm leading-6">
+					<thead>
+						<tr>
+							<th class="border border-(--border) bg-(--main-bg) px-4 py-2 text-left font-medium text-(--white)"
+								>項目</th
+							>
+							{
+								contractTable.columns.map((col) => (
+									<th class="border border-(--border) bg-(--main-bg) px-4 py-2 text-center font-medium text-(--white)">
+										{col}
+									</th>
+								))
+							}
+						</tr>
+					</thead>
+					<tbody>
+						{
+							contractTable.rows.map((row) => (
+								<tr>
+									<th class="border border-(--border) bg-(--base-bg-lblue) px-4 py-2 text-left font-medium text-(--base-text)">
+										{row.label}
+									</th>
+									{
+										row.values.map((value) => (
+											<td class="border border-(--border) bg-(--white) px-4 py-2 text-center text-(--base-text)">
+												{value}
+											</td>
+										))
+									}
+								</tr>
+							))
+						}
+					</tbody>
+				</table>
+			</div>
+
+			<HeaderH3 align="left" class="mx-auto mt-10 max-w-[900px]">導入までの３ステップ</HeaderH3>
+			<div class="mx-auto mt-4 flex max-w-[900px] snap-x snap-mandatory gap-3 overflow-x-auto pb-4 md:flex-wrap md:justify-center md:overflow-visible">
+				{
+					onboardingSteps.map((item, index) => (
+						<>
+							<CardOl
+								step={item.step}
+								title={item.title}
+								showImage={false}
+								class="h-auto w-[250px] shrink-0 snap-center"
+							>
+								{item.body}
+							</CardOl>
+							{index < onboardingSteps.length - 1 && (
+								<div class="hidden shrink-0 items-center justify-center md:flex md:w-[75px]">
+									<img src="/svg/arrow-right.svg" alt="" class="h-10 w-16" aria-hidden="true" />
+								</div>
+							)}
+						</>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<!-- 第6セクション -->
+	<section
+		class="bg-(--base-bg-lgray) px-4 py-8 md:py-12"
+		aria-labelledby="pro-sec6-heading"
+	>
+		<div class="mx-auto w-full max-w-(--container)">
+			<HeaderH2 id="pro-sec6-heading" class="mx-auto">
+				<Fragment slot="lead">集客のチカラ 広告運用に頂いた</Fragment>
+				よくあるご質問（FAQ）
+			</HeaderH2>
+			<div class="mx-auto mt-6 grid max-w-[900px] grid-cols-1 gap-4 md:grid-cols-3">
+				{
+					proFaqs.map(({ question, answer }) => (
+						<CardFaq question={question} answer={answer} />
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<!-- 第7セクション（フッター前） -->
+	<section class="bg-(--base-bg-lblue) px-4 py-8" aria-labelledby="pro-sec7-heading">
+		<div class="mx-auto w-full max-w-(--container)">
+			<HeaderH2 id="pro-sec7-heading" class="mx-auto text-(--main-text)">
+				今の広告運用と手数料、本当に適正ですか？
+			</HeaderH2>
+			<PDef class="mx-auto max-w-[900px] text-center">
+				まずは、貴社の「手数料コストの適正化診断」から 「手数料ゼロ化のシミュレーション」まで、無料で行います。
+			</PDef>
+		</div>
+	</section>
 </Layout>

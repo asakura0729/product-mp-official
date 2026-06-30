@@ -1,0 +1,141 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeaderH2 from '../components/ui/HeaderH2.astro';
+import HeaderH3 from '../components/ui/HeaderH3.astro';
+import PDef from '../components/ui/PDef.astro';
+import PricingPlanCard from '../components/ui/PricingPlanCard.astro';
+import PricingNavCard from '../components/ui/PricingNavCard.astro';
+import PlanCompareTable from '../components/ui/PlanCompareTable.astro';
+import {
+	pricingIntro,
+	proPricingPlans,
+	proPlanTableColumns,
+	proPlanTableRows,
+	proPlanTableNotes,
+	advisorPricingSummary,
+	advisorPlanTableColumns,
+	advisorPlanTableRows,
+	advisorPlanTableNotes,
+} from '../data/pricing';
+---
+
+<Layout title="料金について | 集客のチカラ" breadcrumb="料金について">
+	<!-- キービジュアル -->
+	<section class="w-full bg-[#294C7A]" aria-labelledby="pricing-kv-heading">
+		<div class="mx-auto flex w-full max-w-(--container) items-center justify-center px-4 py-9 md:py-12">
+			<h1
+				id="pricing-kv-heading"
+				class="text-center text-2xl font-semibold leading-[50px] text-(--white) md:text-[36px]"
+			>
+				料金について
+			</h1>
+		</div>
+	</section>
+
+	<!-- ローカルナビゲーション -->
+	<section class="px-4 pt-6 pb-8 md:pb-10" aria-label="プラン案内">
+		<div class="mx-auto w-full max-w-(--container)">
+			<PDef class="mx-auto max-w-[900px] text-center text-sm leading-6 md:text-base">
+				{pricingIntro}
+			</PDef>
+
+			<div class="mx-auto mt-6 flex max-w-[880px] flex-col items-center gap-6 md:flex-row md:justify-center md:gap-10">
+				<PricingNavCard variant="pro" href="#pricing-pro" />
+				<PricingNavCard variant="advisor" href="#pricing-advisor" />
+			</div>
+		</div>
+	</section>
+
+	<!-- 第1セクション：プロ運用プラン -->
+	<section
+		id="pricing-pro"
+		class="scroll-mt-20 px-4 py-8 md:py-12"
+		aria-labelledby="pricing-pro-heading"
+	>
+		<div class="mx-auto w-full max-w-(--container)">
+			<HeaderH2 id="pricing-pro-heading" class="mx-auto">
+				プロ運用プラン
+				<Fragment slot="summary">
+					広告代理 手数料を ゼロに！WEB広告運用をプロが全面サポート
+				</Fragment>
+			</HeaderH2>
+
+			<div class="mx-auto mt-8 grid max-w-[900px] grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+				{
+					proPricingPlans.map((plan) => (
+						<PricingPlanCard
+							planLead={plan.planLead}
+							planTitle={plan.planTitle}
+							catchLine={plan.catchLine}
+							price={plan.price}
+							priceLabel={plan.priceLabel}
+							description={plan.description}
+							budgetLabel={plan.budgetLabel}
+						/>
+					))
+				}
+			</div>
+
+			<HeaderH3 align="center" class="mx-auto mt-10 max-w-[900px]">
+				サービス内容・プラン詳細
+			</HeaderH3>
+
+			<PlanCompareTable
+				class="mx-auto mt-4 max-w-[900px]"
+				columns={proPlanTableColumns}
+				rows={proPlanTableRows}
+			/>
+
+			<div
+				class="mx-auto mt-4 flex max-w-[900px] flex-col gap-2 text-sm leading-6 text-(--base-text) md:flex-row md:gap-4"
+			>
+				<p class="md:w-[40%]">{proPlanTableNotes.left}</p>
+				<p class="md:flex-1 md:text-center">{proPlanTableNotes.right}</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- 第2セクション：専属顧問プラン -->
+	<section
+		id="pricing-advisor"
+		class="scroll-mt-20 bg-(--base-bg-lgray) px-4 py-8 md:py-12"
+		aria-labelledby="pricing-advisor-heading"
+	>
+		<div class="mx-auto w-full max-w-(--container)">
+			<HeaderH2 id="pricing-advisor-heading" class="mx-auto">
+				専属顧問プラン
+				<Fragment slot="summary">
+					WEB 広告運用のプロフェッショナルによる 「専属顧問」という、新しい正解
+				</Fragment>
+			</HeaderH2>
+
+			<div class="mx-auto mt-8 flex max-w-[900px] flex-col gap-6 lg:flex-row lg:items-start lg:gap-6">
+				<div
+					class="w-full shrink-0 rounded-(--border-radius) border border-(--border) bg-(--white) px-4 py-6 lg:w-[289px]"
+				>
+					<p class="text-right text-(--base-text)">
+						<span class="text-2xl leading-5 font-bold">月額</span>{' '}
+						<span class="font-family-din text-[48px] leading-5 font-bold text-(--accent-strong)"
+							>{advisorPricingSummary.price}</span
+						>{' '}
+						<span class="text-2xl leading-5 font-bold">万円 ~</span>
+					</p>
+					<p class="mt-4 text-base leading-[27px] text-(--base-text)">
+						{advisorPricingSummary.description}
+					</p>
+				</div>
+
+				<div class="min-w-0 flex-1 overflow-hidden rounded-(--border-radius) border border-(--border) bg-(--white)">
+					<PlanCompareTable columns={advisorPlanTableColumns} rows={advisorPlanTableRows} />
+				</div>
+			</div>
+
+			<div
+				class="mx-auto mt-4 flex max-w-[900px] flex-col gap-2 text-sm leading-6 text-(--base-text) md:flex-row md:gap-4"
+			>
+				<p class="md:w-[40%]">{advisorPlanTableNotes.left}</p>
+				<p class="md:flex-1 md:text-center">{advisorPlanTableNotes.right}</p>
+			</div>
+		</div>
+	</section>
+</Layout>

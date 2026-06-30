@@ -1,0 +1,26 @@
+---
+interface Props {
+	title: string;
+	class?: string;
+}
+
+const { title, class: className = '' } = Astro.props;
+---
+
+<div
+	class:list={[
+		'card-dl flex w-full flex-col overflow-hidden rounded-(--border-radius) border border-(--border) bg-(--white) pb-2',
+		className,
+	]}
+	data-name="card-dl"
+>
+	<div class="flex w-full items-center justify-center bg-(--main-bg) px-4 py-2">
+		<p class="w-full text-center text-base leading-7 font-medium text-(--white)">{title}</p>
+	</div>
+
+	<div class="w-full px-4 pt-4 pb-6">
+		<div class="text-sm leading-6 text-(--base-text)">
+			<slot />
+		</div>
+	</div>
+</div>
