@@ -1,0 +1,343 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "集客のチカラ" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img "集客のチカラ" [ref=e5]
+      - button "メニューを開く" [ref=e6] [cursor=pointer]
+  - navigation "パンくずリスト" [ref=e7]:
+    - list [ref=e8]:
+      - listitem [ref=e9]:
+        - link "HOME" [ref=e10] [cursor=pointer]:
+          - /url: /
+      - listitem [ref=e11]:
+        - generic [ref=e12]: ＞
+        - generic [ref=e13]: 料金について
+  - main [ref=e14]:
+    - region "料金について" [ref=e15]:
+      - heading "料金について" [level=1] [ref=e17]
+    - region "プラン案内" [ref=e18]:
+      - generic [ref=e19]:
+        - paragraph [ref=e20]: 貴社専用の戦略チームとして、 高度な WEB マーケとブランド戦略で、 事業成長に伴走します。
+        - generic [ref=e21]:
+          - link "プロ運用プラン プロ運用プランのイメージ 料金・サービス一覧へ" [ref=e22] [cursor=pointer]:
+            - /url: "#pricing-pro"
+            - paragraph [ref=e24]: プロ運用プラン
+            - img "プロ運用プランのイメージ" [ref=e26]
+            - generic [ref=e27]:
+              - img [ref=e28]
+              - generic [ref=e30]: 料金・サービス一覧へ
+          - link "専属顧問プラン 専属顧問プランのイメージ 料金・サービス一覧へ" [ref=e31] [cursor=pointer]:
+            - /url: "#pricing-advisor"
+            - paragraph [ref=e33]: 専属顧問プラン
+            - img "専属顧問プランのイメージ" [ref=e35]
+            - generic [ref=e36]:
+              - img [ref=e37]
+              - generic [ref=e39]: 料金・サービス一覧へ
+    - region "プロ運用プラン" [ref=e40]:
+      - generic [ref=e41]:
+        - generic [ref=e42]:
+          - heading "プロ運用プラン" [level=2] [ref=e43]
+          - paragraph [ref=e44]: 広告代理 手数料を ゼロに！WEB広告運用をプロが全面サポート
+        - generic [ref=e45]:
+          - generic [ref=e46]:
+            - generic [ref=e48]:
+              - paragraph [ref=e49]: プロ運用
+              - paragraph [ref=e50]: ライトプラン
+            - generic [ref=e51]:
+              - paragraph [ref=e52]: 手数料ゼロで効果を最大化
+              - paragraph [ref=e53]: 月額 10 万円 ~
+              - paragraph [ref=e54]: 広告手数料ゼロだから、 広告を増やし成果を引き上げる。 コストダウンで利益を出す。
+            - generic [ref=e55]:
+              - paragraph [ref=e56]: 広告予算目安
+              - paragraph [ref=e57]: ～200万円/月
+            - generic [ref=e58]:
+              - paragraph [ref=e59]: 広告運用手数料
+              - paragraph [ref=e60]: ０円
+              - paragraph [ref=e61]: ※ 広告費は 100% 運用実費に充当
+          - generic [ref=e62]:
+            - generic [ref=e64]:
+              - paragraph [ref=e65]: プロ運用
+              - paragraph [ref=e66]: スタンダードプラン
+            - generic [ref=e67]:
+              - paragraph [ref=e68]: さらなる利益最大化へ！
+              - paragraph [ref=e69]: 月額 30 万円 ~
+              - paragraph [ref=e70]: AD Portfolio Optimizer が、 貴社の WEB 広告成果を加速し、 事業成長の原動力に変える。
+            - generic [ref=e71]:
+              - paragraph [ref=e72]: 広告予算目安
+              - paragraph [ref=e73]: 200～500万円/月
+            - generic [ref=e74]:
+              - paragraph [ref=e75]: 広告運用手数料
+              - paragraph [ref=e76]: ０円
+              - paragraph [ref=e77]: ※ 広告費は 100% 運用実費に充当
+          - generic [ref=e78]:
+            - paragraph [ref=e80]: エンタープライズプラン
+            - generic [ref=e81]:
+              - paragraph [ref=e82]: 全方位 WEB 戦略支援！
+              - paragraph [ref=e83]: 案件規模見積
+              - paragraph [ref=e84]: 貴社専用の戦略チームとして、 高度な WEB マーケとブランド戦略で、 事業成長に伴走します。
+            - generic [ref=e85]:
+              - paragraph [ref=e86]: 広告予算目安
+              - paragraph [ref=e87]: 「要相談」
+            - generic [ref=e88]:
+              - paragraph [ref=e89]: 広告運用手数料
+              - paragraph [ref=e90]: ０円
+              - paragraph [ref=e91]: ※ 広告費は 100% 運用実費に充当
+        - heading "サービス内容・プラン詳細" [level=3] [ref=e93]
+        - table [ref=e95]:
+          - rowgroup [ref=e96]:
+            - row "項目 プロ運用 ライトプラン プロ運用 スタンダードプラン エンタープライズ プラン" [ref=e97]:
+              - columnheader "項目" [ref=e98]
+              - columnheader "プロ運用 ライトプラン" [ref=e99]
+              - columnheader "プロ運用 スタンダードプラン" [ref=e100]
+              - columnheader "エンタープライズ プラン" [ref=e101]
+          - rowgroup [ref=e102]:
+            - row "キーワード選定・除外設定" [ref=e103]:
+              - cell "キーワード選定・除外設定" [ref=e104]
+            - row "広告アカウントの初期設定 ● ● ●" [ref=e105]:
+              - rowheader "広告アカウントの初期設定" [ref=e106]
+              - cell "●" [ref=e107]
+              - cell "●" [ref=e108]
+              - cell "●" [ref=e109]
+            - row "Google / Yahoo 広告の日常運用 ● ● ●" [ref=e110]:
+              - rowheader "Google / Yahoo 広告の日常運用" [ref=e111]
+              - cell "●" [ref=e112]
+              - cell "●" [ref=e113]
+              - cell "●" [ref=e114]
+            - row "キーワード選定・除外設定 ● ● ●" [ref=e115]:
+              - rowheader "キーワード選定・除外設定" [ref=e116]
+              - cell "●" [ref=e117]
+              - cell "●" [ref=e118]
+              - cell "●" [ref=e119]
+            - row "入札戦略の設計・調整 ● ● ●" [ref=e120]:
+              - rowheader "入札戦略の設計・調整" [ref=e121]
+              - cell "●" [ref=e122]
+              - cell "●" [ref=e123]
+              - cell "●" [ref=e124]
+            - row "コンバージョン計測設定 (GA4 等 ) ● ● ●" [ref=e125]:
+              - rowheader "コンバージョン計測設定 (GA4 等 )" [ref=e126]
+              - cell "●" [ref=e127]
+              - cell "●" [ref=e128]
+              - cell "●" [ref=e129]
+            - row "広告文の作成・A/B テスト ● ● ●" [ref=e130]:
+              - rowheader "広告文の作成・A/B テスト" [ref=e131]
+              - cell "●" [ref=e132]
+              - cell "●" [ref=e133]
+              - cell "●" [ref=e134]
+            - row "SNS 広告 (Meta/Instagram) 運用 ー ー ●" [ref=e135]:
+              - rowheader "SNS 広告 (Meta/Instagram) 運用" [ref=e136]
+              - cell "ー" [ref=e137]
+              - cell "ー" [ref=e138]
+              - cell "●" [ref=e139]
+            - row "HP/ 成果特化型 LP制作 ー ● ●" [ref=e140]:
+              - rowheader "HP/ 成果特化型 LP制作" [ref=e141]
+              - cell "ー" [ref=e142]
+              - cell "●" [ref=e143]
+              - cell "●" [ref=e144]
+            - row "透明性の高いレポート報告" [ref=e145]:
+              - cell "透明性の高いレポート報告" [ref=e146]
+            - row "月次成果レポートの提出 ● ● ●" [ref=e147]:
+              - rowheader "月次成果レポートの提出" [ref=e148]
+              - cell "●" [ref=e149]
+              - cell "●" [ref=e150]
+              - cell "●" [ref=e151]
+            - row "改善施策の実施内容報告 ● ● ●" [ref=e152]:
+              - rowheader "改善施策の実施内容報告" [ref=e153]
+              - cell "●" [ref=e154]
+              - cell "●" [ref=e155]
+              - cell "●" [ref=e156]
+            - row "広告アカウントの定期診断 ー ● ●" [ref=e157]:
+              - rowheader "広告アカウントの定期診断" [ref=e158]
+              - cell "ー" [ref=e159]
+              - cell "●" [ref=e160]
+              - cell "●" [ref=e161]
+            - row "競合の出稿状況調査 ー ー ●" [ref=e162]:
+              - rowheader "競合の出稿状況調査" [ref=e163]
+              - cell "ー" [ref=e164]
+              - cell "ー" [ref=e165]
+              - cell "●" [ref=e166]
+            - row "事業成長へのパートナーシップ" [ref=e167]:
+              - cell "事業成長へのパートナーシップ" [ref=e168]
+            - row "オンライン MTG（月次） ● ● ●" [ref=e169]:
+              - rowheader "オンライン MTG（月次）" [ref=e170]
+              - cell "●" [ref=e171]
+              - cell "●" [ref=e172]
+              - cell "●" [ref=e173]
+            - row "運用方針のアドバイス・質問対応 ● ● ●" [ref=e174]:
+              - rowheader "運用方針のアドバイス・質問対応" [ref=e175]
+              - cell "●" [ref=e176]
+              - cell "●" [ref=e177]
+              - cell "●" [ref=e178]
+            - row "マーケティング戦略全体の設計 ー ー ●" [ref=e179]:
+              - rowheader "マーケティング戦略全体の設計" [ref=e180]
+              - cell "ー" [ref=e181]
+              - cell "ー" [ref=e182]
+              - cell "●" [ref=e183]
+            - row "ブランディング戦略の構築 ー ー ●" [ref=e184]:
+              - rowheader "ブランディング戦略の構築" [ref=e185]
+              - cell "ー" [ref=e186]
+              - cell "ー" [ref=e187]
+              - cell "●" [ref=e188]
+            - row "制作その他サービス" [ref=e189]:
+              - cell "制作その他サービス" [ref=e190]
+            - row "・バナー・広告クリエイティブ制作 △ △ ●" [ref=e191]:
+              - rowheader "・バナー・広告クリエイティブ制作" [ref=e192]
+              - cell "△" [ref=e193]
+              - cell "△" [ref=e194]
+              - cell "●" [ref=e195]
+        - generic [ref=e196]:
+          - paragraph [ref=e197]: ※テンプレート以外の制作は別途お見積りとなります。
+          - paragraph [ref=e198]: ●：標準対応（※プランにより内容は異なります） △：オプション ー：対象外
+    - region "専属顧問プラン" [ref=e199]:
+      - generic [ref=e200]:
+        - generic [ref=e201]:
+          - heading "専属顧問プラン" [level=2] [ref=e202]
+          - paragraph [ref=e203]: WEB 広告運用のプロフェッショナルによる 「専属顧問」という、新しい正解
+        - generic [ref=e204]:
+          - generic [ref=e205]:
+            - paragraph [ref=e206]: 月額 5 万円 ~
+            - paragraph [ref=e207]: 複数アカウントの運用やスポット診断など、貴社に最適なプランをご提案します
+          - table [ref=e210]:
+            - rowgroup [ref=e211]:
+              - row "項目 専属顧問プラン" [ref=e212]:
+                - columnheader "項目" [ref=e213]
+                - columnheader "専属顧問プラン" [ref=e214]
+            - rowgroup [ref=e215]:
+              - row "診断・評価・アドバイス" [ref=e216]:
+                - cell "診断・評価・アドバイス" [ref=e217]
+              - row "広告アカウントの定期診断 ●" [ref=e218]:
+                - rowheader "広告アカウントの定期診断" [ref=e219]
+                - cell "●" [ref=e220]
+              - row "代理店レポートの第三者評価・解説 ●" [ref=e221]:
+                - rowheader "代理店レポートの第三者評価・解説" [ref=e222]
+                - cell "●" [ref=e223]
+              - row "競合の広告出稿状況の調査 ●" [ref=e224]:
+                - rowheader "競合の広告出稿状況の調査" [ref=e225]
+                - cell "●" [ref=e226]
+              - row "毎月の数値レビューと改善提案 ●" [ref=e227]:
+                - rowheader "毎月の数値レビューと改善提案" [ref=e228]
+                - cell "●" [ref=e229]
+              - row "運用方針のアドバイス・質問対応 ●" [ref=e230]:
+                - rowheader "運用方針のアドバイス・質問対応" [ref=e231]
+                - cell "●" [ref=e232]
+              - row "代理店の継続 / 切替の中立判断 ●" [ref=e233]:
+                - rowheader "代理店の継続 / 切替の中立判断" [ref=e234]
+                - cell "●" [ref=e235]
+              - row "WEB 広告の初期設定相談 ●" [ref=e236]:
+                - rowheader "WEB 広告の初期設定相談" [ref=e237]
+                - cell "●" [ref=e238]
+              - row "定型作業 ( 広告レビュー ) ●" [ref=e239]:
+                - rowheader "定型作業 ( 広告レビュー )" [ref=e240]
+                - cell "●" [ref=e241]
+              - row "戦略・改善提案" [ref=e242]:
+                - cell "戦略・改善提案" [ref=e243]
+              - row "WEB 広告・HP・動画広告戦略提案 ●" [ref=e244]:
+                - rowheader "WEB 広告・HP・動画広告戦略提案" [ref=e245]
+                - cell "●" [ref=e246]
+              - row "SEO 対策・コンテンツ戦略提案 ●" [ref=e247]:
+                - rowheader "SEO 対策・コンテンツ戦略提案" [ref=e248]
+                - cell "●" [ref=e249]
+              - row "ブランディング提案 ●" [ref=e250]:
+                - rowheader "ブランディング提案" [ref=e251]
+                - cell "●" [ref=e252]
+              - row "その他制作物の改善提案 など ●" [ref=e253]:
+                - rowheader "その他制作物の改善提案 など" [ref=e254]
+                - cell "●" [ref=e255]
+              - row "事業成長へのパートナーシップ" [ref=e256]:
+                - cell "事業成長へのパートナーシップ" [ref=e257]
+              - row "オンライン MTG（月次） ●" [ref=e258]:
+                - rowheader "オンライン MTG（月次）" [ref=e259]
+                - cell "●" [ref=e260]
+              - row "運用方針のアドバイス・質問対応 ●" [ref=e261]:
+                - rowheader "運用方針のアドバイス・質問対応" [ref=e262]
+                - cell "●" [ref=e263]
+              - row "マーケティング戦略全体の設計 ●" [ref=e264]:
+                - rowheader "マーケティング戦略全体の設計" [ref=e265]
+                - cell "●" [ref=e266]
+              - row "ブランディング戦略の構築 ●" [ref=e267]:
+                - rowheader "ブランディング戦略の構築" [ref=e268]
+                - cell "●" [ref=e269]
+              - row "制作その他サービス" [ref=e270]:
+                - cell "制作その他サービス" [ref=e271]
+              - row "・バナー・広告クリエイティブ制作 △" [ref=e272]:
+                - rowheader "・バナー・広告クリエイティブ制作" [ref=e273]
+                - cell "△" [ref=e274]
+        - generic [ref=e275]:
+          - paragraph [ref=e276]: ※テンプレート以外の制作は別途お見積りとなります。
+          - paragraph [ref=e277]: ●：標準対応（※プランにより内容は異なります） △：オプション ー：対象外
+  - region "まずはお気軽にご連絡ください" [ref=e278]:
+    - generic [ref=e281]:
+      - img "イラスト_女性" [ref=e283]
+      - generic [ref=e284]:
+        - heading "まずはお気軽にご連絡ください" [level=2] [ref=e286]
+        - list [ref=e287]:
+          - listitem [ref=e288]:
+            - generic [ref=e291]:
+              - text: とりあえず話だけ
+              - text: 聞いてみたい
+          - listitem [ref=e293]:
+            - generic [ref=e296]:
+              - text: 自分に合う
+              - text: サービスかな？
+          - listitem [ref=e298]:
+            - generic [ref=e301]:
+              - text: ○○は対応
+              - text: できますか？
+    - generic [ref=e305]:
+      - heading "ご相談・お問い合わせはこちら" [level=3] [ref=e307]
+      - generic [ref=e310]:
+        - generic [ref=e311]:
+          - generic [ref=e312]: 相談無料
+          - img [ref=e313]
+        - generic [ref=e315]:
+          - button "お問い合わせモーダルを開く" [ref=e316] [cursor=pointer]
+          - paragraph [ref=e318]: 03-5919-1170
+          - paragraph [ref=e319]: "[受付時間] 9:30～18:30（平日）"
+        - link "メールでの お問い合わせ" [ref=e320] [cursor=pointer]:
+          - /url: /contact
+          - generic [ref=e321]: メールでの お問い合わせ
+  - contentinfo [ref=e322]:
+    - generic [ref=e324]:
+      - link "集客のチカラ" [ref=e325] [cursor=pointer]:
+        - /url: /
+        - img "集客のチカラ" [ref=e326]
+      - navigation "フッターナビゲーション" [ref=e327]:
+        - list [ref=e328]:
+          - listitem [ref=e329]:
+            - link "集客のチカラとは" [ref=e330] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=e331]:
+            - link "プロ運用プラン" [ref=e332] [cursor=pointer]:
+              - /url: /service/pro-light
+          - listitem [ref=e333]:
+            - link "専属顧問プラン" [ref=e334] [cursor=pointer]:
+              - /url: /service/advisor
+          - listitem [ref=e335]:
+            - link "料金について" [ref=e336] [cursor=pointer]:
+              - /url: /pricing
+          - listitem [ref=e337]:
+            - link "お問い合わせ" [ref=e338] [cursor=pointer]:
+              - /url: /contact
+          - listitem [ref=e339]:
+            - link "会社概要" [ref=e340] [cursor=pointer]:
+              - /url: https://labu.co.jp/mission/
+          - listitem [ref=e341]:
+            - link "利用規約" [ref=e342] [cursor=pointer]:
+              - /url: /info/terms
+          - listitem [ref=e343]:
+            - link "プライバシーポリシー" [ref=e344] [cursor=pointer]:
+              - /url: /info/privacy
+      - paragraph [ref=e345]: Copyright© LAB.U, Inc. All Rights Reserved.
+  - generic [ref=e348]:
+    - button "Menu" [ref=e349]:
+      - img [ref=e351]
+      - generic: Menu
+    - button "Inspect" [ref=e355]:
+      - img [ref=e357]
+      - generic: Inspect
+    - button "Audit" [ref=e359]:
+      - img [ref=e361]
+      - generic: Audit
+    - button "Settings" [ref=e364]:
+      - img [ref=e366]
+      - generic: Settings

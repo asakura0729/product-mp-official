@@ -10,12 +10,12 @@ interface Props {
 const { id, class: className = '', align = 'center' } = Astro.props;
 
 const titleClasses =
-	'header-h3__title min-w-0 flex-1 break-words font-bold text-[20px] leading-8 text-(--base-text) md:text-(length:--font-size-h3) md:leading-(length:--line-height-h3)';
+	'header-h3__title font-bold text-xl md:text-2xl leading-8';
 ---
 
 <div
 	class:list={[
-		'header-h3 flex w-full pb-(--pd-middle)',
+		'header-h3 flex w-full pb-3',
 		align === 'center' ? 'items-center justify-center' : 'items-start',
 		className,
 	]}

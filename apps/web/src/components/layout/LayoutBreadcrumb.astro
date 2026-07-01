@@ -9,18 +9,19 @@ interface Props {
 	class?: string;
 }
 
-const { items, class: className = '' } = Astro.props;
+const { items, class: className = "" } = Astro.props;
 ---
 
 <nav
+	id="site-breadcrumb"
 	class:list={[
-		'layout-breadcrumb flex w-full items-center px-7 py-(--pd-middle) text-[10px] leading-[23px] font-semibold text-(--white)',
+		'layout-breadcrumb absolute inset-x-0 top-0 flex items-center px-7 py-(--pd-middle) text-[10px] leading-[23px] text-(--white)',
 		className,
 	]}
 	aria-label="パンくずリスト"
 	data-name="layout-breadcrumb"
 >
-	<ol id="site-breadcrumb" class="flex flex-wrap items-center">
+	<ol class="flex flex-wrap items-center">
 		{
 			items.map((item, index) => (
 				<li class="inline-flex items-center">
@@ -30,7 +31,10 @@ const { items, class: className = '' } = Astro.props;
 						</span>
 					)}
 					{item.href ? (
-						<a href={item.href} class="transition-opacity hover:opacity-80">
+						<a
+							href={item.href}
+							class="transition-opacity hover:opacity-80"
+						>
 							{item.label}
 						</a>
 					) : (

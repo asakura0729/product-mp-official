@@ -79,6 +79,6 @@ export const servicePlans: Record<ServicePlanVariant, ServicePlan> = {
 		headerBgClass: 'bg-(--service-advisor)',
 		bulletColorClass: 'text-(--service-advisor)',
 		iconColorClass: 'text-(--service-advisor)',
-		cardHeightClass: 'h-[485px] md:h-[530px]',
+		cardHeightClass: 'h-[485px]',
 	},
 };

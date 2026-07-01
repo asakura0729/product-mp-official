@@ -1,7 +1,7 @@
 ---
-import SiteLogo from './SiteLogo.astro';
-import ContactBox from './ContactBox.astro';
-import { mobileNavItems } from '../../data/navigation';
+import SiteLogo from "./SiteLogo.astro";
+import CtaContact from "../ui/CtaContact.astro";
+import { mobileNavItems } from "../../data/navigation";
 ---
 
 <div
@@ -21,7 +21,8 @@ import { mobileNavItems } from '../../data/navigation';
 		x-transition:leave="transition ease-in duration-150"
 		x-transition:leave-start="opacity-100"
 		x-transition:leave-end="opacity-0"
-	></div>
+	>
+	</div>
 
 	<!-- ドロワー -->
 	<nav
@@ -42,26 +43,45 @@ import { mobileNavItems } from '../../data/navigation';
 						<a
 							href={item.href}
 							class="flex items-center gap-3 px-4 py-4 text-[#222] transition-colors hover:bg-[#f5f5f5]"
-							{...(item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+							{...(item.external
+								? {
+										target: "_blank",
+										rel: "noopener noreferrer",
+									}
+								: {})}
 							@click="$store.layout.closeMenu()"
 						>
-							{item.href === '/' && (
-								<svg class="size-5 shrink-0 text-[#888]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+							{item.href === "/" && (
+								<svg
+									class="size-5 shrink-0 text-[#888]"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									aria-hidden="true"
+								>
 									<path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V9.5z" />
 								</svg>
 							)}
 							<span class="flex-1 text-base">{item.label}</span>
 							{item.external && (
-								<img src="/svg/icon-link.svg" alt="" class="size-4 shrink-0 opacity-60" width="16" height="16" />
+								<img
+									src="/svg/icon-window_new.svg"
+									alt=""
+									class="size-4 shrink-0 opacity-60"
+									width="16"
+									height="16"
+								/>
 							)}
 						</a>
 					</li>
 				))
 			}
+			<li class="mobile-nav__contact shrink-0 bg-[#f5f5f5] px-4 pt-6 pb-12">
+				<CtaContact
+					class="[&>div:first-child]:!block [&>div:last-child]:!hidden"
+				/>
+			</li>
 		</ul>
-
-		<div class="mobile-nav__contact shrink-0 bg-[#f5f5f5] px-4 py-6">
-			<ContactBox variant="compact" />
-		</div>
 	</nav>
 </div>

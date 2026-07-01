@@ -60,7 +60,7 @@ import {
 				</Fragment>
 			</HeaderH2>
 
-			<div class="mx-auto mt-8 grid max-w-[900px] grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+			<div class="mx-auto grid max-w-[900px] grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
 				{
 					proPricingPlans.map((plan) => (
 						<PricingPlanCard
@@ -81,13 +81,13 @@ import {
 			</HeaderH3>
 
 			<PlanCompareTable
-				class="mx-auto mt-4 max-w-[900px]"
+				class="mx-auto max-w-[900px]"
 				columns={proPlanTableColumns}
 				rows={proPlanTableRows}
 			/>
 
 			<div
-				class="mx-auto mt-4 flex max-w-[900px] flex-col gap-2 text-sm leading-6 text-(--base-text) md:flex-row md:gap-4"
+				class="mx-auto flex max-w-[900px] flex-col gap-2 text-sm leading-6 text-(--base-text) md:flex-row md:gap-4"
 			>
 				<p class="md:w-[40%]">{proPlanTableNotes.left}</p>
 				<p class="md:flex-1 md:text-center">{proPlanTableNotes.right}</p>
@@ -109,7 +109,7 @@ import {
 				</Fragment>
 			</HeaderH2>
 
-			<div class="mx-auto mt-8 flex max-w-[900px] flex-col gap-6 lg:flex-row lg:items-start lg:gap-6">
+			<div class="mx-auto flex max-w-[900px] flex-col gap-6 lg:flex-row lg:items-start lg:gap-6">
 				<div
 					class="w-full shrink-0 rounded-(--border-radius) border border-(--border) bg-(--white) px-4 py-6 lg:w-[289px]"
 				>

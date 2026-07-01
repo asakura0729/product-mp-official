@@ -1,65 +1,69 @@
 ---
-import Fukidashi from '../ui/Fukidashi.astro';
-import { EMAIL_CONTACT_PATH, PHONE_HOURS, PHONE_NUMBER } from '../../data/navigation';
+import Fukidashi from "../ui/Fukidashi.astro";
+import CtaContact from "../ui/CtaContact.astro";
 
 interface Props {
 	/** full: 吹き出し＋問い合わせ / contact-only: 問い合わせブロックのみ */
-	variant?: 'full' | 'contact-only';
+	variant?: "full" | "contact-only";
 }
 
-const { variant = 'full' } = Astro.props;
+const { variant = "full" } = Astro.props;
 
 const ctaPrompts = [
-	{ lines: ['とりあえず話だけ', '聞いてみたい'] },
-	{ lines: ['自分に合う', 'サービスかな？'] },
-	{ lines: ['○○は対応', 'できますか？'] },
+	{ lines: ["とりあえず話だけ", "聞いてみたい"] },
+	{ lines: ["自分に合う", "サービスかな？"] },
+	{ lines: ["○○は対応", "できますか？"] },
 ];
 ---
 
 <section
 	class="cta-section flex flex-col overflow-hidden"
-	aria-labelledby={variant === 'full' ? 'cta-heading' : 'cta-contact-heading'}
+	aria-labelledby={variant === "full" ? "cta-heading" : "cta-contact-heading"}
 >
 	{
-		variant === 'full' ? (
-			<div class="cta-section__intro bg-(--main-bg-sub) pb-(--pd-xlarge) pt-4">
+		variant === "full" ? (
+			<div class="cta-section__intro bg-(--main-bg-sub) pb-(--pd-xlarge) pt-6 md:pt-8">
 				<div class="relative mx-auto w-[340px] md:w-[600px]">
 					<div class="relative flex w-full flex-col items-center md:flex-row md:items-start md:justify-end">
 						<div class="cta-section__illust absolute top-[104px] left-4 h-[112px] w-[120px] md:relative md:top-auto md:left-[90px] md:shrink-0">
 							<img
 								src="/images/illust-woman_think.png"
 								alt="イラスト_女性"
-								class="absolute top-[-20px] left-[-100px] h-[auto] w-[200px] max-w-none object-cover md:top-[20px] md:left-[-70px]"
+								class="absolute top-[-20px] left-[-100px] h-[auto] w-[200px] max-w-none object-cover md:top-[20px] md:left-[-140px]"
 								width="209"
 								height="126"
 							/>
 						</div>
 
 						<div class="flex w-full flex-col items-center md:w-[466px] md:items-start">
-							<div class="flex h-10 w-full items-center pb-2">
+							<div class="flex h-10 w-full items-center pb-6">
 								<h2
 									id="cta-heading"
-									class="w-full text-center text-(length:--font-size-h2-read) font-semibold leading-6 text-(--main-text) md:text-left"
+									class="w-full text-center text-xl md:text-2xl font-semibold leading-6 text-(--main-text) md:text-left"
 								>
 									まずはお気軽にご連絡ください
 								</h2>
 							</div>
 
 							<ul class="flex w-full flex-col items-end md:w-[480px] md:flex-row md:gap-2">
-								{
-									ctaPrompts.map(({ lines }) => (
-										<li class="w-[250px] shrink-0 md:w-[150px]">
-											<Fukidashi tail="bottom-left" size="compact">
-												{lines.map((line, index) => (
-													<>
-														{line}
-														{index < lines.length - 1 && <br class="hidden md:block" />}
-													</>
-												))}
-											</Fukidashi>
-										</li>
-									))
-								}
+								{ctaPrompts.map(({ lines }) => (
+									<li class="w-[250px] shrink-0 md:w-[150px]">
+										<Fukidashi
+											tail="bottom-left"
+											size="compact"
+										>
+											{lines.map((line, index) => (
+												<>
+													{line}
+													{index <
+														lines.length - 1 && (
+														<br class="hidden md:block" />
+													)}
+												</>
+											))}
+										</Fukidashi>
+									</li>
+								))}
 							</ul>
 						</div>
 					</div>
@@ -70,12 +74,16 @@ const ctaPrompts = [
 
 	<!-- 紺色エリア（Figma: gradation-bg） -->
 	<div class="cta-section__contact cta-section__contact-bg relative">
-		<div class="relative mx-auto w-full max-w-[900px] px-4 pb-8 pt-7 md:px-0 md:pt-6">
+		<div
+			class="relative mx-auto w-full max-w-[900px] px-4 pb-8 pt-7 md:px-0 md:pt-6"
+		>
 			<div class="relative">
-				<header class="w-full pb-2 pt-(--pd-middle) md:pb-(--pd-xlarge)">
+				<header
+					class="w-full pb-2 pt-(--pd-middle) md:pb-(--pd-xlarge)"
+				>
 					<h3
 						id="cta-contact-heading"
-						class="w-full text-center font-semibold leading-8 text-(--white) md:text-[32px] md:leading-6"
+						class="w-full text-center font-semibold text-xl leading-8 text-(--white) md:text-2xl md:leading-6"
 					>
 						ご相談・お問い合わせはこちら
 					</h3>
@@ -89,106 +97,12 @@ const ctaPrompts = [
 					height="21"
 				/>
 
-				<!-- SP: cta-sp -->
-				<div class="relative h-[195.5px] w-full md:hidden">
-					<div class="pb-4 drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)]">
-						<div class="relative w-full">
-							<div
-								class="absolute top-0 left-[1.52%] z-10 flex h-7 w-[28.05%] items-center justify-center rounded-2xl bg-(--accent-cta)"
-							>
-								<span class="text-base font-bold text-(--white)">相談無料</span>
-							</div>
-
-							<div
-								class="relative mt-[18px] h-[114px] overflow-hidden rounded-(--border-radius) border-2 border-(--accent-cta) bg-(--white)"
-							>
-								<button
-									type="button"
-									class="absolute inset-0 z-20 cursor-pointer"
-									@click="$store.layout.openContactModal()"
-									aria-label="お問い合わせモーダルを開く"
-								></button>
-
-								<p class="absolute top-[15px] left-1/2 z-10 w-[328px] -translate-x-1/2 text-center text-(length:--font-size-small) font-semibold text-(--base-text)">
-									電話のお問い合わせはこちら
-								</p>
-
-								<div class="absolute top-[calc(50%+2px)] left-[3px] z-10 flex w-[246px] -translate-y-1/2 items-center justify-end">
-									<img src="/svg/icon-tel.svg" alt="" class="size-[30px] shrink-0" width="30" height="30" />
-									<p class="w-[205px] text-right font-famly-din text-[36px] leading-none tracking-[0.72px] text-(--accent-cta)">
-										{PHONE_NUMBER}
-									</p>
-								</div>
-
-								<p class="absolute top-[81px] right-4 z-10 text-xs text-(--base-text)">
-									{PHONE_HOURS}
-								</p>
-
-								<img
-									src="/images/pic-woman-cta.png"
-									alt=""
-									class="pointer-events-none absolute top-4 right-0 z-0 h-[116px] w-[94px] object-cover"
-									width="94"
-									height="116"
-								/>
-							</div>
-						</div>
-					</div>
-
-					<a
-						href={EMAIL_CONTACT_PATH}
-						class="absolute inset-x-[4.43%] top-[75.7%] bottom-0 flex items-center justify-center rounded-(--border-radius) border-2 border-(--accent-cta) bg-(--white) shadow-[0_4px_2px_rgba(0,0,0,0.25)] transition-opacity hover:opacity-90"
-					>
-						<img src="/images/btn-mail.png" alt="" class="mr-2 size-[31px] shrink-0" />
-					</a>
-				</div>
-
-				<!-- TAB / PC: cta-pc -->
-				<div class="relative mx-auto hidden w-[600px] md:block">
-					<div
-						class="relative flex items-center justify-center gap-2 rounded-(--border-radius) bg-(--white) pr-4"
-					>
-						<div
-							class="absolute top-[-16px] left-[9px] z-10 flex h-6 w-[118px] items-center justify-center rounded-2xl bg-(--accent-cta)"
-						>
-							<span class="text-base font-bold text-(--white)">相談無料</span>
-						</div>
-
-						<div class="relative h-[100px] w-[347px] shrink-0">
-							<button
-								type="button"
-								class="absolute inset-0 z-20 cursor-pointer"
-								@click="$store.layout.openContactModal()"
-								aria-label="お問い合わせモーダルを開く"
-							></button>
-
-							<div class="absolute top-[calc(50%-7px)] left-[calc(50%+1px)] z-10 flex -translate-x-1/2 -translate-y-1/2 items-center justify-end">
-								<img src="/svg/icon-tel.svg" alt="" class="size-10 shrink-0" />
-								<p class="w-[281px] text-right font-famly-din text-[48px] leading-none tracking-[0.96px] text-(--accent-cta)">
-									{PHONE_NUMBER}
-								</p>
-							</div>
-
-							<p class="absolute top-[71px] right-0 z-10 whitespace-nowrap text-(length:--font-size-small) text-(--base-text)">
-								{PHONE_HOURS}
-							</p>
-						</div>
-
-						<a
-							href={EMAIL_CONTACT_PATH}
-							class="flex h-[75px] w-[220px] shrink-0 items-center justify-center rounded-[40px] border-2 border-(--accent-cta) bg-(--white) shadow-[0_4px_2px_rgba(0,0,0,0.25)] transition-opacity hover:opacity-90"
-						>
-							
-								<img src="/images/btn-mail.png" alt="" class="" />
-							
-						</a>
-					</div>
-				</div>
+				<CtaContact />
 
 				<img
 					src="/images/pic-woman-cta.png"
 					alt=""
-					class="pointer-events-none absolute top-[86px] left-[716px] hidden h-[186px] w-[150px] object-cover md:block"
+					class="pointer-events-none absolute top-[45px] right-0 hidden h-[186px] w-[150px] object-cover md:block lg:right-[30px]"
 					width="150"
 					height="186"
 				/>

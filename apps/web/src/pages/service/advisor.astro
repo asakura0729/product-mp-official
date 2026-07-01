@@ -80,12 +80,12 @@ import { advisorConcerns, serviceFeatures } from '../../data/advisor';
 			</HeaderH2>
 
 			<PDef class="mx-auto max-w-[900px] text-center">
-				WEB広告運用は専門知識に加え、日々の運用・改善にも多くの時間と手間がかかります。
+				WEB広告運用は専門知識に加え、日々の運用・改善にも多くの時間と手間がかかります。<br class="hidden md:block" />
 				本来注力すべき業務に、十分なリソースを割けていない企業様も少なくありません。
 			</PDef>
 
 			<div class="mx-auto mt-4 flex max-w-[900px] flex-col items-center gap-4 md:flex-row md:items-stretch md:justify-center md:gap-4">
-				<div class="relative flex w-full max-w-[280px] shrink-0 flex-col items-center md:w-[136px] md:max-w-none">
+				<div class="relative flex w-full max-w-[280px] shrink-0 flex-col items-center md:w-[120px] md:max-w-none">
 					<img
 						src="/images/pic-man_worry.png"
 						alt="悩んでいるビジネスパーソン"
@@ -100,7 +100,7 @@ import { advisorConcerns, serviceFeatures } from '../../data/advisor';
 					{
 						advisorConcerns.map(({ lines }) => (
 							<li>
-								<Fukidashi tail="bottom-left">
+								<Fukidashi tail="bottom-left" size="compact">
 									{lines[0]}
 									<br />
 									{lines[1]}
@@ -136,8 +136,8 @@ import { advisorConcerns, serviceFeatures } from '../../data/advisor';
 						</h3>
 					</div>
 
-					<div class="relative p-4 pr-28 md:pr-32">
-						<p class="text-xl leading-8 text-(--base-text)">
+					<div class="relative p-4 pr-28">
+						<p class="text-(length:--font-size-default) leading-8 text-(--base-text)">
 							税務に「<span class="font-bold text-(--main-text)">税理士</span>」、
 							<br />
 							法務に「<span class="font-bold text-(--main-text)">弁護士</span>」のように、
@@ -179,10 +179,10 @@ import { advisorConcerns, serviceFeatures } from '../../data/advisor';
 				</Fragment>
 			</HeaderH2>
 
-			<div class="mx-auto mt-6 grid max-w-[900px] grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4 md:gap-5">
+			<div class="mx-auto grid max-w-[900px] grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4 md:gap-5">
 				{
 					serviceFeatures.map(({ image, imageAlt, title, subtitle }) => (
-						<CardDef class="flex flex-col items-center gap-2.5 px-6 py-6 md:px-10">
+						<CardDef class="flex flex-col items-center gap-2.5 py-6">
 							<img
 								src={image}
 								alt={imageAlt}
@@ -191,10 +191,10 @@ import { advisorConcerns, serviceFeatures } from '../../data/advisor';
 								height="100"
 								loading="lazy"
 							/>
-							<p class="text-center text-xl leading-7 font-bold whitespace-pre-line text-(--base-text)">
+							<p class="text-center font-bold whitespace-pre-line text-(--base-text)">
 								{title}
 							</p>
-							<p class="text-center text-base leading-6 text-(--base-text)">{subtitle}</p>
+							<p class="text-center text-base leading-6 text-(length:--font-size-small)">{subtitle}</p>
 						</CardDef>
 					))
 				}

@@ -1,67 +1,71 @@
 ---
-import HeaderH2 from '../ui/HeaderH2.astro';
-import HeaderH3 from '../ui/HeaderH3.astro';
-import PDef from '../ui/PDef.astro';
-import CardDef from '../ui/CardDef.astro';
-import ServicePlanButton from '../ui/ServicePlanButton.astro';
-import { teamRoles } from '../../data/home';
+import HeaderH2 from "../ui/HeaderH2.astro";
+import HeaderH3 from "../ui/HeaderH3.astro";
+import PDef from "../ui/PDef.astro";
+import ServicePlanButton from "../ui/ServicePlanButton.astro";
+import { teamRoles } from "../../data/home";
 ---
 
-<section class="section-plans px-4 py-9 md:py-12" aria-labelledby="section-plans-heading">
+<section
+	class="section-plans px-4 pt-9 overflow-hidden"
+	aria-labelledby="section-plans-heading"
+>
 	<div class="mx-auto w-full max-w-(--container)">
 		<HeaderH2 id="section-plans-heading" class="mx-auto max-w-[900px]">
-			<span class="text-(--main-text)">「圧倒的なコストダウン」</span>と<span class="text-(--main-text)"
+			<span class="text-(--main-text)">「圧倒的なコストダウン」</span
+			>と<br class="md:hidden" /><span class="text-(--main-text)"
 				>「プロ運用」</span
 			>で
-			<Fragment slot="summary">貴社の WEB 広告の投資効率を、最大化します</Fragment>
+			<Fragment slot="summary"
+				>貴社の WEB 広告の投資効率を、最大化します</Fragment
+			>
 		</HeaderH2>
 
-		<div class="mx-auto mt-8 flex max-w-[900px] flex-col items-center gap-4 md:flex-row md:items-start md:justify-center md:gap-10">
+		<div
+			class="mx-auto pb-10 flex max-w-[900px] flex-col items-center gap-4 md:flex-row md:items-stretch md:justify-center md:gap-10"
+		>
 			<ServicePlanButton variant="pro" />
 			<ServicePlanButton variant="advisor" />
 		</div>
 
-		<div class="relative mx-auto mt-16 max-w-[900px] overflow-hidden md:mt-20">
-			<img
-				src="/images/bg-office.jpg"
-				alt=""
-				class="pointer-events-none absolute top-0 right-0 hidden h-full max-h-[420px] w-[55%] object-cover object-center md:block"
-				loading="lazy"
-				aria-hidden="true"
-			/>
-
+		<div class="relative mx-auto max-w-[900px]">
 			<div class="relative z-10 max-w-[610px]">
 				<HeaderH3 align="left">
-					WEB広告に特化した<span class="text-(--main-text)">プロチームが集結</span>
+					WEB広告に特化した<span class="text-(--main-text)"
+						>プロチームが集結</span
+					>
 				</HeaderH3>
 
-				<PDef>
-					上場企業から個人経営まで。多業種での豊富な運用実績を持つ精鋭チーム。AI任せではない、経験に基づいた「生きた知見」で貴社を支えます。
-				</PDef>
-
-				<div class="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+				<div class="pb-(--pd-middle)">
+					<PDef>
+						上場企業から個人経営まで。多業種での豊富な運用実績を持つ精鋭チーム。AI任せではない、経験に基づいた「生きた知見」で貴社を支えます。
+					</PDef>
+				</div>
+				
+				<div class="flex flex-col gap-2 md:flex-row md:flex-wrap">
 					{
 						teamRoles.map(({ lead, title }) => (
-							<CardDef class="w-full border-(--border-link) p-4 text-center sm:max-w-[200px] sm:flex-1">
-								<p class="text-sm leading-[22px] text-(--base-text)">
+							<div class="w-full border border-(--border) bg-(--white) p-3 text-center md:max-w-[200px] md:flex-1">
+								<p class="text-sm leading-5 text-(--base-text)">
 									{lead}
 									<br />
 									<span class="font-bold">{title}</span>
 								</p>
-							</CardDef>
+							</div>
 						))
 					}
 				</div>
 			</div>
-
-			<div class="mt-6 md:hidden">
-				<img
-					src="/images/illust-human_gather.png"
-					alt="会議をするチームのイラスト"
-					class="mx-auto w-full max-w-md object-contain"
-					loading="lazy"
-				/>
-			</div>
+		</div>
+		<div class="mt-6 w-full h-[200px] relative">
+			<img
+				src="/images/pic-meeting.png"
+				alt="会議をするチームの写真"
+				class="block w-[500px] lg:w-[600px] h-auto absolute right-[-50px] bottom-[-50px] lg:bottom-[-120px] pointer-events-none"
+				width="900"
+				height="420"
+				loading="lazy"
+			/>
 		</div>
 	</div>
 </section>

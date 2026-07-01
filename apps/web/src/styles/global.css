@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: "Noto Sans JP", sans-serif;
+}
+
 :root {
   /* Figma variable collection (nodes 14:993, 9:54) */
 
@@ -26,18 +30,20 @@
 
   /* Layout */
   --container: 900px;
+  --min-width: 360px;
   --border-radius: 8px;
 
   /* Typography */
+  --font-family-default: "Noto Sans JP", sans-serif;
   --font-size-default: 16px;
   --line-height-default: 27px;
   --font-size-small: 14px;
-  --font-size-h2-read: 20px;
-  --line-height-h2-read: 34px;
-  --font-size-h2: 36px;
-  --line-height-h2: 50px;
-  --font-size-h3: 24px;
-  --line-height-h3: 40px;
+  --font-size-h2-read: 18px;
+  --line-height-h2-read: 29px;
+  --font-size-h2: 28px;
+  --line-height-h2: 45px;
+  --font-size-h3: 20px;
+  --line-height-h3: 32px;
 
   /* Legacy alias (used in components) */
   --cta_tel: var(--accent-cta);
@@ -46,8 +52,12 @@
   --z-index-header: 100;
 }
 
+html {
+  font-family: var(--font-family-default);
+}
+
 .font-family-din {
-  font-family: "DIN 1451 Alt", system-ui;
+  font-family: "Arial", system-ui;
 }
 
 [x-cloak] {

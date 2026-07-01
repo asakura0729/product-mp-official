@@ -59,7 +59,7 @@ export const features: FeatureCard[] = [
 		imageAlt: 'プロの知見のイラスト',
 		title: 'プロの知見',
 		description:
-			'弊社の実務知見をもとに構築した専用AIと\n人の経験が組み合わさることで、\n高精度なアドバイスを実現',
+			'弊社の実務知見をもとに構築した専用AIと\n人の経験が組み合わさることで、\nicon-window_new.svg',
 	},
 ];
 

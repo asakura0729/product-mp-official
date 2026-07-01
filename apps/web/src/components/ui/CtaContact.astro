@@ -1,0 +1,195 @@
+---
+import {
+	EMAIL_CONTACT_PATH,
+	PHONE_HOURS,
+	PHONE_NUMBER,
+} from '../../data/navigation';
+
+interface Props {
+	phoneNumber?: string;
+	phoneHours?: string;
+	emailHref?: string;
+	badgeLabel?: string;
+	/** SP の電話ブロック上のラベル */
+	phoneLabelSp?: string;
+	/** SP のメールボタンラベル */
+	emailLabelSp?: string;
+	/** 電話タップでモーダルを開く（false の場合は tel: リンク） */
+	openContactModal?: boolean;
+	/** 外枠にオレンジボーダーを表示 */
+	bordered?: boolean;
+	class?: string;
+}
+
+const {
+	phoneNumber = PHONE_NUMBER,
+	phoneHours = PHONE_HOURS,
+	emailHref = EMAIL_CONTACT_PATH,
+	badgeLabel = '相談無料',
+	phoneLabelSp = '電話のお問い合わせはこちら',
+	emailLabelSp = 'メールでのお問い合わせはこちら',
+	openContactModal = true,
+	bordered = false,
+	class: className = '',
+} = Astro.props;
+
+const telHref = `tel:${phoneNumber.replace(/-/g, '')}`;
+---
+
+<div class:list={['cta-contact', className]} data-name="cta-contact">
+	<!-- SP: cta-sp (Figma 199:2289) -->
+	<div class="relative mx-auto h-[195.5px] md:hidden">
+		<div
+			class="flex flex-col pb-4 drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)]"
+		>
+			<div class="relative w-full">
+				<div
+					class="cta-contact__badge absolute top-0 left-[1.52%] z-10 flex h-7 w-[28.05%] items-center justify-center rounded-2xl bg-(--accent-cta)"
+				>
+					<span class="text-base font-bold leading-4 text-(--white)">{badgeLabel}</span>
+					<svg
+						class="absolute top-[25px] left-5 size-[10px]"
+						width="10"
+						height="10"
+						viewBox="0 0 12 12"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+						aria-hidden="true"
+					>
+						<path d="M0.75 10.0427V0.0437012H10.75L0.75 10.0427Z" fill="var(--accent-cta)"></path>
+					</svg>
+				</div>
+
+				<div
+					class="relative mt-[18px] h-[114px] overflow-hidden rounded-(--border-radius) border-2 border-(--accent-cta) bg-(--white) px-1"
+				>
+					{
+						openContactModal ? (
+							<button
+								type="button"
+								class="absolute inset-0 z-20 cursor-pointer"
+								@click="$store.layout.openContactModal()"
+								aria-label="お問い合わせモーダルを開く"
+							/>
+						) : (
+							<a
+								href={telHref}
+								class="absolute inset-0 z-20"
+								aria-label={`電話でお問い合わせ ${phoneNumber}`}
+							/>
+						)
+					}
+
+					<div class="absolute top-[15px] left-[-1px] z-10 flex w-[250px] sm:w-[75%] flex-col items-end gap-1">
+						<p
+							class="w-full pr-1 text-right text-(length:--font-size-small) font-semibold whitespace-nowrap text-(--base-text)"
+						>
+							{phoneLabelSp}
+						</p>
+						<div class="flex w-[246px] items-center justify-end gap-1">
+							<img
+								src="/svg/icon-tel.svg"
+								alt=""
+								class="size-[30px] shrink-0"
+								width="30"
+								height="30"
+							/>
+							<p class="pr-1 text-right font-family-din text-[32px] leading-none font-bold text-(--accent-cta)">
+								{phoneNumber}
+							</p>
+						</div>
+						<p class="w-full text-right text-xs font-medium text-(--base-text)">{phoneHours}</p>
+					</div>
+
+					<img
+						src="/images/pic-woman-cta.png"
+						alt=""
+						class="pointer-events-none absolute top-[15px] right-[-12px] z-0 h-[116px] w-[94px] object-cover"
+						width="94"
+						height="116"
+						aria-hidden="true"
+					/>
+				</div>
+			</div>
+		</div>
+
+		<a
+			href={emailHref}
+			class="w-full py-2 flex items-center justify-center gap-2 rounded-(--border-radius) border-2 border-(--accent-cta) bg-(--white) shadow-[0_4px_2px_rgba(0,0,0,0.25)] transition-opacity hover:opacity-90"
+		>
+			<img src="/svg/icon-mail.svg" alt="" class="size-[31px] shrink-0" width="31" height="31" />
+			<span class="text-(length:--font-size-small) font-semibold text-(--base-text)">{emailLabelSp}</span>
+		</a>
+	</div>
+
+	<!-- TAB / PC: cta-pc (Figma 202:2223) -->
+	<div class="relative mx-auto hidden w-[600px] md:block">
+		<div
+			class:list={[
+				'relative flex items-center justify-center gap-4 rounded-(--border-radius) bg-(--white) pr-4',
+				bordered && 'border-2 border-(--accent-cta)',
+			]}
+		>
+			<div
+				class="cta-contact__badge absolute top-[-16px] left-[9px] z-10 flex h-6 w-[118px] items-center justify-center rounded-2xl bg-(--accent-cta)"
+			>
+				<span class="text-base font-bold leading-4 text-(--white)">{badgeLabel}</span>
+				<svg
+					class="absolute top-[22px] left-4 size-[10px]"
+					width="10"
+					height="10"
+					viewBox="0 0 12 12"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg"
+					aria-hidden="true"
+				>
+					<path d="M0.75 10.0427V0.0437012H10.75L0.75 10.0427Z" fill="var(--accent-cta)"></path>
+				</svg>
+			</div>
+
+			<div class="relative h-[100px] w-[347px] shrink-0">
+				{
+					openContactModal ? (
+						<button
+							type="button"
+							class="absolute inset-0 z-20 cursor-pointer"
+							@click="$store.layout.openContactModal()"
+							aria-label="お問い合わせモーダルを開く"
+						/>
+					) : (
+						<a
+							href={telHref}
+							class="absolute inset-0 z-20"
+							aria-label={`電話でお問い合わせ ${phoneNumber}`}
+						/>
+					)
+				}
+
+				<div
+					class="absolute top-[calc(50%-7px)] left-[calc(50%+12px)] z-10 flex w-[322px] -translate-x-1/2 -translate-y-1/2 items-center justify-end gap-2 pr-(--pd-small)"
+				>
+					<img src="/svg/icon-tel.svg" alt="" class="size-10 shrink-0" width="40" height="40" />
+					<p class="text-right font-family-din text-[40px] leading-none font-bold whitespace-nowrap text-(--accent-cta)">
+						{phoneNumber}
+					</p>
+				</div>
+
+				<p
+					class="absolute top-[64px] right-0 z-10 whitespace-nowrap text-(length:--font-size-small) font-medium text-(--base-text)"
+				>
+					{phoneHours}
+				</p>
+			</div>
+
+			<a
+				href={emailHref}
+				class="flex h-[75px] w-[220px] shrink-0 items-center justify-center rounded-[40px] border-2 border-(--accent-cta) bg-(--white) shadow-[0_4px_2px_rgba(0,0,0,0.25)] transition-opacity hover:opacity-90"
+			>
+				<img src="/svg/icon-mail.svg" alt="" class="size-10 shrink-0" width="40" height="40" />
+				<span class="ml-2.5 leading-6 font-bold text-(--base-text)">
+					メールでの<br aria-hidden="true" />お問い合わせ
+				</span>
+			</a>
+		</div>
+	</div>
+</div>
