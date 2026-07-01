@@ -1,8 +1,14 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import PageKeyVisual from "../../components/sections/PageKeyVisual.astro";
 ---
 
 <Layout title="プライバシーポリシー | 集客のチカラ" breadcrumb="プライバシーポリシー">
-  <section>サンプルテキスト</section>
-</Layout>
+  <PageKeyVisual>
+    <h1 class="text-3xl leading-10 pb-4 text-center font-semibold text-(--white) md:text-4xl tracking-widest">プライバシーポリシー</h1>
+  </PageKeyVisual>
+
+  <section class="px-4 pt-6 pb-8 md:pb-10" aria-label="プライバシーポリシー">
+    <div class="mx-auto w-full max-w-(--container)">ここに本文が入ります</div>
+  </section>
 </Layout>

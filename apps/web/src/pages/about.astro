@@ -89,8 +89,12 @@ import PageKeyVisual from "../components/sections/PageKeyVisual.astro";
   </section>
 
   <!-- 第3セクション -->
-  <section class="relative px-4 pb-12 pt-8 md:pb-16 md:pt-10" aria-labelledby="about-sec3-heading">
-    <div class="relative mx-auto w-full max-w-(--container)">
+  <section class="relative pb-12 pt-8 md:pb-16 md:pt-10" aria-labelledby="about-sec3-heading">
+    <svg class="pointer-events-none absolute inset-x-0 top-0 z-20 block h-10 w-full select-none" viewBox="0 0 1280 29" preserveAspectRatio="none" aria-hidden="true">
+      <path fill="var(--base-bg-lblue)" d="M0,0v29C52.4,16.6,319,7.2,640,7.2s587.6,9.4,640,21.8V0H0Z"></path>
+    </svg>
+
+    <div class="relative mx-auto w-full max-w-(--container) px-4">
       <HeaderH2 id="about-sec3-heading" class="mx-auto max-w-[900px]">
         圧倒的<span class="text-(--main-text)">コスト差</span>
         <Fragment slot="summary">経営的に放置できないほどの差となります</Fragment>
@@ -212,17 +216,20 @@ import PageKeyVisual from "../components/sections/PageKeyVisual.astro";
   </section>
 
   <!-- 第6セクション -->
-  <section class="bg-(--base-bg-lblue) px-4 pb-12 pt-6 md:pb-16 md:pt-8" aria-labelledby="about-sec6-heading">
+  <section class="relative bg-(--base-bg-lblue) px-4 pb-12 pt-6 md:pb-16 md:pt-8" aria-labelledby="about-sec6-heading">
+    <svg class="pointer-events-none absolute inset-x-0 top-0 z-20 block h-10 w-full select-none" viewBox="0 0 1280 29" preserveAspectRatio="none" aria-hidden="true">
+      <path fill="var(--white)" d="M0,0v29C52.4,16.6,319,7.2,640,7.2s587.6,9.4,640,21.8V0H0Z"></path>
+    </svg>
     <div class="relative mx-auto w-full max-w-(--container)">
       <img
         src="/images/fig-apo.png"
         alt="「APO」（AD Portfolio Optimizer）"
-        class="pointer-events-none mx-auto pb-4 md:absolute top-[-56px] right-4 h-auto w-[120px] object-contain md:block"
+        class="pointer-events-none mx-auto pb-4 md:absolute top-[-56px] right-4 h-auto w-[120px] object-contain md:block z-30"
         width="140"
         height="126"
         aria-hidden="true"
       />
-      <HeaderH2 id="about-sec6-heading" class="mx-auto max-w-[900px]">
+      <HeaderH2 id="about-sec6-heading" class="mx-auto max-w-[900px] pt-4">
         <Fragment slot="lead">横並びの広告に、終止符を</Fragment>
         貴社<span class="text-(--main-text)">専用の<br class="md:hidden" />ポートフォリオ</span>運用へ
       </HeaderH2>
@@ -235,7 +242,10 @@ import PageKeyVisual from "../components/sections/PageKeyVisual.astro";
   </section>
 
   <!-- 第7セクション -->
-  <section class="px-4 py-8 md:py-12" aria-labelledby="about-sec7-heading">
+  <section class="px-4 py-8 md:py-12 relative" aria-labelledby="about-sec7-heading">
+    <svg class="pointer-events-none absolute top-0 left-0 z-10 block h-[68px] w-auto select-none hidden md:block" viewBox="0 0 408 68" aria-hidden="true">
+      <path fill="var(--base-bg-lblue)" d="M112.1,21.8C9.1,46.5,1.9,62.2,0,68V0h408c-46.8,3.6-189.9-3.6-295.9,21.8Z"></path>
+    </svg>
     <div class="mx-auto w-full max-w-(--container)">
       <HeaderH2 id="about-sec7-heading" class="mx-auto max-w-[900px]">
         <span class="text-(--main-text)">「圧倒的なコストダウン」</span>と<span class="text-(--main-text)">「プロ運用」</span>で

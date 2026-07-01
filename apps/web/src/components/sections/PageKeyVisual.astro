@@ -10,9 +10,17 @@ interface Props {
 const { class: className = "", showBackgroundImage = false, backgroundImage = "/images/bg-office.jpg" } = Astro.props;
 ---
 
-<header id="page-header" class:list={["page-key-visual relative w-full overflow-hidden bg-(--main-bg)", className]} aria-labelledby="page-header" data-name="page-header">
+<header id="page-header" class:list={["page-key-visual relative w-full overflow-hidden cta-section__contact-bg", className]} aria-labelledby="page-header" data-name="page-header">
   <div class="relative z-10 mx-auto w-full max-w-(--container) px-4 py-12">
     <slot />
   </div>
   {showBackgroundImage && backgroundImage && <img src={backgroundImage} alt="背景画像" class="pointer-events-none absolute inset-0 size-full object-cover" aria-hidden="true" />}
+  <svg
+    class="pointer-events-none absolute bottom-0 left-0 z-30 block h-10 w-full select-none"
+    viewBox="0 0 1280 29"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+  >
+    <path fill="#fff" d="M1280,29V0c-52.4,12.4-319,21.8-640,21.8S52.4,12.4,0,0v29h1280Z" />
+  </svg>
 </header>

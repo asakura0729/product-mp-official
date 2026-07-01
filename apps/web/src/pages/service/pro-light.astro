@@ -84,7 +84,7 @@ import { proPlans, apoSteps, onboardingSteps, contractTable, proFaqs, traditiona
   <CtaSection variant="contact-only" />
 
   <!-- 第2セクション -->
-  <section class="pt-8" aria-labelledby="pro-sec2-heading">
+  <section class="relative pt-8" aria-labelledby="pro-sec2-heading">
     <div class="mx-auto w-full max-w-(--container)">
       <HeaderH2 id="pro-sec2-heading" class="mx-auto">
         広告費に比例して膨らむ、その<br class="md:hidden" /><span class="text-(--main-text)">手数料をゼロに</span>
@@ -112,6 +112,14 @@ import { proPlans, apoSteps, onboardingSteps, contractTable, proFaqs, traditiona
         />
       </div>
     </div>
+
+    <svg
+      class="pointer-events-none absolute right-0 bottom-0 z-10 block h-[68px] w-auto select-none"
+      viewBox="0 0 408 68"
+      aria-hidden="true"
+    >
+      <path fill="var(--base-bg-lblue)" d="M295.936 46.2136C398.922 21.5375 406.06 5.83171 408 0V68H0C46.784 64.3689 189.856 71.6311 295.936 46.2136Z" />
+    </svg>
   </section>
 
   <!-- 第3セクション -->
@@ -120,7 +128,7 @@ import { proPlans, apoSteps, onboardingSteps, contractTable, proFaqs, traditiona
       <img
         src="/images/fig-apo.png"
         alt="「APO」（AD Portfolio Optimizer）"
-        class="pointer-events-none mx-auto pb-4 md:absolute top-[-56px] right-4 h-auto w-[100px] object-contain md:block"
+        class="pointer-events-none mx-auto pb-4 md:absolute top-[-56px] right-4 z-20 h-auto w-[100px] object-contain md:block"
         width="140"
         height="126"
         aria-hidden="true"
@@ -156,7 +164,11 @@ import { proPlans, apoSteps, onboardingSteps, contractTable, proFaqs, traditiona
   </section>
 
   <!-- 第4セクション -->
-  <section aria-labelledby="pro-sec4-heading" class="px-4 pt-6 pb-8">
+  <section aria-labelledby="pro-sec4-heading" class="px-4 pt-6 pb-8 relative">
+    <svg class="pointer-events-none absolute top-0 left-0 z-10 block h-[68px] w-auto select-none hidden md:block" viewBox="0 0 408 68" aria-hidden="true">
+      <path fill="var(--base-bg-lblue)" d="M112.1,21.8C9.1,46.5,1.9,62.2,0,68V0h408c-46.8,3.6-189.9-3.6-295.9,21.8Z"></path>
+    </svg>
+
     <div class="relative mx-auto w-full max-w-(--container)">
       <img
         src="/images/pic-human-service-pro_light.png"
