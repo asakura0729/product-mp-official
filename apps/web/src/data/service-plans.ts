@@ -2,7 +2,6 @@ export type ServicePlanVariant = 'pro' | 'advisor';
 
 type FeatureItem = {
 	text: string;
-	breakAfter?: boolean;
 };
 
 type ServicePlan = {
@@ -36,13 +35,11 @@ export const servicePlans: Record<ServicePlanVariant, ServicePlan> = {
 		priceNote: '（ライトプラン／税別）',
 		featureGroups: [
 			[
-				{ text: '広告アカウントの初期設定', breakAfter: true },
+				{ text: '広告アカウントの初期設定' },
 				{ text: 'Google / Yahoo 広告の日常運用' },
-			],
-			[
-				{ text: 'コンバージョン計測設定 (GA4 等 )', breakAfter: true },
-				{ text: '入札戦略の設計・調整', breakAfter: true },
-				{ text: 'オンラインコンサルティング', breakAfter: true },
+				{ text: 'コンバージョン計測設定 (GA4 等 )' },
+				{ text: '入札戦略の設計・調整' },
+				{ text: 'オンラインコンサルティング' },
 				{ text: '運用方針のアドバイス・質問対応　等' },
 			],
 		],
@@ -67,11 +64,11 @@ export const servicePlans: Record<ServicePlanVariant, ServicePlan> = {
 		priceNote: '（税別）',
 		featureGroups: [
 			[
-				{ text: '毎月の数値レビュー', breakAfter: true },
+				{ text: '毎月の数値レビュー' },
 				{ text: '広告代理店レポートの評価・解説' },
 			],
 			[
-				{ text: '運用方針のアドバイス・質問対応', breakAfter: true },
+				{ text: '運用方針のアドバイス・質問対応' },
 				{ text: 'オンラインコンサルティング 専属　等' },
 			],
 		],

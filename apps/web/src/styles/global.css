@@ -52,8 +52,11 @@
   --z-index-header: 100;
 }
 
-html {
-  font-family: var(--font-family-default);
+@layer base {
+  html {
+    font-family: var(--font-family-default);
+    color: var(--base-text);
+  }
 }
 
 .font-family-din {

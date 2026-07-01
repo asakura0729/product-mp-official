@@ -9,13 +9,13 @@ import { footerNavItems } from '../../data/navigation';
 		<div class="flex flex-col gap-4 lg:hidden">
 			<SiteLogo />
 			<nav aria-label="フッターナビゲーション">
-				<ul class="flex flex-col gap-1 text-xs leading-6 text-[#222]">
+				<ul class="flex flex-col gap-1 text-xs leading-6">
 					{
 						footerNavItems.map((item) => (
 							<li>
 								<a
 									href={item.href}
-									class="hover:text-[#2b5696] hover:underline"
+									class="hover:text-(--main-text) hover:underline"
 									{...(item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
 								>
 									{item.label}
@@ -25,7 +25,7 @@ import { footerNavItems } from '../../data/navigation';
 					}
 				</ul>
 			</nav>
-			<p class="text-xs text-[#222]">Copyright© LAB.U, Inc. All Rights Reserved.</p>
+			<p class="text-xs">Copyright© LAB.U, Inc. All Rights Reserved.</p>
 		</div>
 
 		<!-- PC: 左ロゴ / 右リンク＋コピーライト -->
@@ -34,14 +34,14 @@ import { footerNavItems } from '../../data/navigation';
 
 			<div class="flex flex-col items-end gap-2">
 				<nav aria-label="フッターナビゲーション">
-					<ul class="flex flex-wrap justify-end gap-x-1 gap-y-1 text-sm leading-6 text-[#222]">
+					<ul class="flex flex-wrap justify-end gap-x-1 gap-y-1 text-sm leading-6">
 						{
 							footerNavItems.map((item, index) => (
 								<li class="flex items-center">
 									{index > 0 && <span class="mx-1 text-[#999]" aria-hidden="true">｜</span>}
 									<a
 										href={item.href}
-										class="hover:text-[#2b5696] hover:underline"
+										class="hover:text-(--main-text) hover:underline"
 										{...(item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
 									>
 										{item.label}
@@ -51,7 +51,7 @@ import { footerNavItems } from '../../data/navigation';
 						}
 					</ul>
 				</nav>
-				<p class="text-xs text-[#222]">Copyright© LAB.U, Inc. All Rights Reserved.</p>
+				<p class="text-xs">Copyright© LAB.U, Inc. All Rights Reserved.</p>
 			</div>
 		</div>
 	</div>

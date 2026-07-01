@@ -63,15 +63,14 @@ const plan = servicePlans[variant];
 	<div class="w-full shrink-0 border-b border-(--border-link) bg-(--base-bg-lgray) px-6 py-4 md:min-h-0 md:flex-1">
 		{
 			plan.featureGroups.map((group, groupIndex) => (
-				<p class:list={['text-sm leading-6 text-(--base-text)', groupIndex > 0 && 'mt-0']}>
+				<ul class:list={['list-none text-sm leading-6 text-(--base-text)', groupIndex > 0 && 'mt-0']}>
 					{group.map((item) => (
-						<>
-							<span class:list={['leading-6', plan.bulletColorClass]}>●</span>
-							<span class="leading-6"> {item.text}</span>
-							{item.breakAfter && <br />}
-						</>
+						<li>
+							<span class:list={['leading-6', plan.bulletColorClass]}>●</span>{' '}
+							{item.text}
+						</li>
 					))}
-				</p>
+				</ul>
 			))
 		}
 	</div>

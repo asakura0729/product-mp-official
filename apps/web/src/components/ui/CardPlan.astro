@@ -1,7 +1,6 @@
 ---
 type FeatureItem = {
 	text: string;
-	breakAfter?: boolean;
 };
 
 interface Props {
@@ -19,6 +18,8 @@ interface Props {
 	description: string;
 	/** 機能リスト */
 	features: FeatureItem[];
+	/** default: 詳細表示 / summary: キャッチと価格のみ */
+	variant?: 'default' | 'summary';
 	headerBgClass?: string;
 	catchColorClass?: string;
 	bulletColorClass?: string;
@@ -33,6 +34,7 @@ const {
 	priceLabel,
 	description,
 	features,
+	variant = 'default',
 	headerBgClass = 'bg-(--main-bg)',
 	catchColorClass = 'text-(--main-bg)',
 	bulletColorClass = 'text-(--main-bg)',
@@ -42,53 +44,74 @@ const {
 
 <div
 	class:list={[
-		'card-plan flex w-full flex-col items-center overflow-hidden rounded-(--border-radius) border border-(--border) bg-(--white) pb-4',
+		'card-plan w-full overflow-hidden rounded-(--border-radius) border border-(--border) bg-(--base-bg-lgray)',
 		className,
 	]}
 	data-name="card-plan"
 >
-	<div class:list={['flex w-full flex-col items-center justify-end p-2', headerBgClass]}>
+	<header
+		class:list={[
+			'w-full p-2 text-center',
+			headerBgClass,
+			variant === 'summary' && 'py-2',
+		]}
+	>
 		{
 			planLead && (
-				<p class="w-full text-center text-base leading-8 font-medium text-(--white)">{planLead}</p>
+				<p class="text-base leading-6 font-medium text-(--white)">{planLead}</p>
 			)
 		}
-		<p class="w-full text-center text-xl leading-8 font-medium text-(--white)">{planTitle}</p>
-	</div>
+		<p class="text-lg leading-6 font-medium text-(--white)">{planTitle}</p>
+	</header>
 
-	<div class="flex w-full flex-col items-center gap-4 px-4 pt-4 pb-6">
-		<p class:list={['w-full text-center text-xl leading-6 font-bold', catchColorClass]}>{catchLine}</p>
+	<div
+		class:list={[
+			'w-full px-4 md:min-h-[210px] bg-(--white)',
+			variant === 'summary' ? 'space-y-3 py-6' : 'space-y-4 pt-4 pb-6',
+		]}
+	>
+		<p
+			class:list={[
+				'text-center text-(--base-text) pb-2',
+				variant === 'summary' ? 'text-sm leading-6 font-normal' : ['lg:text-lg leading-6 font-bold', catchColorClass],
+			]}
+		>
+			{catchLine}
+		</p>
 
-		<p class="w-full text-right text-(--base-text)">
+		<p class:list={['text-(--base-text)', variant === 'summary' ? 'text-center' : 'text-right']}>
 			{
 				priceLabel ? (
-					<span class="text-2xl leading-5 font-bold">{priceLabel}</span>
+					<span class:list={['font-bold', variant === 'summary' ? 'text-2xl leading-8' : 'text-2xl leading-5']}>{priceLabel}</span>
 				) : (
 					<>
-						<span class="text-2xl leading-5 font-bold">月額</span>{' '}
+						<span class="text-2xl leading-5 font-bold pr-1">月額</span>{' '}
 						<span class="font-family-din text-[48px] leading-5 font-bold text-(--accent-strong)"
 							>{price}</span
 						>{' '}
-						<span class="text-2xl leading-5 font-bold">万円 ~</span>
+						<span class="text-2xl leading-5 font-bold pl-1">万円～</span>
 					</>
 				)
 			}
 		</p>
 
-		<p class="w-full text-sm leading-6 text-(--base-text)">{description}</p>
+		{variant === 'default' && <p class="text-sm leading-6 text-(--base-text)">{description}</p>}
 	</div>
 
-	<div class="flex w-full flex-1 flex-col items-center bg-(--base-bg-lgray) px-4 pt-4 pb-6">
-		<p class="w-full text-sm leading-[27px] text-(--base-text)">
-			{
-				features.map((item) => (
-					<>
-						<span class:list={['leading-[27px]', bulletColorClass]}>●</span>
-						<span class="leading-[27px]"> {item.text}</span>
-						{item.breakAfter && <br />}
-					</>
-				))
-			}
-		</p>
-	</div>
+	{
+		variant === 'default' && (
+			<div class="w-full px-4 pt-4 pb-6 md:min-h-[210px]">
+				<ul class="list-none text-sm leading-[27px] text-(--base-text)">
+					{
+						features.map((item) => (
+							<li>
+								<span class:list={['leading-[27px]', bulletColorClass]}>●</span>{' '}
+								{item.text}
+							</li>
+						))
+					}
+				</ul>
+			</div>
+		)
+	}
 </div>

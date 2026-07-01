@@ -1,6 +1,5 @@
 type FeatureItem = {
 	text: string;
-	breakAfter?: boolean;
 };
 
 export type ProPlan = {
@@ -25,10 +24,10 @@ export const proPlans: ProPlan[] = [
 		price: '10',
 		description: '広告手数料ゼロだから、 広告を増やし成果を引き上げる。 コストダウンで利益を出す。',
 		features: [
-			{ text: '広告アカウントの初期設定', breakAfter: true },
+			{ text: '広告アカウントの初期設定' },
 			{ text: 'Google / Yahoo 広告の日常運用' },
-			{ text: 'コンバージョン計測設定 (GA4 等 )', breakAfter: true },
-			{ text: '入札戦略の設計・調整', breakAfter: true },
+			{ text: 'コンバージョン計測設定 (GA4 等 )' },
+			{ text: '入札戦略の設計・調整' },
 			{ text: '運用方針のアドバイス・質問対応　等' },
 		],
 	},
@@ -42,8 +41,8 @@ export const proPlans: ProPlan[] = [
 		description:
 			'AD Portfolio Optimizer が、 貴社の WEB 広告成果を加速し、 事業成長の原動力に変える。',
 		features: [
-			{ text: 'ライトプランのサービスに加え', breakAfter: true },
-			{ text: ' HP/ 成果特化型 LP制作', breakAfter: true },
+			{ text: 'ライトプランのサービスに加え' },
+			{ text: ' HP/ 成果特化型 LP制作' },
 			{ text: '広告アカウントの定期診断　等' },
 		],
 	},
@@ -57,10 +56,10 @@ export const proPlans: ProPlan[] = [
 		description:
 			'貴社専用の戦略チームとして、 高度な WEB マーケとブランド戦略で、 事業成長に伴走します。',
 		features: [
-			{ text: 'スタンダードプランのサービスに加え', breakAfter: true },
-			{ text: ' SNS 広告 (Meta/Instagram) 運用', breakAfter: true },
-			{ text: '競合の出稿状況調査', breakAfter: true },
-			{ text: 'マーケティング戦略全体の設計', breakAfter: true },
+			{ text: 'スタンダードプランのサービスに加え' },
+			{ text: ' SNS 広告 (Meta/Instagram) 運用' },
+			{ text: '競合の出稿状況調査' },
+			{ text: 'マーケティング戦略全体の設計' },
 			{ text: 'ブランディング戦略の構築   等' },
 		],
 	},
@@ -78,15 +77,15 @@ export const apoSteps = [
 		step: 2,
 		title: '媒体の配分を\nプロが設計する',
 		body: 'Google/Yahoo/YouTube など複数媒体の中から、貴社の 目標に最適化した配分を決定。',
-		image: '/images/illust-portfolio.png',
-		imageAlt: 'ポートフォリオ設計のイラスト',
+		image: '/images/illust-tools.png',
+		imageAlt: '金槌やペンチのイラスト',
 	},
 	{
 		step: 3,
 		title: '市場の変化を\n継続監視・改善',
 		body: '運用開始後もプロが継続監視。データと直感を組み合わせて、成果を最大化し続けます。',
-		image: '/images/illust-human_advice.png',
-		imageAlt: 'アドバイスするイラスト',
+		image: '/images/illust-binoculars.png',
+		imageAlt: '双眼鏡のイラスト',
 	},
 ] as const;
 
@@ -157,17 +156,17 @@ export const traditionalComparison = [
 export const apoComparison = [
 	{
 		num: 1,
-		title: '設計：貴社専用のポートフォリオ',
-		body: '貴社の目的・目標に合わせ、媒体配分を専用設計。横並びの広告から脱却します。',
+		title: '設計：貴社専用の、配分設計',
+		body: '貴社の目的・目標・競合環境をプロが分析し、最適案な媒体配分を専用設計します。',
 	},
 	{
 		num: 2,
-		title: '運用：プロが継続監視・改善',
-		body: '自動化に頼らず、プロがデータと経験で運用を監修。成果を最大化し続けます。',
+		title: '運用：プロの知見が、差をつくる',
+		body: '自動化では読めない競合の動きやユーザー心理をプロが洞察。横並びでは生まれない差を設計します。',
 	},
 	{
 		num: 3,
-		title: '戦略：APO による専用設計',
-		body: 'AD Portfolio Optimizer で、貴社だけの勝ち筋を設計し、市場の主導権を握ります。',
+		title: '戦略：貴社だけの、勝ち筋戦略',
+		body: '過去のデータに固執せず、未開拓のターゲットや新訴求へ挑戦。自動化では描けない勝ち筋を実行します。',
 	},
 ] as const;

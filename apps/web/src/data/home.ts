@@ -41,21 +41,21 @@ export const features: FeatureCard[] = [
 		href: '/pricing',
 	},
 	{
-		image: '/images/illust-portfolio.png',
+		image: '/images/graph-portfolio_1.png',
 		imageAlt: 'ポートフォリオ運用のイラスト',
 		title: '貴社専用のポートフォリオ運用',
 		description: '貴社の目的・目標に合わせて 媒体配分を\n「専用設計」いたします',
 		href: '/pro-plan',
 	},
 	{
-		image: '/images/illust-not_automation.png',
+		image: '/images/illust-mushimegane.png',
 		imageAlt: '脱・自動化のイラスト',
 		title: '脱・自動化',
 		description:
 			'自動運用が生む横並びの広告から抜け出し、\n市場の主導権を握る専用設計',
 	},
 	{
-		image: '/images/illust-computer.png',
+		image: '/images/illust-human_gather.png',
 		imageAlt: 'プロの知見のイラスト',
 		title: 'プロの知見',
 		description:

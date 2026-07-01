@@ -1,0 +1,14 @@
+{
+  "editor.formatOnSave": false,
+  "editor.formatOnPaste": false,
+  "editor.formatOnType": false,
+  "editor.wordWrap": "off",
+  "prettier.printWidth": 200,
+  "prettier.singleAttributePerLine": false,
+  "html.format.wrapLineLength": 0,
+  "html.format.wrapAttributes": "preserve",
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode",
+    "editor.formatOnSave": false
+  }
+}

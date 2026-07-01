@@ -32,27 +32,27 @@ import { EMAIL_CONTACT_PATH, PHONE_HOURS, PHONE_NUMBER } from '../../data/naviga
 			<img src="/svg/btn-close.svg" alt="" class="size-8" width="32" height="32" />
 		</button>
 
-		<h2 id="contact-modal-title" class="mb-4 pr-8 text-lg font-bold text-[#2b5696]">
+		<h2 id="contact-modal-title" class="mb-4 pr-8 text-lg font-bold text-(--main-text)">
 			お問い合わせ
 		</h2>
 
-		<p class="mb-6 text-sm leading-relaxed text-[#444]">
+		<p class="mb-6 text-sm leading-relaxed">
 			お電話またはメールにてお気軽にご相談ください。専門スタッフが対応いたします。
 		</p>
 
 		<div class="space-y-4">
 			<div class="rounded-lg border border-[#ddd] bg-[#fafafa] p-4 text-center">
-				<p class="mb-2 text-sm font-semibold text-[#222]">お電話でのお問い合わせ</p>
+				<p class="mb-2 text-sm font-semibold">お電話でのお問い合わせ</p>
 				<a href={`tel:${PHONE_NUMBER.replace(/-/g, '')}`} class="inline-flex items-center gap-2 font-famly-din text-3xl text-(--cta_tel)">
 					<img src="/svg/icon-tel.svg" alt="" class="size-7" width="28" height="28" />
 					{PHONE_NUMBER}
 				</a>
-				<p class="mt-2 text-xs text-[#666]">{PHONE_HOURS}</p>
+				<p class="mt-2 text-xs">{PHONE_HOURS}</p>
 			</div>
 
 			<a
 				href={EMAIL_CONTACT_PATH}
-				class="flex items-center justify-center gap-2 rounded-lg border-2 border-(--cta_tel) px-4 py-3 text-sm font-semibold text-[#222] transition-opacity hover:opacity-90"
+				class="flex items-center justify-center gap-2 rounded-lg border-2 border-(--cta_tel) px-4 py-3 text-sm font-semibold transition-opacity hover:opacity-90"
 			>
 				<img src="/svg/icon-mail.svg" alt="" class="size-6" width="24" height="24" />
 				メールでのお問い合わせはこちら
