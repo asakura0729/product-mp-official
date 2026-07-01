@@ -7,6 +7,13 @@ const port = Number(process.env.PORT ?? 3001);
 app.use(cors());
 app.use(express.json());
 
+app.get('/', (_req, res) => {
+  res.json({
+    status: 'ok',
+    endpoints: ['/api/health'],
+  });
+});
+
 app.get('/api/health', (_req, res) => {
   res.json({
     status: 'ok',
@@ -15,6 +22,10 @@ app.get('/api/health', (_req, res) => {
   });
 });
 
-app.listen(port, () => {
-  console.log(`API server listening on http://localhost:${port}`);
-});
+export default app;
+
+if (!process.env.VERCEL) {
+  app.listen(port, () => {
+    console.log(`API server listening on http://localhost:${port}`);
+  });
+}
