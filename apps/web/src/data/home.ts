@@ -38,14 +38,14 @@ export const features: FeatureCard[] = [
 		imageAlt: 'コストダウンのイラスト',
 		title: '広告運用は完全定額',
 		description: '広告費に連動しない 料金体系で、\n削減分を 貴社の成長投資へ',
-		href: '/pricing',
+		href: '/about#sec3',
 	},
 	{
 		image: '/images/graph-portfolio_1.png',
 		imageAlt: 'ポートフォリオ運用のイラスト',
 		title: '貴社専用のポートフォリオ運用',
 		description: '貴社の目的・目標に合わせて 媒体配分を\n「専用設計」いたします',
-		href: '/pro-plan',
+		href: '/about#sec6',
 	},
 	{
 		image: '/images/illust-mushimegane.png',
