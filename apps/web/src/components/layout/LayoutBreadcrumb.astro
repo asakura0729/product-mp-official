@@ -15,7 +15,7 @@ const { items, class: className = "" } = Astro.props;
 <nav
 	id="site-breadcrumb"
 	class:list={[
-		'layout-breadcrumb absolute inset-x-0 top-0 flex items-center px-7 py-(--pd-middle) text-[10px] leading-[23px] text-(--white)',
+		'layout-breadcrumb absolute w-full max-w-7xl top-(--header-height) left-1/2 -translate-x-1/2 flex items-center px-4 md:px-8 py-3 text-sm text-(--white) z-10',
 		className,
 	]}
 	aria-label="パンくずリスト"

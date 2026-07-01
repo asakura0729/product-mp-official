@@ -2,7 +2,8 @@
 interface Props {
 	image: string;
 	imageAlt?: string;
-	title: string;
+	/** title スロット未指定時に表示 */
+	title?: string;
 	class?: string;
 }
 
@@ -23,7 +24,9 @@ const { image, imageAlt = '', title, class: className = '' } = Astro.props;
 		</div>
 
 		<div class="min-w-0 flex-1">
-			<p class="text-base leading-[27px] font-bold text-(--base-text)">{title}</p>
+			<p class="text-base leading-[27px] font-bold text-(--base-text)">
+				<slot name="title">{title}</slot>
+			</p>
 			<div class="text-sm leading-[22px] text-(--base-text)">
 				<slot />
 			</div>

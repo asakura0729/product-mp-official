@@ -8,7 +8,7 @@ interface Props {
 const { id, class: className = '' } = Astro.props;
 
 const readClasses =
-	'font-normal md:text-lg leading-6';
+	'font-normal md:text-lg leading-6 pb-1';
 
 const titleClasses =
 	'font-bold text-2xl leading-9 md:text-3xl md:leading-10';
@@ -16,7 +16,7 @@ const titleClasses =
 
 <header
 	class:list={[
-		'header-h2 flex w-full flex-col items-center justify-center gap-1 break-words pb-6 text-center text-(--base-text)',
+		'header-h2 tracking-wide flex w-full flex-col items-center justify-center gap-1 break-words pb-6 text-center text-(--base-text)',
 		className,
 	]}
 	data-name="header-h2"

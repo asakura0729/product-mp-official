@@ -1,0 +1,18 @@
+---
+interface Props {
+  class?: string;
+  /** 背景画像を表示するか。既定値は false */
+  showBackgroundImage?: boolean;
+  /** 背景画像のパス */
+  backgroundImage?: string;
+}
+
+const { class: className = "", showBackgroundImage = false, backgroundImage = "/images/bg-office.jpg" } = Astro.props;
+---
+
+<header id="page-header" class:list={["page-key-visual relative w-full overflow-hidden bg-(--main-bg)", className]} aria-labelledby="page-header" data-name="page-header">
+  <div class="relative z-10 mx-auto w-full max-w-(--container) px-4 py-12">
+    <slot />
+  </div>
+  {showBackgroundImage && backgroundImage && <img src={backgroundImage} alt="背景画像" class="pointer-events-none absolute inset-0 size-full object-cover" aria-hidden="true" />}
+</header>
