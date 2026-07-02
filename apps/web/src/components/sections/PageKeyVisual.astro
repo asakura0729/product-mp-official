@@ -5,9 +5,11 @@ interface Props {
   showBackgroundImage?: boolean;
   /** 背景画像のパス */
   backgroundImage?: string;
+  /** 下部ウェーブ SVG の fill 色 */
+  waveFill?: string;
 }
 
-const { class: className = "", showBackgroundImage = false, backgroundImage = "/images/bg-office.jpg" } = Astro.props;
+const { class: className = "", showBackgroundImage = false, backgroundImage = "/images/bg-office.jpg", waveFill = "#fff" } = Astro.props;
 ---
 
 <header id="page-header" class:list={["page-key-visual relative w-full overflow-hidden cta-section__contact-bg", className]} aria-labelledby="page-header" data-name="page-header">
@@ -21,6 +23,6 @@ const { class: className = "", showBackgroundImage = false, backgroundImage = "/
     preserveAspectRatio="none"
     aria-hidden="true"
   >
-    <path fill="#fff" d="M1280,29V0c-52.4,12.4-319,21.8-640,21.8S52.4,12.4,0,0v29h1280Z" />
+    <path fill={waveFill} d="M1280,29V0c-52.4,12.4-319,21.8-640,21.8S52.4,12.4,0,0v29h1280Z" />
   </svg>
 </header>
