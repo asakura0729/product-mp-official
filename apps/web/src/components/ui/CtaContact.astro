@@ -148,23 +148,6 @@ const telHref = `tel:${phoneNumber.replace(/-/g, '')}`;
 			</div>
 
 			<div class="relative h-[100px] w-[347px] shrink-0">
-				{
-					openContactModal ? (
-						<button
-							type="button"
-							class="absolute inset-0 z-20 cursor-pointer"
-							@click="$store.layout.openContactModal()"
-							aria-label="お問い合わせモーダルを開く"
-						/>
-					) : (
-						<a
-							href={telHref}
-							class="absolute inset-0 z-20"
-							aria-label={`電話でお問い合わせ ${phoneNumber}`}
-						/>
-					)
-				}
-
 				<div
 					class="absolute top-[calc(50%-7px)] left-[calc(50%+12px)] z-10 flex w-[322px] -translate-x-1/2 -translate-y-1/2 items-center justify-end gap-2 pr-(--pd-small)"
 				>
@@ -183,10 +166,10 @@ const telHref = `tel:${phoneNumber.replace(/-/g, '')}`;
 
 			<a
 				href={emailHref}
-				class="flex h-[75px] w-[220px] shrink-0 items-center justify-center rounded-[40px] border-2 border-(--accent-cta) bg-(--white) shadow-[0_4px_2px_rgba(0,0,0,0.25)] transition-opacity hover:opacity-90"
+				class="flex h-[75px] w-[220px] shrink-0 items-center justify-center rounded-[40px] border-3 border-(--accent-cta) bg-(--white) shadow-[0_4px_2px_rgba(0,0,0,0.25)] transition-opacity hover:opacity-90"
 			>
 				<img src="/svg/icon-mail.svg" alt="" class="size-10 shrink-0" width="40" height="40" />
-				<span class="ml-2.5 leading-6 font-bold text-(--base-text)">
+				<span class="ml-2.5 leading-5.5 font-bold">
 					メールでの<br aria-hidden="true" />お問い合わせ
 				</span>
 			</a>
