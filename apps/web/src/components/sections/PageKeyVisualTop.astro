@@ -7,14 +7,16 @@ import CtaContact from "../ui/CtaContact.astro";
     <canvas id="key-visual-inner" class="cta-section__contact-bg absolute inset-0 h-full w-full" aria-hidden="true"></canvas>
 
     <div class="key-visual__overlay pointer-events-none absolute inset-0 z-10 mx-auto w-full max-w-(--container) overflow-hidden">
-      <img
-        src="/images/keyvisual-home-h1.png"
-        alt="これまでの常識を一新する Web広告運用の新しい時代へ"
-        class="absolute top-6 left-1/2 -translate-x-1/2 w-[80%] md:top-1/2 md:left-0 md:w-[450px] md:-translate-x-0 md:-translate-y-1/2 md:pb-10"
-        width="520"
-        height="200"
-        loading="eager"
-      />
+      <div class="absolute top-6 left-[10%] w-[80%] md:top-0 md:bottom-0 md:left-0 md:flex md:w-[450px] md:items-center md:pb-10">
+        <img
+          src="/images/keyvisual-home-h1.png"
+          alt="これまでの常識を一新する Web広告運用の新しい時代へ"
+          class="h-auto w-full"
+          width="520"
+          height="200"
+          loading="eager"
+        />
+      </div>
 
       <img
         src="/images/keyvisual-home-zero.png"
