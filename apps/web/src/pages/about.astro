@@ -162,7 +162,14 @@ import PageKeyVisual from "../components/sections/PageKeyVisual.astro";
 
   <!-- 第4セクション -->
   <section class="relative overflow-hidden bg-(--base-bg-lblue) px-4 py-8 md:py-12" aria-labelledby="about-sec4-heading">
-    <div class="pointer-events-none absolute inset-0 bg-[url('/images/bg-office.jpg')] bg-cover bg-center opacity-5" aria-hidden="true"></div>
+    <img
+      src="/images/bg-office.jpg"
+      alt=""
+      class="pointer-events-none absolute inset-0 size-full object-cover object-center opacity-30 select-none"
+      aria-hidden="true"
+      draggable="false"
+      loading="lazy"
+    />
 
     <div class="relative mx-auto w-full max-w-(--container)">
       <HeaderH2 id="about-sec4-heading" class="mx-auto max-w-[900px]">
