@@ -63,19 +63,45 @@ import CtaContact from "../ui/CtaContact.astro";
 <script type="module">
   import * as THREE from "three";
 
-  const GAP = 0;
-  const IMG_W = 200;
-  const IMG_H = 125;
-  const IMAGE_COUNT = 8;
-  const SPEED = 0.6;
-  const WARP_SUBDIV = 10;
-  const BOW = 1;
-  const FAN = 1;
-  const CURVE_RADIUS = 1;
+  const MD_BREAKPOINT = 768;
+
+  const DESKTOP_CONFIG = {
+    GAP: 0,
+    IMG_W: 200,
+    IMG_H: 125,
+    IMAGE_COUNT: 8,
+    SPEED: 0.6,
+    WARP_SUBDIV: 10,
+    BOW: 1,
+    FAN: 1,
+    CURVE_RADIUS: 1,
+  };
+
+  const MOBILE_CONFIG = {
+    GAP: 0,
+    IMG_W: 140,
+    IMG_H: 88,
+    IMAGE_COUNT: 8,
+    SPEED: 0.6,
+    WARP_SUBDIV: 5,
+    BOW: 4,
+    FAN: 0.5,
+    CURVE_RADIUS: 2,
+  };
+
+  function isMobileViewport() {
+    return window.innerWidth < MD_BREAKPOINT;
+  }
+
+  function getConfigForViewport() {
+    return isMobileViewport() ? MOBILE_CONFIG : DESKTOP_CONFIG;
+  }
 
   const canvas = document.getElementById("key-visual-inner");
   const stage = canvas?.parentElement;
 
+  let config = getConfigForViewport();
+  let isMobile = isMobileViewport();
   let viewWidth = window.innerWidth;
   let canvasHeight = stage?.clientHeight ?? 300;
   let stripWidth = 0;
@@ -83,7 +109,7 @@ import CtaContact from "../ui/CtaContact.astro";
   let imagesReady = false;
 
   const materials = [];
-  const textures = new Array(IMAGE_COUNT);
+  const textures = new Array(DESKTOP_CONFIG.IMAGE_COUNT);
 
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
   renderer.setPixelRatio(window.devicePixelRatio);
@@ -96,21 +122,25 @@ import CtaContact from "../ui/CtaContact.astro";
   const camera = new THREE.OrthographicCamera(0, 1, 0, 1, 0.1, 1000);
   camera.position.z = 10;
 
-  const basePlane = new THREE.PlaneGeometry(IMG_W, IMG_H, WARP_SUBDIV, WARP_SUBDIV);
-  const halfW = IMG_W / 2;
-  const halfH = IMG_H / 2;
+  function createBasePlane(cfg) {
+    return new THREE.PlaneGeometry(cfg.IMG_W, cfg.IMG_H, cfg.WARP_SUBDIV, cfg.WARP_SUBDIV);
+  }
+
+  let basePlane = createBasePlane(config);
+  let halfW = config.IMG_W / 2;
+  let halfH = config.IMG_H / 2;
   const textureLoader = new THREE.TextureLoader();
 
   function stripWidthFor(count) {
-    return count * (IMG_W + GAP);
+    return count * (config.IMG_W + config.GAP);
   }
 
   function rowTopY() {
-    return (canvasHeight - IMG_H) / 2;
+    return (canvasHeight - config.IMG_H) / 2;
   }
 
   function cylinderRadius() {
-    return viewWidth * CURVE_RADIUS;
+    return viewWidth * config.CURVE_RADIUS;
   }
 
   /** 平面座標を円筒（パノラマ）投影へマッピング */
@@ -119,17 +149,35 @@ import CtaContact from "../ui/CtaContact.astro";
     const r = cylinderRadius();
     const angle = (x - cx) / r;
     const sx = cx + r * Math.sin(angle);
-    const bow = r * (1 - Math.cos(angle)) * BOW;
+    const bow = r * (1 - Math.cos(angle)) * config.BOW;
     const nx = (x - cx) / cx;
-    const fan = nx * nx * (y - canvasHeight) * FAN;
+    const fan = nx * nx * (y - canvasHeight) * config.FAN;
     return [sx, y + bow + fan];
+  }
+
+  function applyConfig(nextConfig) {
+    config = nextConfig;
+    basePlane.dispose();
+    basePlane = createBasePlane(config);
+    halfW = config.IMG_W / 2;
+    halfH = config.IMG_H / 2;
+    stripWidth = stripWidthFor(config.IMAGE_COUNT);
+    offset = 0;
+    clearTiles();
   }
 
   function syncSize() {
     if (!stage) return;
+
+    const nextIsMobile = isMobileViewport();
+    if (nextIsMobile !== isMobile) {
+      isMobile = nextIsMobile;
+      applyConfig(getConfigForViewport());
+    }
+
     viewWidth = window.innerWidth;
     canvasHeight = stage.clientHeight;
-    stripWidth = stripWidthFor(IMAGE_COUNT);
+    stripWidth = stripWidthFor(config.IMAGE_COUNT);
     renderer.setSize(viewWidth, canvasHeight, false);
     camera.left = 0;
     camera.right = viewWidth;
@@ -147,7 +195,7 @@ import CtaContact from "../ui/CtaContact.astro";
   }
 
   let loadedCount = 0;
-  for (let i = 1; i <= IMAGE_COUNT; i++) {
+  for (let i = 1; i <= DESKTOP_CONFIG.IMAGE_COUNT; i++) {
     const id = String(i).padStart(2, "0");
     const index = i - 1;
     textureLoader.load(
@@ -160,7 +208,7 @@ import CtaContact from "../ui/CtaContact.astro";
           side: THREE.DoubleSide,
         });
         loadedCount++;
-        if (loadedCount === IMAGE_COUNT) {
+        if (loadedCount === DESKTOP_CONFIG.IMAGE_COUNT) {
           imagesReady = true;
         }
       },
@@ -199,10 +247,10 @@ import CtaContact from "../ui/CtaContact.astro";
 
     let originX = -((offset % stripWidth) + stripWidth) % stripWidth;
     while (originX < viewWidth + stripWidth) {
-      for (let i = 0; i < IMAGE_COUNT; i++) {
-        const x = originX + i * (IMG_W + GAP);
-        const right = x + IMG_W;
-        if (right < -IMG_W || x > viewWidth + IMG_W) {
+      for (let i = 0; i < config.IMAGE_COUNT; i++) {
+        const x = originX + i * (config.IMG_W + config.GAP);
+        const right = x + config.IMG_W;
+        if (right < -config.IMG_W || x > viewWidth + config.IMG_W) {
           continue;
         }
 
@@ -220,9 +268,9 @@ import CtaContact from "../ui/CtaContact.astro";
   window.addEventListener("resize", syncSize);
 
   function frame() {
-    if (imagesReady && loadedCount === IMAGE_COUNT) {
+    if (imagesReady && loadedCount === DESKTOP_CONFIG.IMAGE_COUNT) {
       buildTiles();
-      offset = (offset + SPEED) % stripWidth;
+      offset = (offset + config.SPEED) % stripWidth;
     }
     renderer.render(scene, camera);
     requestAnimationFrame(frame);
