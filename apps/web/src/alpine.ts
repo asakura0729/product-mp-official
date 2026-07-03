@@ -1,5 +1,7 @@
 import type { Alpine } from 'alpinejs';
 
+const LG_BREAKPOINT = 1024;
+
 type LayoutStore = {
 	menuOpen: boolean;
 	contactModalOpen: boolean;
@@ -34,4 +36,20 @@ export default (Alpine: Alpine) => {
 			}
 		},
 	});
+
+	if (typeof window !== 'undefined') {
+		const desktopViewport = window.matchMedia(`(min-width: ${LG_BREAKPOINT}px)`);
+
+		const closeMenuOnDesktop = () => {
+			if (!desktopViewport.matches) return;
+
+			const store = Alpine.store('layout') as LayoutStore;
+			if (store.menuOpen) {
+				store.closeMenu();
+			}
+		};
+
+		desktopViewport.addEventListener('change', closeMenuOnDesktop);
+		window.addEventListener('resize', closeMenuOnDesktop);
+	}
 };

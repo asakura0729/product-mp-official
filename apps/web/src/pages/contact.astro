@@ -4,11 +4,11 @@ import PageKeyVisual from "../components/sections/PageKeyVisual.astro";
 import ContactForm from "../components/sections/ContactForm.astro";
 ---
 
-<Layout title="お問い合わせ | 集客のチカラ" breadcrumb="お問い合わせ">
+<Layout title="お問い合わせ | 集客のチカラ" breadcrumb="お問い合わせ" showCtaSectionContact={false} showCtaSectionIntro={false}>
   <PageKeyVisual waveFill="#f3faff">
     <h1 class="text-3xl leading-10 pb-4 text-center font-semibold text-(--white) md:text-4xl tracking-widest">お問い合わせ</h1>
   </PageKeyVisual>
-  <section class="bg-(--base-bg-lblue)">
+  <section class="bg-(--base-bg-lblue) pt-12 pb-12">
     <ContactForm variant="pro-light" sectionId="home-contact-form" />
   </section>
 </Layout>

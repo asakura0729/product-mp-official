@@ -6,6 +6,7 @@ import LayoutBreadcrumb from "../components/layout/LayoutBreadcrumb.astro";
 import CtaSectionIntro from "../components/sections/CtaSectionIntro.astro";
 import CtaSectionContact from "../components/sections/CtaSectionContact.astro";
 import SiteFooter from "../components/layout/SiteFooter.astro";
+import FixedFooter from "../components/layout/FixedFooter.astro";
 import ContactModal from "../components/layout/ContactModal.astro";
 
 interface Props {
@@ -47,7 +48,7 @@ const ctaSectionLabelledBy =
     <SiteHeader />
     <MobileNav />
 
-    {breadcrumb && <LayoutBreadcrumb items={[{ label: "HOME", href: "/" }, { label: breadcrumb }]} />}
+    {breadcrumb && <LayoutBreadcrumb items={[{ label: "ホーム", href: "/" }, { label: breadcrumb }]} />}
 
     <main class="layout__main min-h-[1000px]">
       <slot />
@@ -62,6 +63,7 @@ const ctaSectionLabelledBy =
       )
     }
     <SiteFooter />
+    <FixedFooter />
     <ContactModal />
   </body>
 </html>

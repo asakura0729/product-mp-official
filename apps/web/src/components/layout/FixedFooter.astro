@@ -1,0 +1,35 @@
+---
+import { EMAIL_CONTACT_PATH, PHONE_HOURS, PHONE_NUMBER } from "../../data/navigation";
+
+interface Props {
+  phoneNumber?: string;
+  phoneHours?: string;
+  emailHref?: string;
+  badgeLabel?: string;
+  /** SP の電話ブロック上のラベル */
+  phoneLabelSp?: string;
+  /** SP のメールボタンラベル */
+  emailLabelSp?: string;
+  /** 電話タップでモーダルを開く（false の場合は tel: リンク） */
+  openContactModal?: boolean;
+  /** 外枠にオレンジボーダーを表示 */
+  bordered?: boolean;
+  class?: string;
+}
+
+const { phoneNumber = PHONE_NUMBER, phoneHours = PHONE_HOURS, class: className = "" } = Astro.props;
+
+const telHref = `tel:${phoneNumber.replace(/-/g, "")}`;
+---
+
+<div class="fixed inset-x-0 bottom-0 z-50 flex h-(--fixed-footer-height) items-center justify-center bg-(--white) border-(--border) border-t opacity-98">
+  <div class="flex items-center justify-center gap-2 px-4 py-3 md:py-4">
+    <img src="/svg/icon-tel.svg" alt="アイコン" class="size-[40px] shrink-0" width="30" height="30" />
+    <p class="leading-5 font-bold text-(--cta_tel)">相談<br />無料</p>
+    <p>
+      <span class="leading-none pb-1 md:pb-0 font-family-din text-3xl md:text-4xl font-bold whitespace-nowrap text-(--accent-cta) block"> {phoneNumber}</span>
+      <span class="leading-none text-xs block md:hidden">{phoneHours}</span>
+    </p>
+    <p class="text-base pl-5 hidden md:block">{phoneHours}</p>
+  </div>
+</div>
