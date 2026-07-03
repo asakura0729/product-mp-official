@@ -1,14 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import PageKeyVisual from "../components/sections/PageKeyVisual.astro";
+import ContactForm from "../components/sections/ContactForm.astro";
 ---
 
 <Layout title="お問い合わせ | 集客のチカラ" breadcrumb="お問い合わせ">
-  <PageKeyVisual>
+  <PageKeyVisual waveFill="#f3faff">
     <h1 class="text-3xl leading-10 pb-4 text-center font-semibold text-(--white) md:text-4xl tracking-widest">お問い合わせ</h1>
   </PageKeyVisual>
-
-  <section class="px-4 pt-6 pb-8 md:pb-10" aria-label="お問い合わせ">
-    <div class="mx-auto w-full max-w-(--container)">ここに本文が入ります</div>
+  <section class="bg-(--base-bg-lblue)">
+    <ContactForm variant="pro-light" sectionId="home-contact-form" />
   </section>
 </Layout>

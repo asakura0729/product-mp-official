@@ -1,0 +1,76 @@
+---
+import { servicePlans, type ServicePlanVariant } from "../../data/service-plans";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className = "" } = Astro.props;
+const plan = servicePlans["advisor"];
+---
+
+<a
+  href={plan.href}
+  class:list={[
+    "service-plan-button group relative flex w-full max-w-[450px] flex-col items-center overflow-hidden rounded-(--border-radius) border-[3px] bg-(--white) shadow-[0_4px_4px_rgba(0,0,0,0.25)] transition-opacity hover:opacity-90 md:h-full md:w-[420px] md:max-w-none",
+    plan.borderColorClass,
+    className,
+  ]}
+  data-name={plan.dataName}
+  aria-label={`${plan.title}の詳細ページへ`}
+>
+  <div class:list={["flex w-full shrink-0 items-center justify-center pt-2 pb-2.5", plan.headerBgClass]}>
+    <p class="text-center text-xl font-semibold tracking-widest text-(--white)">{plan.title}</p>
+  </div>
+
+  <div class="relative h-[112px] w-full shrink-0 overflow-hidden">
+    <div class="absolute top-1/2 left-1/2 h-[120px] w-[450px] -translate-x-1/2 -translate-y-1/2">
+      <img src={plan.imageSrc} alt={plan.imageAlt} class="pointer-events-none size-full max-w-none object-cover" width="450" height="120" loading="lazy" />
+    </div>
+  </div>
+
+  <div class="flex w-full shrink-0 items-center justify-center pt-3 pb-2">
+    <p class="break-words px-4 text-center text-sm leading-5">
+      {
+        plan.catchLines.map((line, index) => (
+          <>
+            {line}
+            {index < plan.catchLines.length - 1 && <br />}
+          </>
+        ))
+      }
+    </p>
+  </div>
+
+  <div class="flex w-full flex-col items-end justify-center h-[90px] pr-3 text-right md:h-[120px]">
+    <p class="text-[25px] leading-5">
+      <span class="font-bold">月額</span>
+      <span class="font-famly-din font-bold px-1 text-[50px] leading-5 text-(--accent-strong) md:px-2">{plan.price}</span>
+      <span class="font-bold">万円&nbsp;～</span>
+      <span class="text-sm">（税別）</span>
+    </p>
+  </div>
+
+  <div class="w-full shrink-0 border-b border-(--border-link) bg-(--base-bg-lgray) px-6 py-4 md:h-[180px]">
+    {
+      plan.featureGroups.map((group, groupIndex) => (
+        <ul class:list={["list-none text-sm leading-6 text-(--base-text)", groupIndex > 0 && "mt-0"]}>
+          {group.map((item) => (
+            <li>
+              <span class:list={["leading-6", plan.bulletColorClass]}>●</span> {item.text}
+            </li>
+          ))}
+        </ul>
+      ))
+    }
+  </div>
+
+  <div class="flex items-start gap-[16px] py-3 pr-3">
+    <svg class:list={["size-[25px] shrink-0", plan.iconColorClass]} width="25" height="25" viewBox="0 0 25 25" fill="none" aria-hidden="true">
+      <path
+        d="M2.5 12.5C2.5 18.0234 6.97656 22.5 12.5 22.5C18.0234 22.5 22.5 18.0234 22.5 12.5C22.5 6.97656 18.0234 2.5 12.5 2.5C6.97656 2.5 2.5 6.97656 2.5 12.5ZM11.9141 17.2266C11.5469 17.5938 10.9531 17.5938 10.5898 17.2266C10.2266 16.8594 10.2227 16.2656 10.5898 15.9023L13.9883 12.5039L10.5898 9.10547C10.2227 8.73828 10.2227 8.14453 10.5898 7.78125C10.957 7.41797 11.5508 7.41406 11.9141 7.78125L15.9766 11.8359C16.3438 12.2031 16.3438 12.7969 15.9766 13.1602L11.9141 17.2266Z"
+        fill="currentColor"></path>
+    </svg>
+    <p class="text-center text-[16px] leading-6 font-bold whitespace-nowrap text-(--base-text)">詳細はこちら</p>
+  </div>
+</a>

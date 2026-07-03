@@ -1,6 +1,6 @@
 ## 1. 概要
 Figmaをベースに、ページを作成してください。
-### URL：/service/pro-light
+### URL：/service/pro
 
 ### スマートフォン表示（SP表示）：
 @https://www.figma.com/design/SAW0s0j2FlsyfHTwa7E9kb/%E9%9B%86%E5%AE%A2%E3%81%AE%E3%83%81%E3%82%AB%E3%83%A9_%E3%83%9D%E3%83%BC%E3%82%BF%E3%83%AB%E3%82%B5%E3%82%A4%E3%83%88?node-id=165-2128&m=dev

@@ -1,0 +1,274 @@
+- generic [active] [ref=f15e1]:
+  - banner [ref=f15e2]:
+    - generic [ref=f15e3]:
+      - link "集客のチカラ" [ref=f15e4] [cursor=pointer]:
+        - /url: /
+        - img "集客のチカラ" [ref=f15e5]
+      - button "メニューを開く" [ref=f15e6] [cursor=pointer]
+  - main [ref=f15e7]:
+    - generic "キービジュアル" [ref=f15e8]:
+      - generic [ref=f15e9]:
+        - generic:
+          - generic:
+            - img "これまでの常識を一新する Web広告運用の新しい時代へ"
+          - img
+          - img "完全定額！運用手数料ゼロ"
+        - img [ref=f15e11]
+      - generic [ref=f15e15]:
+        - generic [ref=f15e17]:
+          - generic [ref=f15e18]:
+            - generic [ref=f15e19]: 相談無料
+            - img [ref=f15e20]
+          - generic [ref=f15e22]:
+            - button "お問い合わせモーダルを開く" [ref=f15e23] [cursor=pointer]
+            - generic [ref=f15e24]:
+              - paragraph [ref=f15e25]: 電話のお問い合わせはこちら
+              - paragraph [ref=f15e27]: 03-6831-3209
+              - paragraph [ref=f15e28]: "[受付時間] 9:30～18:30（平日）"
+            - img
+        - link "メールでのお問い合わせはこちら" [ref=f15e29] [cursor=pointer]:
+          - /url: /contact
+          - generic [ref=f15e30]: メールでのお問い合わせはこちら
+    - region "悩みや不安を解決します!" [ref=f15e31]:
+      - generic [ref=f15e32]:
+        - generic [ref=f15e34]:
+          - paragraph [ref=f15e35]: 貴社の WEB 広告運用の
+          - heading "悩みや不安を解決します!" [level=2] [ref=f15e36]
+        - generic [ref=f15e37]:
+          - generic [ref=f15e38]:
+            - heading "このようなお悩み ありませんか？" [level=3] [ref=f15e40]:
+              - text: このようなお悩み
+              - text: ありませんか？
+            - list [ref=f15e41]:
+              - listitem [ref=f15e42]:
+                - img
+                - paragraph [ref=f15e44]: 運用手数料を 20% 取られるのは 正直つらい…
+              - listitem [ref=f15e45]:
+                - paragraph [ref=f15e47]: 広告代理店に 運用を任せてるが、 競合と横並びかも…
+              - listitem [ref=f15e48]:
+                - paragraph [ref=f15e50]: 自動運用化で 配信が 放置されていないか不安だ…
+              - listitem [ref=f15e51]:
+                - paragraph [ref=f15e53]: 代理店レポート を見ても 妥当性が 判断できない…
+          - img [ref=f15e55]
+          - generic [ref=f15e56]:
+            - generic [ref=f15e57]:
+              - heading "\"集客のチカラ\" に おまかせください" [level=3] [ref=f15e59]:
+                - text: "\"集客のチカラ\" に"
+                - text: おまかせください
+              - img
+            - list [ref=f15e60]:
+              - listitem [ref=f15e61]:
+                - paragraph [ref=f15e63]:
+                  - generic [ref=f15e64]: 完全定額
+                  - generic [ref=f15e65]: 運用手数料ゼロ円！
+                - img [ref=f15e66]
+              - listitem [ref=f15e67]:
+                - paragraph [ref=f15e69]:
+                  - generic [ref=f15e70]: 貴社専用
+                  - generic [ref=f15e71]: ポートフォリオ 配分設計
+                - img [ref=f15e72]
+              - listitem [ref=f15e73]:
+                - paragraph [ref=f15e75]:
+                  - generic [ref=f15e76]: 脱・自動化
+                  - generic [ref=f15e77]: プロによる徹底監修
+                - img [ref=f15e78]
+              - listitem [ref=f15e79]:
+                - paragraph [ref=f15e81]:
+                  - generic [ref=f15e82]: プロの知見
+                  - generic [ref=f15e83]: 勝ち筋を読み解く
+                - img [ref=f15e84]
+    - region "集客のチカラ４つの特徴" [ref=f15e85]:
+      - img
+      - generic [ref=f15e87]:
+        - heading "集客のチカラ４つの特徴" [level=2] [ref=f15e89]
+        - generic [ref=f15e90]:
+          - generic [ref=f15e91]:
+            - img [ref=f15e92]
+            - generic:
+              - img "コストダウンのイラスト"
+            - generic [ref=f15e93]:
+              - heading "広告運用は完全定額" [level=3] [ref=f15e94]
+              - paragraph [ref=f15e95]: 広告費に連動しない 料金体系で、 削減分を 貴社の成長投資へ
+            - link "詳細はこちら" [ref=f15e96] [cursor=pointer]:
+              - /url: /about#sec3
+              - img [ref=f15e97]
+              - generic [ref=f15e99]: 詳細はこちら
+          - generic [ref=f15e100]:
+            - img [ref=f15e101]
+            - generic:
+              - img "ポートフォリオ運用のイラスト"
+            - generic [ref=f15e102]:
+              - heading "貴社専用のポートフォリオ運用" [level=3] [ref=f15e103]
+              - paragraph [ref=f15e104]: 貴社の目的・目標に合わせて 媒体配分を 「専用設計」いたします
+            - link "詳細はこちら" [ref=f15e105] [cursor=pointer]:
+              - /url: /about#sec6
+              - img [ref=f15e106]
+              - generic [ref=f15e108]: 詳細はこちら
+          - generic [ref=f15e109]:
+            - img [ref=f15e110]
+            - generic:
+              - img "脱・自動化のイラスト"
+            - generic [ref=f15e111]:
+              - heading "脱・自動化" [level=3] [ref=f15e112]
+              - paragraph [ref=f15e113]: 自動運用が生む横並びの広告から抜け出し、 市場の主導権を握る専用設計
+          - generic [ref=f15e114]:
+            - img [ref=f15e115]
+            - generic:
+              - img "プロの知見のイラスト"
+            - generic [ref=f15e116]:
+              - heading "プロの知見" [level=3] [ref=f15e117]
+              - paragraph [ref=f15e118]: 弊社の実務知見をもとに構築した専用AIと 人の経験が組み合わさることで、 高精度なアドバイスを実現
+    - region "「圧倒的なコストダウン」と 「プロ運用」で" [ref=f15e119]:
+      - generic [ref=f15e120]:
+        - generic [ref=f15e121]:
+          - heading "「圧倒的なコストダウン」と 「プロ運用」で" [level=2] [ref=f15e122]:
+            - text: 「圧倒的なコストダウン」と
+            - text: 「プロ運用」で
+          - paragraph [ref=f15e123]: 貴社の WEB 広告の投資効率を、最大化します
+        - generic [ref=f15e124]:
+          - link "プロ運用プランの詳細ページへ" [ref=f15e125] [cursor=pointer]:
+            - /url: /service/pro
+            - paragraph [ref=f15e127]: プロ運用プラン
+            - generic [ref=f15e129]:
+              - img "プロ運用プランのイメージ"
+            - paragraph [ref=f15e131]:
+              - text: 広告代理 手数料を ゼロに！
+              - text: WEB広告運用をプロが全面サポート
+            - generic [ref=f15e133]:
+              - generic [ref=f15e134]:
+                - paragraph [ref=f15e136]:
+                  - text: ライト
+                  - text: プラン
+                - generic [ref=f15e137]:
+                  - paragraph [ref=f15e138]: 月額 10 万円～
+                  - paragraph [ref=f15e139]: （税別）
+              - generic [ref=f15e140]:
+                - paragraph [ref=f15e142]:
+                  - text: スタンダード
+                  - text: プラン
+                - generic [ref=f15e143]:
+                  - paragraph [ref=f15e144]: 月額 30 万円～
+                  - paragraph [ref=f15e145]: （税別）
+              - generic [ref=f15e146]:
+                - paragraph [ref=f15e148]:
+                  - text: エンタープライズ
+                  - text: プラン
+                - paragraph [ref=f15e150]: 案件規模見積
+            - list [ref=f15e153]:
+              - listitem [ref=f15e154]: ● 広告アカウントの初期設定
+              - listitem [ref=f15e155]: ● Google / Yahoo 広告の日常運用
+              - listitem [ref=f15e156]: ● コンバージョン計測設定 (GA4 等 )
+              - listitem [ref=f15e157]: ● 入札戦略の設計・調整
+              - listitem [ref=f15e158]: ● オンラインコンサルティング
+              - listitem [ref=f15e159]: ● 運用方針のアドバイス・質問対応 等
+            - generic [ref=f15e160]:
+              - img [ref=f15e161]
+              - paragraph [ref=f15e163]: 詳細はこちら
+          - link "専属顧問プランの詳細ページへ" [ref=f15e164] [cursor=pointer]:
+            - /url: /service/advisor
+            - paragraph [ref=f15e166]: 専属顧問プラン
+            - generic [ref=f15e168]:
+              - img "専属顧問プランのイメージ"
+            - paragraph [ref=f15e170]:
+              - text: WEB 広告運用のプロフェッショナルによる
+              - text: 「専属顧問」という、新しい正解
+            - paragraph [ref=f15e172]: 月額 5 万円 ～ （税別）
+            - generic [ref=f15e173]:
+              - list [ref=f15e174]:
+                - listitem [ref=f15e175]: ● 毎月の数値レビュー
+                - listitem [ref=f15e176]: ● 広告代理店レポートの評価・解説
+              - list [ref=f15e177]:
+                - listitem [ref=f15e178]: ● 運用方針のアドバイス・質問対応
+                - listitem [ref=f15e179]: ● オンラインコンサルティング 専属 等
+            - generic [ref=f15e180]:
+              - img [ref=f15e181]
+              - paragraph [ref=f15e183]: 詳細はこちら
+        - generic [ref=f15e185]:
+          - heading "WEB広告に特化したプロチームが集結" [level=3] [ref=f15e187]
+          - paragraph [ref=f15e189]: 上場企業から個人経営まで。多業種での豊富な運用実績を持つ精鋭チーム。AI任せではない、経験に基づいた「生きた知見」で貴社を支えます。
+          - generic [ref=f15e190]:
+            - paragraph [ref=f15e192]:
+              - text: Google認定資格を持つ
+              - text: 広告運用スペシャリスト
+            - paragraph [ref=f15e194]:
+              - text: 戦略を設計する
+              - text: マーケティングプロ
+            - paragraph [ref=f15e196]:
+              - text: 成果を可視化する
+              - text: データアナリスト
+        - generic [ref=f15e197]:
+          - img "会議をするチームの写真"
+  - region "まずはお気軽にご連絡ください" [ref=f15e198]:
+    - generic [ref=f15e201]:
+      - img "イラスト_女性" [ref=f15e203]
+      - generic [ref=f15e204]:
+        - heading "まずはお気軽にご連絡ください" [level=2] [ref=f15e206]
+        - list [ref=f15e207]:
+          - listitem [ref=f15e208]:
+            - generic [ref=f15e211]: とりあえず話だけ 聞いてみたい
+          - listitem [ref=f15e213]:
+            - generic [ref=f15e216]: 自分に合う サービスかな？
+          - listitem [ref=f15e218]:
+            - generic [ref=f15e221]: ○○は対応 できますか？
+    - generic [ref=f15e225]:
+      - heading "ご相談・お問い合わせはこちら" [level=3] [ref=f15e227]
+      - generic [ref=f15e229]:
+        - generic [ref=f15e231]:
+          - generic [ref=f15e232]:
+            - generic [ref=f15e233]: 相談無料
+            - img [ref=f15e234]
+          - generic [ref=f15e236]:
+            - button "お問い合わせモーダルを開く" [ref=f15e237] [cursor=pointer]
+            - generic [ref=f15e238]:
+              - paragraph [ref=f15e239]: 電話のお問い合わせはこちら
+              - paragraph [ref=f15e241]: 03-6831-3209
+              - paragraph [ref=f15e242]: "[受付時間] 9:30～18:30（平日）"
+            - img
+        - link "メールでのお問い合わせはこちら" [ref=f15e243] [cursor=pointer]:
+          - /url: /contact
+          - generic [ref=f15e244]: メールでのお問い合わせはこちら
+  - contentinfo [ref=f15e245]:
+    - generic [ref=f15e247]:
+      - link "集客のチカラ" [ref=f15e248] [cursor=pointer]:
+        - /url: /
+        - img "集客のチカラ" [ref=f15e249]
+      - navigation "フッターナビゲーション" [ref=f15e250]:
+        - list [ref=f15e251]:
+          - listitem [ref=f15e252]:
+            - link "集客のチカラとは" [ref=f15e253] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=f15e254]:
+            - link "プロ運用プラン" [ref=f15e255] [cursor=pointer]:
+              - /url: /service/pro
+          - listitem [ref=f15e256]:
+            - link "専属顧問プラン" [ref=f15e257] [cursor=pointer]:
+              - /url: /service/advisor
+          - listitem [ref=f15e258]:
+            - link "料金について" [ref=f15e259] [cursor=pointer]:
+              - /url: /pricing
+          - listitem [ref=f15e260]:
+            - link "お問い合わせ" [ref=f15e261] [cursor=pointer]:
+              - /url: /contact
+          - listitem [ref=f15e262]:
+            - link "会社概要" [ref=f15e263] [cursor=pointer]:
+              - /url: https://labu.co.jp/mission/
+          - listitem [ref=f15e264]:
+            - link "利用規約" [ref=f15e265] [cursor=pointer]:
+              - /url: /info/terms
+          - listitem [ref=f15e266]:
+            - link "プライバシーポリシー" [ref=f15e267] [cursor=pointer]:
+              - /url: /info/privacy
+      - paragraph [ref=f15e268]: Copyright© LAB.U, Inc. All Rights Reserved.
+  - generic [ref=f15e271]:
+    - button "Menu" [ref=f15e272]:
+      - img [ref=f15e274]
+      - generic: Menu
+    - button "Inspect" [ref=f15e278]:
+      - img [ref=f15e280]
+      - generic: Inspect
+    - button "Audit" [ref=f15e282]:
+      - img [ref=f15e284]
+      - generic: Audit
+    - button "Settings" [ref=f15e287]:
+      - img [ref=f15e289]
+      - generic: Settings

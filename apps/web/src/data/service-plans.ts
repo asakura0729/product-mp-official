@@ -19,14 +19,13 @@ type ServicePlan = {
 	headerBgClass: string;
 	bulletColorClass: string;
 	iconColorClass: string;
-	cardHeightClass: string;
 };
 
 export const servicePlans: Record<ServicePlanVariant, ServicePlan> = {
 	pro: {
 		variant: 'pro',
 		dataName: 'btn-service-pro',
-		href: '/service/pro-light',
+		href: '/service/pro',
 		title: 'プロ運用プラン',
 		imageSrc: '/images/thum-service-pro_light.png',
 		imageAlt: 'プロ運用プランのイメージ',
@@ -47,7 +46,6 @@ export const servicePlans: Record<ServicePlanVariant, ServicePlan> = {
 		headerBgClass: 'bg-(--service-pro)',
 		bulletColorClass: 'text-(--service-pro)',
 		iconColorClass: 'text-(--service-pro)',
-		cardHeightClass: 'h-[530px]',
 	},
 	advisor: {
 		variant: 'advisor',
@@ -76,6 +74,5 @@ export const servicePlans: Record<ServicePlanVariant, ServicePlan> = {
 		headerBgClass: 'bg-(--service-advisor)',
 		bulletColorClass: 'text-(--service-advisor)',
 		iconColorClass: 'text-(--service-advisor)',
-		cardHeightClass: 'h-[485px]',
 	},
 };

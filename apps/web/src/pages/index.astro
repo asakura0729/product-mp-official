@@ -1,11 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import KeyVisual from "../components/sections/PageKeyVisualTop.astro";
-import SectionPlans from "../components/sections/SectionPlans.astro";
 import HeaderH2 from "../components/ui/HeaderH2.astro";
+import HeaderH3 from "../components/ui/HeaderH3.astro";
+import PDef from "../components/ui/PDef.astro";
 import CardDef from "../components/ui/CardDef.astro";
 import BtnLink from "../components/ui/BtnLink.astro";
-import { problems, solutions, features } from "../data/home";
+import BtnServicePro from "../components/ui/BtnServicePro.astro";
+import BtnServiceAdvisor from "../components/ui/BtnServiceAdvisor.astro";
+import ContactForm from "../components/sections/ContactForm.astro";
+import { problems, solutions, features, teamRoles } from "../data/home";
 
 const problemSolutionPairs = problems.map((problem, index) => ({
   problem,
@@ -146,17 +150,10 @@ const problemSolutionPairs = problems.map((problem, index) => ({
 
   <section class="section-features relative bg-(--base-bg-lblue) pb-16" aria-labelledby="section-features-heading">
     <svg class="pointer-events-none absolute inset-x-0 top-[-5px] z-20 block h-10 w-full" viewBox="0 0 1280 29" preserveAspectRatio="none" aria-hidden="true">
-      <path fill="#fff" d="M0,0v29C52.4,16.6,319,7.2,640,7.2s587.6,9.4,640,21.8V0H0Z" />
+      <path fill="#fff" d="M0,0v29C52.4,16.6,319,7.2,640,7.2s587.6,9.4,640,21.8V0H0Z"></path>
     </svg>
 
-    <img
-      src="/svg/vector-bottom_right.svg"
-      alt=""
-      class="pointer-events-none absolute right-0 bottom-0 z-10 block select-none"
-      draggable="false"
-      aria-hidden="true"
-      loading="lazy"
-    />
+    <img src="/svg/vector-bottom_right.svg" alt="" class="pointer-events-none absolute right-0 bottom-0 z-10 block select-none" draggable="false" aria-hidden="true" loading="lazy" />
 
     <div class="px-4 pt-12 md:pt-16">
       <div class="mx-auto w-full max-w-(--container)">
@@ -188,5 +185,59 @@ const problemSolutionPairs = problems.map((problem, index) => ({
     </div>
   </section>
 
-  <SectionPlans />
+  <section class="section-plans relative overflow-hidden px-4 pt-9" aria-labelledby="section-plans-heading">
+    <svg class="pointer-events-none absolute top-0 left-0 z-10 block h-[68px] w-auto select-none hidden md:block" viewBox="0 0 408 68" aria-hidden="true">
+      <path fill="var(--base-bg-lblue)" d="M112.1,21.8C9.1,46.5,1.9,62.2,0,68V0h408c-46.8,3.6-189.9-3.6-295.9,21.8Z"></path>
+    </svg>
+
+    <div class="mx-auto w-full max-w-(--container)">
+      <HeaderH2 id="section-plans-heading" class="mx-auto max-w-[900px]">
+        <span class="text-(--main-text)">「圧倒的なコストダウン」</span>と<br class="md:hidden" /><span class="text-(--main-text)">「プロ運用」</span>で
+        <Fragment slot="summary">貴社のWEB広告の投資効率を、最大化します</Fragment>
+      </HeaderH2>
+
+      <div class="mx-auto pb-10 flex max-w-[900px] flex-col items-center gap-4 md:flex-row md:items-stretch md:justify-center lg:gap-10">
+        <BtnServicePro />
+        <BtnServiceAdvisor />
+      </div>
+
+      <div class="relative mx-auto max-w-[900px]">
+        <div class="relative z-10 max-w-[610px]">
+          <HeaderH3 align="left">
+            WEB広告に特化した<span class="text-(--main-text)">プロチームが集結</span>
+          </HeaderH3>
+
+          <div class="pb-(--pd-middle)">
+            <PDef> 上場企業から個人経営まで。多業種での豊富な運用実績を持つ精鋭チーム。AI任せではない、経験に基づいた「生きた知見」で貴社を支えます。 </PDef>
+          </div>
+          <div class="flex flex-col gap-2 md:flex-row md:flex-wrap">
+            {
+              teamRoles.map(({ lead, title }) => (
+                <div class="w-full border border-(--border) bg-(--white) p-3 text-center md:max-w-[200px] md:flex-1">
+                  <p class="text-sm leading-5 text-(--base-text)">
+                    {lead}
+                    <br />
+                    <span class="font-bold">{title}</span>
+                  </p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+      <div class="mt-6 w-full h-[200px] relative">
+        <img
+          src="/images/pic-meeting.png"
+          alt="会議をするチームの写真"
+          class="block w-[500px] lg:w-[600px] h-auto absolute right-[-50px] bottom-[-50px] lg:bottom-[-120px] pointer-events-none"
+          width="900"
+          height="420"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+  <section class="bg-(--base-bg-lblue)">
+    <ContactForm variant="pro-light" sectionId="home-contact-form" />
+  </section>
 </Layout>

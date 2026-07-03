@@ -1,0 +1,269 @@
+---
+import { getContactFields, getContactFormRows, type ContactFormVariant } from '../lib/contact-form';
+import handlingInformationText from '../documents/handling-information.md?raw';
+import '../../styles/form-contact.css';
+
+type ContactFormMode = 'desktop' | 'mobile';
+
+type Props = {
+  variant: ContactFormVariant;
+  mode?: ContactFormMode;
+  sectionId?: string;
+  backHref?: string;
+  thanksHref?: string;
+};
+
+const { variant, mode = 'desktop', sectionId, backHref, thanksHref } = Astro.props;
+const isDesktop = mode === 'desktop';
+const contactFormRows = isDesktop ? getContactFormRows(variant) : getContactFields(variant).map((field) => [field]);
+const productHref = variant === 'exclusive-advisor' ? '/exclusive-advisor' : '/pro-light';
+const resolvedBackHref = backHref ?? productHref;
+const resolvedThanksHref = thanksHref ?? (isDesktop ? '/' : resolvedBackHref);
+
+const theme =
+  variant === 'exclusive-advisor'
+    ? {
+        sectionTextClass: 'text-[#638293]',
+        pageClass: 'mobile-contact-page--exclusive',
+        cardThemeClass: 'contact-theme-exclusive',
+        cardBorderClass: 'border-[#7a95a3]',
+        desktopTitleClass: 'text-[#638293]',
+        desktopRequiredNoteClass: 'pt-1 text-[12px] font-medium tracking-[0.05em] text-[#6a7282]',
+        desktopRequiredNoteTextClass: '',
+        desktopThanksTitleClass: 'text-[#638293]',
+      }
+    : {
+        sectionTextClass: 'text-[#1c446a]',
+        pageClass: 'mobile-contact-page--pro-light',
+        cardThemeClass: 'contact-theme-pro-light',
+        cardBorderClass: 'border-[#274e71]',
+        desktopTitleClass: '',
+        desktopRequiredNoteClass: 'pt-1 text-[14px] font-medium tracking-[0.05em]',
+        desktopRequiredNoteTextClass: 'text-[#6a7282]',
+        desktopThanksTitleClass: '',
+      };
+
+const ShellTag = isDesktop ? 'section' : 'main';
+const shellAttributes = isDesktop ? { id: sectionId, 'data-section': true } : {};
+const shellClass = isDesktop
+  ? ['desktop-snap-section px-6 py-10 lg:px-10', theme.sectionTextClass]
+  : ['mobile-contact-page', theme.pageClass, theme.sectionTextClass];
+const cardClass = isDesktop
+  ? [
+      'desktop-form-card mx-auto w-full max-w-[720px] rounded-[4px] border-[1.5px] bg-white p-5 shadow-[0_20px_44px_rgba(12,27,43,0.08)]',
+      theme.cardThemeClass,
+      theme.cardBorderClass,
+    ]
+  : ['mobile-contact-card', theme.cardThemeClass];
+
+const rowClass = (rowLength: number) =>
+  isDesktop ? ['desktop-form-row', rowLength === 2 && 'desktop-form-row--two-column'] : ['contents'];
+const confirmRowClass = (rowLength: number) =>
+  isDesktop ? ['desktop-confirm-row', rowLength === 2 && 'desktop-confirm-row--two-column'] : ['contents'];
+
+const fieldClass = isDesktop ? 'desktop-form-field block' : 'mobile-form-field';
+const labelClass = isDesktop ? 'desktop-form-label' : 'mobile-form-label';
+const optionalClass = isDesktop
+  ? 'ml-2 rounded-full bg-[#eef3f7] px-2 py-0.5 text-[11px] font-bold tracking-[0.05em] text-[#57718a]'
+  : 'mobile-form-optional';
+const inputClass = isDesktop ? 'desktop-form-input' : 'mobile-form-input';
+const selectClass = isDesktop ? 'desktop-form-input' : 'mobile-form-input mobile-form-select';
+const textareaClass = isDesktop ? 'desktop-form-input desktop-form-textarea' : 'mobile-form-input mobile-form-textarea';
+const checkboxGroupClass = isDesktop ? 'desktop-form-checkbox-group' : 'mobile-form-checkbox-group';
+const checkboxItemClass = isDesktop ? 'desktop-form-checkbox-item' : 'mobile-form-checkbox-item';
+const errorClass = isDesktop ? 'desktop-form-error hidden' : 'mobile-form-error hidden';
+const statusClass = isDesktop ? 'desktop-form-status hidden' : 'mobile-form-status hidden';
+const primaryButtonClass = isDesktop ? 'desktop-form-primary-button' : 'mobile-form-primary-button';
+const secondaryButtonClass = isDesktop ? 'desktop-form-secondary-button' : 'mobile-form-secondary-button';
+const privacyBlockClass = isDesktop ? 'contact-privacy-block contact-privacy-block--desktop' : 'contact-privacy-block contact-privacy-block--mobile';
+const consentClass = isDesktop ? 'contact-consent contact-consent--desktop' : 'contact-consent contact-consent--mobile';
+---
+
+<ShellTag {...shellAttributes} class:list={shellClass}>
+  <div class:list={cardClass} data-contact-flow data-contact-variant={variant}>
+    {!isDesktop && <a href={resolvedBackHref} class="mobile-contact-page-back no-underline">戻る</a>}
+
+    <div class={isDesktop ? 'text-center' : 'mobile-contact-heading'}>
+      {isDesktop ? (
+        <h2 class:list={['text-[32px] font-black tracking-[0.04em]', theme.desktopTitleClass]}>
+          「集客のチカラ」
+          <span class="ml-2 text-[24px] font-medium">資料請求フォーム</span>
+        </h2>
+      ) : (
+        <div class="mobile-contact-title">
+          <h1 class="text-[20px] font-bold tracking-[0.04em]">「集客のチカラ」</h1>
+          <p class="text-[16px] font-medium tracking-[0.04em]">資料請求フォーム</p>
+        </div>
+      )}
+      <p class={isDesktop ? 'mt-3 text-[14px] font-medium tracking-[0.05em] text-[#4a5565]' : 'mobile-contact-lead'}>
+        以下のフォームに必要事項をご記入の上、送信してください。
+      </p>
+    </div>
+
+    <div class={isDesktop ? 'desktop-form-step-indicator mt-6' : 'mobile-form-step-indicator'} aria-hidden="true">
+      <span class="is-current" data-step-indicator="input">入力</span>
+      <span data-step-indicator="confirm">確認</span>
+      <span data-step-indicator="thanks">完了</span>
+    </div>
+
+    <div data-form-panel="input">
+      <form class={isDesktop ? 'mt-6 space-y-3' : 'mobile-contact-form'} data-contact-form novalidate>
+        {contactFormRows.map((row) => (
+          <div class:list={rowClass(row.length)}>
+            {row.map((field) =>
+              field.type === 'checkbox-group' ? (
+                <div class={fieldClass} data-field-id={field.id} data-field-label={field.label}>
+                  <span class={labelClass}>
+                    {field.label}
+                    {field.required ? (
+                      <span class="ml-1 text-[#fb2c36]">*</span>
+                    ) : (
+                      <span class={optionalClass}>任意</span>
+                    )}
+                  </span>
+
+                  <div class={checkboxGroupClass} role="group" aria-label={field.label}>
+                    {field.options.map((option) => (
+                      <label class={checkboxItemClass}>
+                        <input type="checkbox" name={`${field.id}[]`} value={option} data-contact-input />
+                        <span>{option}</span>
+                      </label>
+                    ))}
+                  </div>
+
+                  <span class={errorClass} data-field-error={field.id}></span>
+                </div>
+              ) : (
+                <label class={fieldClass} for={field.id} data-field-id={field.id} data-field-label={field.label}>
+                  <span class={labelClass}>
+                    {field.label}
+                    {field.required ? (
+                      <span class="ml-1 text-[#fb2c36]">*</span>
+                    ) : (
+                      <span class={optionalClass}>任意</span>
+                    )}
+                  </span>
+
+                  {field.type === 'textarea' ? (
+                    <textarea
+                      id={field.id}
+                      name={field.id}
+                      rows={4}
+                      placeholder={field.placeholder}
+                      class={textareaClass}
+                      data-contact-input
+                    ></textarea>
+                  ) : field.type === 'select' ? (
+                    <select id={field.id} name={field.id} class={selectClass} data-contact-input>
+                      <option value="" selected disabled>{field.placeholder}</option>
+                      {field.options.map((option) => (
+                        <option value={option}>{option}</option>
+                      ))}
+                    </select>
+                  ) : (
+                    <input
+                      id={field.id}
+                      name={field.id}
+                      type={field.type}
+                      placeholder={field.placeholder}
+                      class={inputClass}
+                      data-contact-input
+                    />
+                  )}
+
+                  <span class={errorClass} data-field-error={field.id}></span>
+                </label>
+              ),
+            )}
+          </div>
+        ))}
+
+        <p class={isDesktop ? theme.desktopRequiredNoteClass : 'mobile-form-note'}>
+          <span class="text-[#fb2c36]">*</span>
+          <span class={isDesktop ? theme.desktopRequiredNoteTextClass : 'text-[#6a7282]'}>
+            は必須項目です。お問い合わせ内容は任意です。
+          </span>
+        </p>
+
+        <p class={statusClass} data-form-status></p>
+
+        <div class={privacyBlockClass} tabindex="0" aria-label="個人情報のお取り扱いについて">
+          <pre>{handlingInformationText}</pre>
+        </div>
+
+        <label class={consentClass} data-consent-field>
+          <span class="contact-consent-required">必須</span>
+          <input type="checkbox" id={`personal-info-consent-${variant}-${mode}`} name="personal-info-consent" data-personal-info-consent />
+          <span>個人情報の取り扱いに同意します</span>
+        </label>
+
+        <p class={isDesktop ? 'contact-privacy-help contact-privacy-help--desktop' : 'contact-privacy-help contact-privacy-help--mobile'}>
+          入力内容は安全な通信で送信され、第三者に読み取られにくいよう保護されています。
+        </p>
+
+        <button type="submit" class={primaryButtonClass} data-form-submit disabled>
+          確認画面へ進む
+        </button>
+      </form>
+    </div>
+
+    <div data-form-panel="confirm" hidden>
+      <div class={isDesktop ? 'mt-6' : 'mobile-confirm-panel'}>
+        <p class={isDesktop ? 'text-center text-[16px] font-bold tracking-[0.05em] text-[#4a5565]' : 'mobile-confirm-copy'}>
+          入力内容をご確認のうえ、送信してください。
+        </p>
+
+        <div class={isDesktop ? 'mt-5 space-y-3 rounded-[10px] bg-[#f6f9fc] p-4' : 'mobile-confirm-list'}>
+          {contactFormRows.map((row) => (
+            <div class:list={confirmRowClass(row.length)}>
+              {row.map((field) => (
+                <div class={isDesktop ? 'desktop-confirm-item' : 'mobile-confirm-item'}>
+                  <p class={isDesktop ? 'desktop-confirm-label' : 'mobile-confirm-label'}>{field.label}</p>
+                  <p
+                    class:list={[
+                      isDesktop ? 'desktop-confirm-value' : 'mobile-confirm-value',
+                      field.id === 'message' && (isDesktop ? 'desktop-confirm-value--multiline' : 'mobile-confirm-value--multiline'),
+                    ]}
+                    data-confirm-value={field.id}
+                  >
+                    -
+                  </p>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+
+        <p class={statusClass} data-confirm-status></p>
+
+        <div class={isDesktop ? 'mt-6 grid grid-cols-2 gap-3' : 'mobile-confirm-actions'}>
+          <button type="button" class={secondaryButtonClass} data-form-back>
+            入力に戻る
+          </button>
+          <button type="button" class={primaryButtonClass} data-form-send>
+            送信する
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div data-form-panel="thanks" hidden>
+      <div class={isDesktop ? 'mt-8 rounded-[10px] bg-[#f6f9fc] px-8 py-10 text-center' : 'mobile-thanks-panel'}>
+        <p class:list={[isDesktop ? 'text-[32px] font-black tracking-[0.04em]' : 'mobile-thanks-title', theme.desktopThanksTitleClass]}>
+          送信ありがとうございました
+        </p>
+        <p class={isDesktop ? 'mt-4 text-[16px] text-start font-bold leading-[1.9] tracking-[0.05em] text-[#4a5565]' : 'mobile-thanks-copy'}>
+          お問い合わせ内容を受け付けました。<br />
+          3営業日以内に担当者から折り返しご連絡させて頂きます。<br />
+          尚、ご入力頂いたメールアドレスに受付完了メールを送信しています。
+        </p>
+        <a
+          href={resolvedThanksHref}
+          class:list={[primaryButtonClass, isDesktop ? 'mt-8 inline-flex justify-center no-underline' : 'no-underline']}
+        >
+          TOPへ戻る
+        </a>
+      </div>
+    </div>
+  </div>
+</ShellTag>
