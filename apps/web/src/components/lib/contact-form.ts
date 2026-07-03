@@ -59,7 +59,7 @@ const variantFieldOrderMap: Record<ContactFormVariant, ContactFieldId[]> = {
 };
 
 const variantMaterialOptionsMap: Record<ContactFormVariant, string[]> = {
-  'pro-light': ['プロ運用ライトプラン', '相談予約'],
+  'pro-light': ['プロ運用プラン', '専属顧問プラン', '集客のチカラMEO', '相談予約'],
   'exclusive-advisor': ['専属顧問プラン', '相談予約'],
 };
 
