@@ -16,7 +16,7 @@ import { proPlans, apoSteps, onboardingSteps, contractTable, proFaqs, traditiona
 
 <Layout title="プロ運用プラン | 集客のチカラ" breadcrumb="プロ運用プラン" showCtaSectionIntro={false}>
   <PageKeyVisual showBackgroundImage={true} backgroundImage="/images/bg-service-pro.png">
-    <div class="relative flex flex-col items-center w-full max-w-[420px] h-[300px] mx-auto pt-6 pb-[350px] text-center z-30 md:ml-auto md:mr-[calc(50%-450px)] md:justify-center md:pt-0 md:pb-0">
+    <div class="relative flex flex-col items-center w-full max-w-[420px] h-[280px] mx-auto pt-6 pb-[350px] text-center z-30 md:ml-auto md:mr-[calc(50%-450px)] md:justify-center md:pt-0 md:pb-0">
       <h1 id="pro-kv-heading" class="font-semibold text-(--white) text-4xl md:text-5xl pb-4 md:pb-6 tracking-widest">プロ運用プラン</h1>
       <div class="w-full bg-(--white) px-4 py-1">
         <p class="text-2xl font-semibold text-(--main-bg)">圧倒的なコスト削減</p>
@@ -25,9 +25,18 @@ import { proPlans, apoSteps, onboardingSteps, contractTable, proFaqs, traditiona
       <p class="md:font-semibold leading-6 text-(--white) md:text-lg">プロのWEB広告運用を<br class="md:hidden" />驚きの低価格・定額性で！</p>
     </div>
     <img
+      src="/images/keyvisual-service-pro_badge.png"
+      alt="WEB広告手数料ゼロへ"
+      class="pointer-events-none absolute top-[45px] left-0 z-40 w-[100px] object-contain select-none md:w-[110px]"
+      width="130"
+      height="130"
+      aria-hidden="true"
+      draggable="false"
+    />
+    <img
       src="/images/keyvisual-human-service-pro_light.png"
       alt="プロ運用チームのイメージ"
-      class="absolute bottom-[-50px] left-1/2 -translate-x-1/2 pointer-events-none mx-auto md:left-0 md:bottom-[-100px] w-[300px] md:w-[60%] md:-translate-x-0 object-contain z-20"
+      class="absolute bottom-[-50px] left-1/2 -translate-x-1/2 pointer-events-none mx-auto md:left-[40px] md:bottom-[-80px] w-[300px] md:w-[500px] md:-translate-x-0 object-contain z-20"
       width="280"
       height="220"
     />
@@ -115,12 +124,8 @@ import { proPlans, apoSteps, onboardingSteps, contractTable, proFaqs, traditiona
       </div>
     </div>
 
-    <svg
-      class="pointer-events-none absolute right-0 bottom-0 z-10 block h-[68px] w-auto select-none"
-      viewBox="0 0 408 68"
-      aria-hidden="true"
-    >
-      <path fill="var(--base-bg-lblue)" d="M295.936 46.2136C398.922 21.5375 406.06 5.83171 408 0V68H0C46.784 64.3689 189.856 71.6311 295.936 46.2136Z" />
+    <svg class="pointer-events-none absolute right-0 bottom-0 z-10 block h-[68px] w-auto select-none" viewBox="0 0 408 68" aria-hidden="true">
+      <path fill="var(--base-bg-lblue)" d="M295.936 46.2136C398.922 21.5375 406.06 5.83171 408 0V68H0C46.784 64.3689 189.856 71.6311 295.936 46.2136Z"></path>
     </svg>
   </section>
 
@@ -279,7 +284,7 @@ import { proPlans, apoSteps, onboardingSteps, contractTable, proFaqs, traditiona
       </div>
     </section>
     <section class="cta-section flex flex-col overflow-hidden" aria-labelledby="cta-contact-heading">
-      <CtaSectionContact triangleColor="#e0f2ff"/>
+      <CtaSectionContact triangleColor="#e0f2ff" />
     </section>
   </section>
 

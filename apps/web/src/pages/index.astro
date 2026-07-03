@@ -202,15 +202,18 @@ const problemSolutionPairs = problems.map((problem, index) => ({
         <BtnServiceAdvisor />
       </div>
 
-      <div class="relative mx-auto max-w-[900px]">
+      <button type="button" class="block mx-auto max-w-[600px] rounded-(--border-radius) overflow-hidden shadow-[0_2px_1px_rgba(0,0,0,0.25)]" @click="alert('まだLPがない状況です')">
+        <img src="/images/banner-meo.png" alt="集客のチカラMEO" class="pointer-events-none w-full object-contain" width="600" height="140" loading="lazy" />
+      </button>
+
+      <div class="relative mx-auto max-w-[900px] pt-12">
         <div class="relative z-10 max-w-[610px]">
           <HeaderH3 align="left">
             WEB広告に特化した<span class="text-(--main-text)">プロチームが集結</span>
           </HeaderH3>
 
-          <div class="pb-(--pd-middle)">
-            <PDef> 上場企業から個人経営まで。多業種での豊富な運用実績を持つ精鋭チーム。AI任せではない、経験に基づいた「生きた知見」で貴社を支えます。 </PDef>
-          </div>
+          <PDef> 上場企業から個人経営まで。多業種での豊富な運用実績を持つ精鋭チーム。AI任せではない、経験に基づいた「生きた知見」で貴社を支えます。 </PDef>
+
           <div class="flex flex-col gap-2 md:flex-row md:flex-wrap">
             {
               teamRoles.map(({ lead, title }) => (
