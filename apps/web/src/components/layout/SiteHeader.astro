@@ -11,13 +11,13 @@ const inquiryPath = '/contact';
 
 		<!-- PC ナビ -->
 		<nav class="site-header__nav hidden h-full items-center gap-6 self-stretch lg:flex" aria-label="メインナビゲーション">
-			<ul class="flex items-center gap-6">
+			<ul class="flex items-center gap-5 pb-[2px] pr-2">
 				{
 					headerNavItems.map((item) => (
 						<li>
 							<a
 								href={item.href}
-								class="transition-colors hover:text-(--main-text)"
+								class="transition-colors hover:text-(--main-text) text-sm"
 								{...(item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
 							>
 								{item.label}
@@ -31,7 +31,7 @@ const inquiryPath = '/contact';
 			</ul>
 			<a
 				href={inquiryPath}
-				class="site-header__cta inline-flex h-full shrink-0 items-center px-5 font-bold text-white bg-(--cta_tel) transition-opacity hover:opacity-90"
+				class="site-header__cta inline-flex text-sm h-full shrink-0 items-center px-5 font-bold text-white bg-(--cta_tel) transition-opacity hover:opacity-90"
 			>
 				お問い合わせ
 			</a>

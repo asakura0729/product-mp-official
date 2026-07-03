@@ -11,11 +11,12 @@ import SecPortfolio from "../components/ui/SecPortfolio.astro";
 import PageKeyVisual from "../components/sections/PageKeyVisual.astro";
 import BtnServicePro from "../components/ui/BtnServicePro.astro";
 import BtnServiceAdvisor from "../components/ui/BtnServiceAdvisor.astro";
+import ImageZoomTrigger from "../components/ui/ImageZoomTrigger.astro";
 ---
 
 <Layout title="集客のチカラとは | 集客のチカラ" breadcrumb="集客のチカラとは">
   <PageKeyVisual>
-    <p class="text-sm md:text-base text-center font-semibold pt-2 pb-2 md:pb-6 text-(--main-bg-sub)">Growth Asset Advertising</p>
+    <p class="text-sm md:text-base text-center font-semibold pt-2 pb-2 md:pb-4 text-(--main-bg-sub)">Growth Asset Advertising</p>
     <h1 id="about-kv-heading" class="pb-4 md:pb-6 text-3xl leading-10 text-center font-semibold text-(--white) md:text-4xl tracking-widest">「成長投資型」の<br class="md:hidden" />広告運用へ</h1>
     <div class="text-sm md:text-base md:text-center pb-6 md:pb-4">
       <PDef class="text-(--white)"
@@ -126,7 +127,12 @@ import BtnServiceAdvisor from "../components/ui/BtnServiceAdvisor.astro";
           </p>
         </div>
         <div class="shrink-0 md:w-[369px]">
-          <img src="/images/graph-estimate_cost.png" alt="広告代理店と集客のチカラの運用コスト比較グラフ" class="w-full object-contain" width="369" height="266" loading="lazy" />
+          <ImageZoomTrigger
+            src="/images/graph-estimate_cost.png"
+            alt="広告代理店と集客のチカラの運用コスト比較グラフ"
+            width={369}
+            height={266}
+          />
         </div>
       </div>
 
@@ -147,9 +153,9 @@ import BtnServiceAdvisor from "../components/ui/BtnServiceAdvisor.astro";
           </div>
 
           <div class="relative pt-5 pl-5 pr-5 md:pb-5 md:pr-[150px]">
-            <p class="font-bold text-xl leading-6 pb-3">"いいえ、必要ありません"</p>
-            <PDef>中間マージンは、元々「マスメディア時代のモデル」。 広告費に比例して手数料が増えるコスト構造は、「世界の常識」とかけ離れた仕組みです。</PDef>
-            <PDef>旧時代の仕組みを、根本から変えます</PDef>
+            <p class="font-bold leading-6 pb-3">"いいえ、必要ありません"</p>
+            <PDef class="text-sm">中間マージンは、元々「マスメディア時代のモデル」。 広告費に比例して手数料が増えるコスト構造は、「世界の常識」とかけ離れた仕組みです。</PDef>
+            <PDef class="text-sm">旧時代の仕組みを、根本から変えます</PDef>
             <div class="pointer-events-none ml-auto w-[80px] md:w-[100px] pt-3 md:absolute md:right-3 md:bottom-0 md:pt-0">
               <img src="/images/illust-human_OK.png" alt="OKポーズの男性" class="w-full object-cover" width="126" height="162" aria-hidden="true" />
             </div>
@@ -213,14 +219,15 @@ import BtnServiceAdvisor from "../components/ui/BtnServiceAdvisor.astro";
       </HeaderH2>
 
       <div class="mx-auto flex flex-col gap-6 rounded-(--border-radius) bg-(--white) md:flex-row md:items-start md:gap-6">
-        <div class="shrink-0 md:w-[391px]">
+        <div class="shrink-0 md:w-[500px]">
           <img src="/images/graph-estimate_order.png" alt="広告予算と受注数の推移グラフ" class="w-full object-contain" width="391" height="312" loading="lazy" />
         </div>
         <div class="flex-1 pb-6 md:pb-9">
-          <PDef class="pb-0">
-            広告代理店とのコストの差額が、そのまま広告投下費の増加分に。 広告予算を増やさなくても、受注が積み上がります。 さらに、増えた受注から得た利益を次の広告投資へ回せば、事業成長は
-            "複利のように" 加速します。
+          <PDef>
+            広告代理店とのコストの差額が、そのまま広告投下費の増加分に。 広告予算を増やさなくても、受注が積み上がります。
           </PDef>
+          <PDef>
+          さらに、増えた受注から得た利益を次の広告投資へ回せば、事業成長は "複利のように" 加速します。</PDef>
         </div>
       </div>
     </div>

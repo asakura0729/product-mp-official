@@ -1,0 +1,49 @@
+---
+interface Props {
+	src: string;
+	alt: string;
+	width?: number;
+	height?: number;
+	class?: string;
+	loading?: 'lazy' | 'eager';
+}
+
+const {
+	src,
+	alt,
+	width,
+	height,
+	class: className = 'w-full object-contain',
+	loading = 'lazy',
+} = Astro.props;
+---
+
+<img
+	src={src}
+	alt={alt}
+	class:list={[className, 'lg:hidden']}
+	width={width}
+	height={height}
+	loading={loading}
+/>
+
+<button
+	type="button"
+	class="hidden w-full border-0 bg-transparent p-0 lg:block lg:cursor-zoom-in"
+	aria-label={`${alt}を拡大表示`}
+	data-image-zoom-trigger
+	data-image-src={src}
+	data-image-alt={alt}
+	@click="window.matchMedia('(min-width: 1024px)').matches && $store.layout.openImageModal($el.dataset.imageSrc, $el.dataset.imageAlt)"
+>
+	<img
+		src={src}
+		alt=""
+		class:list={[className, 'pointer-events-none select-none']}
+		width={width}
+		height={height}
+		loading={loading}
+		draggable="false"
+		aria-hidden="true"
+	/>
+</button>

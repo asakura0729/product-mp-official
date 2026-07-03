@@ -1,0 +1,41 @@
+---
+// Global image zoom modal (state: Alpine layout store)
+---
+
+<div
+	class="image-modal fixed inset-0 z-[70] flex items-center justify-center p-4 md:p-8"
+	x-show="$store.layout.imageModalOpen"
+	x-cloak
+	@keydown.escape.window="$store.layout.closeImageModal()"
+>
+	<div
+		class="image-modal__overlay absolute inset-0 bg-black/60"
+		@click="$store.layout.closeImageModal()"
+		x-show="$store.layout.imageModalOpen"
+		x-transition.opacity
+	></div>
+
+	<div
+		class="image-modal__dialog relative max-h-[90vh] max-w-5xl"
+		role="dialog"
+		aria-modal="true"
+		x-bind:aria-label="$store.layout.imageModalAlt"
+		x-show="$store.layout.imageModalOpen"
+		x-transition
+	>
+		<button
+			type="button"
+			class="absolute top-2 right-2 z-10 rounded-full bg-white/90 p-1 shadow-md transition-opacity hover:opacity-80"
+			@click="$store.layout.closeImageModal()"
+			aria-label="閉じる"
+		>
+			<img src="/svg/btn-close.svg" alt="" class="size-8" width="32" height="32" />
+		</button>
+
+		<img
+			x-bind:src="$store.layout.imageModalSrc"
+			x-bind:alt="$store.layout.imageModalAlt"
+			class="max-h-[90vh] w-full object-contain"
+		/>
+	</div>
+</div>

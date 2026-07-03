@@ -1,54 +1,34 @@
 ---
-import CardDef from './CardDef.astro';
-import { portfolioItems } from '../../data/portfolio';
+import CardDef from "./CardDef.astro";
+import { portfolioItems } from "../../data/portfolio";
 
 interface Props {
-	class?: string;
+  class?: string;
 }
 
-const { class: className = '' } = Astro.props;
+const { class: className = "" } = Astro.props;
 ---
 
-<div
-	class:list={[
-		'sec-portfolio flex w-full flex-col items-center gap-2 rounded-(--border-radius) py-4 md:gap-6',
-		className,
-	]}
-	data-name="sec-portfolio"
->
-	<div class="flex w-full justify-center">
-		<img
-			src="/images/graph-portfolio-legend.png"
-			alt="Googleリスティング、Yahooリスティング、ディスプレイ広告、YouTube広告の凡例"
-			class="h-[14px] w-full max-w-[328px] object-contain object-center md:max-w-[432px]"
-			width="432"
-			height="14"
-			loading="lazy"
-		/>
-	</div>
-
-	<div class="grid w-full grid-cols-2 gap-4 md:flex md:max-w-none md:flex-row md:items-stretch md:justify-center">
-		{
-			portfolioItems.map((item) => (
-				<CardDef class="flex flex-col items-center gap-2.5 px-4 py-6">
-					<img
-						src={item.image}
-						alt={item.imageAlt}
-						class="aspect-[135/134] w-full max-w-[150px] object-contain"
-						width="135"
-						height="134"
-						loading="lazy"
-					/>
-					<p class="text-center text-base leading-6 font-bold whitespace-nowrap text-(--base-text) md:text-xl md:leading-6">
-						{item.title}
-					</p>
-					<p class="text-center text-base text-sm">
-						{item.lines[0]}
-						<br />
-						{item.lines[1]}
-					</p>
-				</CardDef>
-			))
-		}
-	</div>
+<div class:list={["sec-portfolio flex w-full flex-col items-center rounded-(--border-radius) pb-4", className]} data-name="sec-portfolio">
+  <div class="flex w-full justify-center gap-2 md:gap-4 text-xs md:text-sm pb-4">
+	<span><span class="text-[#5d7ba1]">●</span>&nbsp;Googleリスティング</span>
+	<span><span class="text-[#87a9c2]">●</span>&nbsp;Yahoo!リスティング</span>
+	<span><span class="text-[#699a87]">●</span>&nbsp;ディスプレイ広告</span>
+	<span><span class="text-[#90bbd1]">●</span>&nbsp;YouTube広告</span>
+</div>
+  <div class="grid w-full grid-cols-2 gap-4 md:flex md:max-w-none md:flex-row md:items-stretch md:justify-center">
+    {
+      portfolioItems.map((item) => (
+        <CardDef class="flex flex-col items-center gap-2.5 px-4 py-6">
+          <img src={item.image} alt={item.imageAlt} class="aspect-[135/134] w-full max-w-[150px] object-contain" width="135" height="134" loading="lazy" />
+          <p class="text-center text-base leading-6 font-bold whitespace-nowrap text-(--base-text) md:text-xl md:leading-6">{item.title}</p>
+          <p class="text-center text-base text-sm">
+            {item.lines[0]}
+            <br />
+            {item.lines[1]}
+          </p>
+        </CardDef>
+      ))
+    }
+  </div>
 </div>
