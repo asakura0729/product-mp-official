@@ -9,6 +9,7 @@ import BtnLink from "../components/ui/BtnLink.astro";
 import BtnServicePro from "../components/ui/BtnServicePro.astro";
 import BtnServiceAdvisor from "../components/ui/BtnServiceAdvisor.astro";
 import ContactForm from "../components/sections/ContactForm.astro";
+import CtaSectionIntro from "../components/sections/CtaSectionIntro.astro";
 import { problems, solutions, features, teamRoles } from "../data/home";
 
 const problemSolutionPairs = problems.map((problem, index) => ({
@@ -17,7 +18,7 @@ const problemSolutionPairs = problems.map((problem, index) => ({
 }));
 ---
 
-<Layout title="集客のチカラ">
+<Layout title="集客のチカラ" showCtaSectionIntro={false} showCtaSectionContact={false}>
   <KeyVisual />
 
   <section class="section-problem px-4 pb-10" aria-labelledby="section-problem-heading">
@@ -237,7 +238,8 @@ const problemSolutionPairs = problems.map((problem, index) => ({
       </div>
     </div>
   </section>
-  <section class="bg-(--base-bg-lblue)">
+  <section class="bg-(--main-bg-sub) pb-12">
+    <CtaSectionIntro />
     <ContactForm variant="pro-light" sectionId="home-contact-form" />
   </section>
 </Layout>

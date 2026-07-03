@@ -3,7 +3,8 @@ import "../styles/global.css";
 import SiteHeader from "../components/layout/SiteHeader.astro";
 import MobileNav from "../components/layout/MobileNav.astro";
 import LayoutBreadcrumb from "../components/layout/LayoutBreadcrumb.astro";
-import CtaSection from "../components/sections/CtaSection.astro";
+import CtaSectionIntro from "../components/sections/CtaSectionIntro.astro";
+import CtaSectionContact from "../components/sections/CtaSectionContact.astro";
 import SiteFooter from "../components/layout/SiteFooter.astro";
 import ContactModal from "../components/layout/ContactModal.astro";
 
@@ -11,9 +12,22 @@ interface Props {
   title?: string;
   /** 指定時のみパンくずを表示（トップページでは未指定） */
   breadcrumb?: string;
+  /** CTAイントロ（吹き出しエリア）を表示する */
+  showCtaSectionIntro?: boolean;
+  /** CTA問い合わせブロックを表示する */
+  showCtaSectionContact?: boolean;
 }
 
-const { title = "集客のチカラ", breadcrumb } = Astro.props;
+const {
+  title = "集客のチカラ",
+  breadcrumb,
+  showCtaSectionIntro = true,
+  showCtaSectionContact = true,
+} = Astro.props;
+
+const showCtaSection = showCtaSectionIntro || showCtaSectionContact;
+const ctaSectionLabelledBy =
+  showCtaSectionIntro ? "cta-heading" : "cta-contact-heading";
 ---
 
 <!doctype html>
@@ -39,7 +53,14 @@ const { title = "集客のチカラ", breadcrumb } = Astro.props;
       <slot />
     </main>
 
-    <CtaSection />
+    {
+      showCtaSection && (
+        <section class="cta-section flex flex-col overflow-hidden" aria-labelledby={ctaSectionLabelledBy}>
+          {showCtaSectionIntro && <CtaSectionIntro />}
+          {showCtaSectionContact && <CtaSectionContact triangleColor="#e0f2ff" />}
+        </section>
+      )
+    }
     <SiteFooter />
     <ContactModal />
   </body>

@@ -1,0 +1,46 @@
+---
+import CtaContact from '../ui/CtaContact.astro';
+
+interface Props {
+	/** 上部三角の fill 色 */
+	triangleColor?: string;
+}
+
+const { triangleColor = '#ffffff' } = Astro.props;
+---
+
+<div class="cta-section__contact cta-section__contact-bg relative">
+	<div class="relative mx-auto w-full max-w-[900px] px-4 pb-8 pt-7 md:px-0 md:pt-6">
+		<div class="relative">
+			<header class="w-full pb-2 pt-(--pd-middle) md:pb-(--pd-xlarge)">
+				<h3
+					id="cta-contact-heading"
+					class="w-full text-center font-semibold text-xl leading-8 text-(--white) md:text-2xl md:leading-6"
+				>
+					ご相談・お問い合わせはこちら
+				</h3>
+			</header>
+
+			<svg
+				class="pointer-events-none absolute top-[-30px] left-1/2 w-[100px] -translate-x-1/2 select-none md:left-1/2"
+				width="80"
+				height="21"
+				viewBox="0 0 160 42"
+				fill="none"
+				aria-hidden="true"
+			>
+				<path d="M0 0H160L80 42L0 0Z" fill={triangleColor} />
+			</svg>
+
+			<CtaContact />
+
+			<img
+				src="/images/pic-woman-cta.png"
+				alt=""
+				class="pointer-events-none absolute top-[45px] right-0 hidden h-[186px] w-[150px] object-cover md:block lg:right-[30px]"
+				width="150"
+				height="186"
+			/>
+		</div>
+	</div>
+</div>

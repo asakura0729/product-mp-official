@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import CtaSection from "../components/sections/CtaSection.astro";
+import CtaSectionContact from "../components/sections/CtaSectionContact.astro";
 import HeaderH2 from "../components/ui/HeaderH2.astro";
 import HeaderH3 from "../components/ui/HeaderH3.astro";
 import PDef from "../components/ui/PDef.astro";
@@ -91,7 +91,7 @@ import BtnServiceAdvisor from "../components/ui/BtnServiceAdvisor.astro";
   </section>
 
   <!-- 第3セクション -->
-  <section id="sec3" class="relative pb-12 pt-8 md:pb-16 md:pt-10" aria-labelledby="about-sec3-heading">
+  <section id="sec3" class="relative pb-12 pt-8 md:pt-10" aria-labelledby="about-sec3-heading">
     <svg class="pointer-events-none absolute inset-x-0 top-0 z-20 block h-10 w-full select-none" viewBox="0 0 1280 29" preserveAspectRatio="none" aria-hidden="true">
       <path fill="var(--base-bg-lblue)" d="M0,0v29C52.4,16.6,319,7.2,640,7.2s587.6,9.4,640,21.8V0H0Z"></path>
     </svg>
@@ -150,7 +150,7 @@ import BtnServiceAdvisor from "../components/ui/BtnServiceAdvisor.astro";
             <p class="font-bold text-xl leading-6 pb-3">"いいえ、必要ありません"</p>
             <PDef>中間マージンは、元々「マスメディア時代のモデル」。 広告費に比例して手数料が増えるコスト構造は、「世界の常識」とかけ離れた仕組みです。</PDef>
             <PDef>旧時代の仕組みを、根本から変えます</PDef>
-            <div class="pointer-events-none ml-auto w-[80px] md:w-[110px] pt-3 md:absolute md:right-3 md:bottom-0 md:pt-0">
+            <div class="pointer-events-none ml-auto w-[80px] md:w-[100px] pt-3 md:absolute md:right-3 md:bottom-0 md:pt-0">
               <img src="/images/illust-human_OK.png" alt="OKポーズの男性" class="w-full object-cover" width="126" height="162" aria-hidden="true" />
             </div>
           </div>
@@ -160,7 +160,9 @@ import BtnServiceAdvisor from "../components/ui/BtnServiceAdvisor.astro";
   </section>
 
   <!-- CTA（ページ中段） -->
-  <CtaSection variant="contact-only" />
+  <section class="cta-section flex flex-col overflow-hidden" aria-labelledby="cta-contact-heading">
+    <CtaSectionContact />
+  </section>
 
   <!-- 第4セクション -->
   <section class="relative overflow-hidden bg-(--base-bg-lblue) px-4 py-8 md:py-12" aria-labelledby="about-sec4-heading">

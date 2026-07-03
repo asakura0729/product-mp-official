@@ -1,0 +1,54 @@
+---
+import Fukidashi from '../ui/Fukidashi.astro';
+
+const ctaPrompts = [
+	{ lines: ['とりあえず話だけ', '聞いてみたい'] },
+	{ lines: ['自分に合う', 'サービスかな？'] },
+	{ lines: ['○○は対応', 'できますか？'] },
+];
+---
+
+<div class="cta-section__intro bg-(--main-bg-sub) pb-(--pd-xlarge) pt-6 md:pt-8">
+	<div class="relative mx-auto w-[340px] md:w-[600px]">
+		<div class="relative flex w-full flex-col items-center md:flex-row md:items-start md:justify-end">
+			<div class="cta-section__illust absolute top-[104px] left-4 h-[112px] w-[120px] md:relative md:top-auto md:left-[90px] md:shrink-0">
+				<img
+					src="/images/illust-woman_think.png"
+					alt="イラスト_女性"
+					class="pointer-events-none absolute top-[-20px] left-[-100px] h-[auto] w-[200px] max-w-none select-none object-cover md:top-[20px] md:left-[-140px]"
+					width="209"
+					height="126"
+					draggable="false"
+				/>
+			</div>
+
+			<div class="flex w-full flex-col items-center md:w-[466px] md:items-start">
+				<div class="flex h-10 w-full items-center pb-6">
+					<h2
+						id="cta-heading"
+						class="w-full text-center text-xl md:text-2xl font-semibold leading-6 text-(--main-text) md:text-left"
+					>
+						まずはお気軽にご連絡ください
+					</h2>
+				</div>
+
+				<ul class="flex w-full flex-col items-end md:w-[480px] md:flex-row md:gap-2">
+					{
+						ctaPrompts.map(({ lines }) => (
+							<li class="w-[250px] shrink-0 md:w-[150px]">
+								<Fukidashi tail="bottom-left" size="compact">
+									{lines.map((line, index) => (
+										<>
+											{line}
+											{index < lines.length - 1 && <br class="hidden md:block" />}
+										</>
+									))}
+								</Fukidashi>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

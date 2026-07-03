@@ -3,16 +3,17 @@ import SiteLogo from './SiteLogo.astro';
 import { footerNavItems } from '../../data/navigation';
 ---
 
-<footer class="site-footer bg-[#f5f5f5] px-4 py-6 lg:px-8 lg:py-8">
+<footer class="site-footer bg-(--base-bg-lgray) px-4 py-6 lg:px-8 lg:py-8 border-(--border) border-t">
 	<div class="site-footer__inner mx-auto max-w-7xl">
-		<!-- SP / TAB: 縦並び -->
+		<!-- SP / TAB -->
 		<div class="flex flex-col gap-4 lg:hidden">
 			<SiteLogo />
 			<nav aria-label="フッターナビゲーション">
-				<ul class="flex flex-col gap-1 text-xs leading-6">
+				<ul class="flex flex-wrap gap-x-1 gap-y-1 text-xs leading-6">
 					{
-						footerNavItems.map((item) => (
-							<li>
+						footerNavItems.map((item, index) => (
+							<li class="flex items-center">
+								{index > 0 && <span class="mx-1 text-[#999]" aria-hidden="true">｜</span>}
 								<a
 									href={item.href}
 									class="hover:text-(--main-text) hover:underline"
