@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import PageKeyVisual from "../../components/sections/PageKeyVisual.astro";
 import HeaderH1 from "../../components/ui/HeaderH1.astro";
+import { Content as PrivacyPolicyContent } from "../../components/documents/privacy-policy.md";
 ---
 
 <Layout title="プライバシーポリシー" breadcrumb="プライバシーポリシー">
@@ -10,6 +11,10 @@ import HeaderH1 from "../../components/ui/HeaderH1.astro";
   </PageKeyVisual>
 
   <section class="px-4 pt-6 pb-8 md:pb-10" aria-label="プライバシーポリシー">
-    <div class="mx-auto w-full max-w-(--container)">ここに本文が入ります</div>
+    <div
+      class="document-content mx-auto w-full max-w-(--container) text-sm leading-6 text-(--base-text) md:text-base"
+    >
+      <PrivacyPolicyContent />
+    </div>
   </section>
 </Layout>
