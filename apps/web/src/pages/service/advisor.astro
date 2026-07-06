@@ -13,22 +13,21 @@ import { advisorConcerns, serviceFeatures } from "../../data/advisor";
 <Layout title="専属顧問プラン" breadcrumb="専属顧問プラン">
   <!-- キービジュアル -->
   <PageKeyVisual showBackgroundImage={true} backgroundImage="/images/bg-service-advisor.png" waveFill="#f5f5f5">
-    <div class="relative flex flex-col items-center w-full max-w-[420px] h-[280px] mx-auto pt-1 pb-[350px] text-center z-30 md:ml-auto md:mr-[calc(50%-450px)] md:justify-center md:pt-0 md:pb-0">
-      <h1 id="pro-kv-heading" class="font-semibold text-(--white) text-4xl md:text-5xl pb-4 tracking-widest">専属顧問プラン</h1>
-      <p class="font-semibold leading-7 md:leading-8 pb-5 text-(--white) md:text-lg tracking-wide">
-        WEB 広告運用の<br class="md:hidden" />プロフェッショナルによる<br />「専属顧問」という、新しい正解
-      </p>
-      <div class="w-full bg-(--white) text-lg text-(--service-advisor) leading-7 px-4 py-3 hidden md:block">
-        <p class="font-semibold">税務は税理士へ、法務は弁護士へ。<br />WEB 広告運用は、誰に相談しますか？</p>
+    <div class:list={["relative z-30", "w-full h-[380px] md:h-[280px]"]}>
+      <div class:list={["absolute top-0 right-0 w-full mx-auto text-center", "md:top-1/2 md:right-[16px] md:w-[400px] md:-translate-y-1/2", "lg:right-[-40px] lg:w-[420px]"]}>
+        <h1 id="pro-kv-heading" class="font-semibold text-(--white) text-4xl md:text-5xl pb-4 tracking-widest">専属顧問プラン</h1>
+        <p class="font-semibold leading-6 md:leading-8 pb-5 text-(--white) md:text-lg tracking-wide">
+          WEB 広告運用の<br class="md:hidden" />プロフェッショナルによる<br />「専属顧問」という、新しい正解
+        </p>
+        <div class="w-full bg-(--white) text-sm md:text-lg text-(--service-advisor) leading-5 md:leading-7 px-4 py-3 md:block">
+          <p class="font-semibold">税務は税理士へ、法務は弁護士へ。<br />WEB 広告運用は、誰に相談しますか？</p>
+        </div>
       </div>
-    </div>
-    <div class="absolute tracking-wide bottom-[65px] right-[16px] w-[240px] bg-(--white) leading-7 px-4 py-4 text-center text-(--service-advisor) rounded-lg md:hidden">
-      <p class="font-semibold">税務は税理士へ<br />法務は弁護士へ<br />WEB広告運用は、<br />誰に相談しますか？</p>
     </div>
     <img
       src="/images/keyvisual-service-exclusive_badge.png"
       alt="WEB広告手数料ゼロへ"
-      class="pointer-events-none hidden md:block absolute top-[220px] left-[110px] w-[80px] md:top-[45px] md:left-0 z-40 md:w-[100px] object-contain select-none md:w-[110px]"
+      class:list={["absolute top-[290px] left-4 w-[100px] z-40", "md:w-[110px] md:top-[45px]", "lg:top-[45px] lg:left-[-40px]", "object-contain pointer-events-none select-none"]}
       width="130"
       height="130"
       aria-hidden="true"
@@ -37,7 +36,13 @@ import { advisorConcerns, serviceFeatures } from "../../data/advisor";
     <img
       src="/images/keyvisual-service-exclusive_advisor.png"
       alt="専属顧問のイメージ"
-      class="absolute bottom-[-140px] left-[12%] -translate-x-1/2 pointer-events-none mx-auto md:left-[120px] md:bottom-[-230px] w-[200px] md:w-[300px] md:-translate-x-0 object-contain z-20"
+      class:list={[
+        'absolute w-[210px] bottom-[-210px] right-[40px] z-20',
+        'md:w-[380px] md:bottom-[-410px] md:right-[420px]',
+        'lg:w-[400px]',
+        'object-contain',
+        'pointer-events-none',
+      ]}
       width="280"
       height="220"
     />
@@ -142,9 +147,7 @@ import { advisorConcerns, serviceFeatures } from "../../data/advisor";
         <img src="/images/pic-report_check.png" alt="虫眼鏡のイラスト" class="pointer-events-none size-[61px] shrink-0 object-contain ml-auto" width="61" height="61" aria-hidden="true" />
       </div>
       <div class="mt-6 flex justify-center">
-        <BtnLink href={pricingAdvisorHref}>
-          サービス・料金の詳細はこちら
-        </BtnLink>
+        <BtnLink href={pricingAdvisorHref}> サービス・料金の詳細はこちら </BtnLink>
       </div>
     </div>
   </section>

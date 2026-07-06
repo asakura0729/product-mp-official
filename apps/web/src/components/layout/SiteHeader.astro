@@ -3,6 +3,7 @@ import SiteLogo from './SiteLogo.astro';
 import { headerNavItems, ROUTES } from '../../data/navigation';
 
 const inquiryPath = ROUTES.contact;
+const currentPath = Astro.url.pathname;
 ---
 
 <header id="site_header" class="site-header sticky top-0 z-(--z-index-header) border-b border-[#ddd] bg-white z-[100]">
@@ -11,13 +12,19 @@ const inquiryPath = ROUTES.contact;
 
 		<!-- PC ナビ -->
 		<nav class="site-header__nav hidden h-full items-center gap-6 self-stretch lg:flex" aria-label="メインナビゲーション">
-			<ul class="flex items-center gap-5 pb-[2px] pr-2">
+			<ul class="flex items-center gap-2 h-full pb-[2px] pr-2">
 				{
-					headerNavItems.map((item) => (
-						<li>
+					headerNavItems.map((item) => {
+						const isActive = !item.external && currentPath === item.href;
+						return (
+						<li class="h-full">
 							<a
 								href={item.href}
-								class="transition-colors hover:text-(--main-text) text-sm"
+								class:list={[
+									'inline-flex h-full items-center text-sm transition-colors hover:text-(--main-text) px-2',
+									{ 'bg-(--main-bg-sub)': isActive },
+								]}
+								aria-current={isActive ? 'page' : undefined}
 								{...(item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
 							>
 								{item.label}
@@ -26,7 +33,8 @@ const inquiryPath = ROUTES.contact;
 								)}
 							</a>
 						</li>
-					))
+						);
+					})
 				}
 			</ul>
 			<a
