@@ -4,8 +4,8 @@ import HeaderH1 from "../components/ui/HeaderH1.astro";
 import HeaderH2 from "../components/ui/HeaderH2.astro";
 import HeaderH3 from "../components/ui/HeaderH3.astro";
 import PDef from "../components/ui/PDef.astro";
-import PricingPlanCard from "../components/ui/PricingPlanCard.astro";
-import PricingNavCard from "../components/ui/PricingNavCard.astro";
+import CardPricingPlan from "../components/ui/CardPricingPlan.astro";
+import CardPricingNav from "../components/ui/CardPricingNav.astro";
 import PlanCompareTable from "../components/ui/PlanCompareTable.astro";
 import PageKeyVisual from "../components/sections/PageKeyVisual.astro";
 import {
@@ -35,8 +35,8 @@ import {
         貴社専用の戦略チームとして、 高度な WEB マーケとブランド戦略で、 事業成長に伴走します。
       </PDef>
       <div class="mx-auto flex max-w-[880px] flex-col items-center gap-6 md:flex-row md:justify-center md:gap-10">
-        <PricingNavCard variant="pro" href={pricingProHash} />
-        <PricingNavCard variant="advisor" href={pricingAdvisorHash} />
+        <CardPricingNav variant="pro" href={pricingProHash} />
+        <CardPricingNav variant="advisor" href={pricingAdvisorHash} />
       </div>
     </div>
   </section>
@@ -52,7 +52,7 @@ import {
       <div class="mx-auto grid max-w-[900px] grid-cols-1 gap-4 md:grid-cols-3">
         {
           proPricingPlans.map((plan) => (
-            <PricingPlanCard
+            <CardPricingPlan
               planLead={plan.planLead}
               planTitle={plan.planTitle}
               catchLine={plan.catchLine}
