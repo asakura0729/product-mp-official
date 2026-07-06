@@ -10,7 +10,7 @@ import { pricingAdvisorHref } from "../../data/pricing";
 import { advisorConcerns, serviceFeatures } from "../../data/advisor";
 ---
 
-<Layout title="専属顧問プラン" breadcrumb="専属顧問プラン">
+<Layout title="専属顧問プラン" metaDescription="集客のチカラの専属顧問プラン。WEB広告運用のプロが月額5万円から伴走し、運用レビュー・レポート評価・戦略アドバイスで貴社の広告投資を最大化します。">
   <!-- キービジュアル -->
   <PageKeyVisual showBackgroundImage={true} backgroundImage="/images/bg-service-advisor.png" waveFill="#f5f5f5">
     <div class:list={["relative z-30", "w-full h-[380px] md:h-[280px]"]}>
@@ -19,7 +19,7 @@ import { advisorConcerns, serviceFeatures } from "../../data/advisor";
         <p class="font-semibold leading-6 md:leading-8 pb-5 text-(--white) md:text-lg tracking-wide">
           WEB 広告運用の<br class="md:hidden" />プロフェッショナルによる<br />「専属顧問」という、新しい正解
         </p>
-        <div class="w-full bg-(--white) text-sm md:text-lg text-(--service-advisor) leading-5 md:leading-7 px-4 py-3 md:block">
+        <div class="w-full bg-(--white) text-sm md:text-lg text-(--service-advisor) leading-5 md:leading-7 px-4 py-3 md:block tracking-wide">
           <p class="font-semibold">税務は税理士へ、法務は弁護士へ。<br />WEB 広告運用は、誰に相談しますか？</p>
         </div>
       </div>
@@ -37,11 +37,11 @@ import { advisorConcerns, serviceFeatures } from "../../data/advisor";
       src="/images/keyvisual-service-exclusive_advisor.png"
       alt="専属顧問のイメージ"
       class:list={[
-        'absolute w-[210px] bottom-[-210px] right-[40px] z-20',
-        'md:w-[380px] md:bottom-[-410px] md:right-[420px]',
-        'lg:w-[400px]',
-        'object-contain',
-        'pointer-events-none',
+        "absolute w-[210px] bottom-[-210px] right-[40px] z-20",
+        "md:w-[360px] md:bottom-[-350px] md:right-[420px]",
+        "lg:w-[390px] lg:bottom-[-400px]",
+        "object-contain",
+        "pointer-events-none",
       ]}
       width="280"
       height="220"
@@ -49,7 +49,7 @@ import { advisorConcerns, serviceFeatures } from "../../data/advisor";
   </PageKeyVisual>
 
   <!-- 第1セクション -->
-  <section class="bg-(--base-bg-lgray) px-4 pb-6 pt-8 md:pb-10 md:pt-10" aria-labelledby="advisor-sec1-heading">
+  <section class="relative bg-(--base-bg-lgray) px-4 pb-6 pt-8 md:pb-10 md:pt-10" aria-labelledby="advisor-sec1-heading">
     <div class="mx-auto w-full max-w-(--container)">
       <HeaderH2 id="advisor-sec1-heading" class="mx-auto">
         貴社の<span class="text-(--main-text)">WEB広告運用</span>は<br class="md:hidden" />最善ですか？
@@ -65,7 +65,7 @@ import { advisorConcerns, serviceFeatures } from "../../data/advisor";
           <img
             src="/images/pic-man_worry.png"
             alt="悩んでいるビジネスパーソン"
-            class="h-[200px] w-auto object-contain object-bottom md:absolute md:top-8 md:left-1/2 md:h-[280px] md:-translate-x-1/2"
+            class="h-[200px] w-auto object-contain object-bottom md:absolute md:top-15 md:left-1/2 md:h-[280px] md:-translate-x-1/2"
             width="200"
             height="280"
             loading="lazy"
@@ -90,26 +90,26 @@ import { advisorConcerns, serviceFeatures } from "../../data/advisor";
           <img src="/svg/arrow-right.svg" alt="" class="size-16" width="63" height="41" aria-hidden="true" />
         </div>
 
-        <CardDef class="relative z-20 order-3 w-full md:max-w-[387px] overflow-hidden border-3 border-(--main-bg) p-0 md:order-none">
+        <CardDef class="relative z-20 order-3 w-full md:max-w-[387px] overflow-hidden border-2 border-(--main-bg) p-0 md:order-none">
           <div class="bg-(--main-bg) px-4 pt-2 pb-3 text-center">
-            <h3 class="text-base font-semibold text-(--white)">"専属顧問プラン"におまかせください！</h3>
+            <h3 class="text-base font-semibold text-(--white) tracking-wide">"専属顧問プラン"&nbsp;におまかせください！</h3>
           </div>
 
           <div class="relative p-4 pr-[90px] md:pr-28">
-            <p class="text-(length:--font-size-default) leading-6 text-(--base-text) md:pb-0 md:leading-7">
+            <p class="text-sm leading-7 md:pb-0 md:leading-8 lg:text-lg">
               税務に「<span class="font-bold text-(--main-text)">税理士</span>」、<br />
               法務に「<span class="font-bold text-(--main-text)">弁護士</span>」のように、<br />
               広告運用に「<span class="font-bold text-(--main-text)">専属顧問</span>」を。
             </p>
             <p class="text-right text-2xl font-bold text-(--base-text)">
               月額
-              <span class="font-famly-din text-[56px] text-(--accent-strong)">５</span>万円で
+              <span class="font-famly-din text-[50px] text-(--accent-strong)">５</span>万円で
             </p>
             <p class="text-right text-xs md:text-sm leading-6 text-(--base-text)">広告運用のプロが、貴社に伴走します。</p>
             <img
               src="/images/pic-service-exclusive_advisor.png"
               alt="アドバイザーの写真"
-              class="pointer-events-none absolute right-[-20px] md:right-0 bottom-0 h-[200px] w-[120px] object-cover object-top"
+              class="pointer-events-none absolute right-[-22px] bottom-0 h-[200px] w-[120px] md:w-[140px] object-cover object-top"
               width="129"
               height="287"
               aria-hidden="true"

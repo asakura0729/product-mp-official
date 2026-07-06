@@ -15,7 +15,12 @@ import { pricingProHref } from "../../data/pricing";
 import { proPlans, apoSteps, onboardingSteps, contractTable, proFaqs, traditionalComparison, apoComparison } from "../../data/pro-light";
 ---
 
-<Layout title="プロ運用プラン" breadcrumb="プロ運用プラン" showCtaSectionIntro={false}>
+<Layout
+  title="プロ運用プラン"
+  breadcrumb="プロ運用プラン"
+  showCtaSectionIntro={false}
+  metaDescription="集客のチカラのプロ運用プラン。広告手数料ゼロの完全定額制で、プロがWEB広告運用を全面サポート。APOによるポートフォリオ設計で集客を最大化します。"
+>
   <PageKeyVisual showBackgroundImage={true} backgroundImage="/images/bg-service-pro.png">
     <div class:list={["relative z-30", "w-full h-[380px] md:h-[280px]"]}>
       <div
@@ -140,9 +145,9 @@ import { proPlans, apoSteps, onboardingSteps, contractTable, proFaqs, traditiona
         <img
           src="/images/graph-comparison_cost.png"
           alt="コストダウンの比較グラフ"
-          class="mx-auto pb-6 w-[75%] md:max-w-[40%] lg:max-w-[420px] object-contain md:mx-0"
-          width="373"
-          height="297"
+          class="mx-auto h-auto w-full max-w-[270px] pb-6 object-contain crisp-edges sm:max-w-[300px] md:mx-0 md:max-w-[360px]"
+          width="720"
+          height="600"
           loading="lazy"
         />
       </div>

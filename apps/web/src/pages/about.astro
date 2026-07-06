@@ -14,7 +14,11 @@ import ImageZoomTrigger from "../components/ui/ImageZoomTrigger.astro";
 import { ABOUT_SECTIONS } from "../data/about-sections";
 ---
 
-<Layout title="集客のチカラとは" breadcrumb="集客のチカラとは">
+<Layout
+  title="集客のチカラとは"
+  breadcrumb="集客のチカラとは"
+  metaDescription="集客のチカラとは、広告手数料ゼロの完全定額制でWEB広告運用を支援する成長投資型のサービスです。コスト削減とプロ運用で、貴社の集客を最大化します。"
+>
   <PageKeyVisual class="min-h-[450px] md:min-h-auto">
     <p class="text-sm md:text-base text-center font-semibold pt-6 pb-2 md:pt-2 md:pb-3 text-(--main-bg-sub)">Growth Asset Advertising</p>
     <h1 id="about-kv-heading" class="pb-6 text-3xl leading-10 text-center font-semibold text-(--white) md:text-4xl tracking-widest">「成長投資型」の<br class="md:hidden" />広告運用へ</h1>
@@ -223,7 +227,7 @@ import { ABOUT_SECTIONS } from "../data/about-sections";
 
       <div class="mx-auto flex flex-col gap-6 rounded-(--border-radius) bg-(--white) md:flex-row md:items-start md:gap-6">
         <div class="shrink-0 md:w-[500px]">
-          <img src="/images/graph-estimate_order.png" alt="広告予算と受注数の推移グラフ" class="w-full object-contain" width="391" height="312" loading="lazy" />
+          <img src="/images/graph-estimate_order.png" alt="広告予算と受注数の推移グラフ" class="w-full object-contain" width="600" height="450" loading="lazy" />
         </div>
         <div class="flex-1 pb-6 md:pb-9">
           <PDef> 広告代理店とのコストの差額が、そのまま広告投下費の増加分に。 広告予算を増やさなくても、受注が積み上がります。 </PDef>
