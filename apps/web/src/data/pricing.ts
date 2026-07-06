@@ -13,9 +13,6 @@ export type PricingPlanDetail = {
 	budgetLabel: string;
 };
 
-export const pricingIntro =
-	'貴社専用の戦略チームとして、 高度な WEB マーケとブランド戦略で、 事業成長に伴走します。';
-
 export const PRICING_SECTIONS = {
 	pro: 'pricing-pro',
 	advisor: 'pricing-advisor',

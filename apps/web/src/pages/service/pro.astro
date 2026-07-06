@@ -85,9 +85,7 @@ import { proPlans, apoSteps, onboardingSteps, contractTable, proFaqs, traditiona
         </div>
 
         <div class="flex justify-center">
-          <BtnLink href={pricingProHref}>
-            サービス・料金の詳細はこちら
-          </BtnLink>
+          <BtnLink href={pricingProHref}> サービス・料金の詳細はこちら </BtnLink>
         </div>
       </div>
     </div>
@@ -145,20 +143,20 @@ import { proPlans, apoSteps, onboardingSteps, contractTable, proFaqs, traditiona
       />
       <HeaderH2 id="pro-sec3-heading" class="mx-auto">
         <Fragment slot="lead">横並びの広告に、終止符を</Fragment>
-        <span class="text-(--main-text)">ポートフォリオ</span>で運用する時代へ
+        <span class="text-(--main-text)">ポートフォリオ</span><br class="md:hidden" />で運用する時代へ
       </HeaderH2>
       <PDef class="md:text-center"> 「APO」（AD Portfolio Optimizer）は、貴社の目的・目標に合わせて<br class="hidden md:block" />媒体配分を専用設計する、新しい WEB 広告運用メソッドです。 </PDef>
 
-      <div class="mt-6 flex snap-x snap-mandatory gap-1 overflow-x-auto pb-4 lg:flex-nowrap lg:items-center lg:justify-center lg:overflow-visible lg:pb-0">
+      <div class="mt-6 flex snap-x snap-mandatory overflow-x-auto pb-4 lg:flex-nowrap lg:items-center lg:justify-center lg:overflow-visible lg:pb-0">
         {
           apoSteps.map((item, index) => (
             <>
-              <CardOl step={item.step} title={item.title} image={item.image} imageAlt={item.imageAlt} class="w-full max-w-[300px] shrink-0 snap-center lg:w-auto lg:flex-1">
+              <CardOl step={item.step} title={item.title} image={item.image} imageAlt={item.imageAlt} class="w-full max-w-[260px] shrink-0 snap-center lg:w-auto lg:flex-1">
                 {item.body}
               </CardOl>
               {index < apoSteps.length - 1 && (
-                <div class="shrink-0 items-center justify-center self-center lg:flex lg:w-[75px]">
-                  <img src="/svg/arrow-right.svg" alt="" class="h-10 w-16 object-contain" width="63" height="41" aria-hidden="true" />
+                <div class="shrink-0 pr-2 items-center self-center lg:flex w-[75px]">
+                  <img src="/svg/arrow-right.svg" alt="" class="w-90 object-contain" width="63" height="41" aria-hidden="true" />
                 </div>
               )}
             </>
@@ -167,7 +165,7 @@ import { proPlans, apoSteps, onboardingSteps, contractTable, proFaqs, traditiona
       </div>
 
       <HeaderH3 align="center" class="mt-8">
-        貴社の目的・目標に合わせて、<span class="text-(--main-text)">媒体配分を専用設計</span>
+        貴社の目的・目標に合わせて、<br class="md:hidden" /><span class="text-(--main-text)">媒体配分を専用設計</span>
       </HeaderH3>
       <SecPortfolio class="mx-auto mt-4" />
     </div>
@@ -198,7 +196,7 @@ import { proPlans, apoSteps, onboardingSteps, contractTable, proFaqs, traditiona
         プロの知見による専用設計が、圧倒的な集客の『差』を生み出します
       </PDef>
 
-      <p class="mb-4 text-center text-sm font-bold text-(--main-text) md:hidden">サービス比較</p>
+      <p class="mb-4 text-center font-bold text-2xl md:hidden">サービス比較</p>
 
       <div class="mx-auto mb-6 flex max-w-[400px] overflow-hidden md:hidden">
         <div class="flex flex-1 items-center justify-center bg-(--base-bg-lgray) px-2 py-3 text-center text-xs leading-5 font-bold text-(--base-text)">
@@ -259,7 +257,7 @@ import { proPlans, apoSteps, onboardingSteps, contractTable, proFaqs, traditiona
 
     <section>
       <header class="text-center pb-2">
-        <HeaderH3 class="text-(--main-text)">プロ運用プラン</HeaderH3>
+        <HeaderH3 class="text-(--main-bg)">プロ運用プラン</HeaderH3>
         <PDef>広告代理 手数料をゼロに！<br class="md:hidden" />WEB広告運用をプロが全面サポート</PDef>
       </header>
 
@@ -325,16 +323,16 @@ import { proPlans, apoSteps, onboardingSteps, contractTable, proFaqs, traditiona
       </section>
       <section class="pb-6">
         <HeaderH3 align="left" class="mx-auto">導入までの３ステップ</HeaderH3>
-        <div class="mx-auto flex snap-x snap-mandatory gap-2 overflow-x-auto pb-4 lg:flex-nowrap lg:items-center lg:justify-center lg:overflow-visible lg:pb-0">
+        <div class="mx-auto flex snap-x snap-mandatory overflow-x-auto pb-4 lg:flex-nowrap lg:items-center lg:justify-center lg:overflow-visible lg:pb-0">
           {
             onboardingSteps.map((item, index) => (
               <>
-                <CardOl step={item.step} title={item.title} showImage={false} class="h-auto max-w-[280px] shrink-0 snap-center lg:w-auto lg:max-w-none lg:flex-1">
+                <CardOl step={item.step} title={item.title} showImage={false} class="h-auto max-w-[260px] shrink-0 snap-center lg:w-auto lg:max-w-none lg:flex-1">
                   {item.body}
                 </CardOl>
                 {index < onboardingSteps.length - 1 && (
-                  <div class="shrink-0 items-center justify-center self-center lg:flex lg:w-[75px]">
-                    <img src="/svg/arrow-right.svg" alt="" class="h-10 w-16 object-contain" width="63" height="41" aria-hidden="true" />
+                  <div class="shrink-0 pr-2 items-center self-center lg:flex w-[75px]">
+                    <img src="/svg/arrow-right.svg" alt="" class="w-90 object-contain" width="63" height="41" aria-hidden="true" />
                   </div>
                 )}
               </>
@@ -362,7 +360,7 @@ import { proPlans, apoSteps, onboardingSteps, contractTable, proFaqs, traditiona
   <section class="bg-(--main-bg-sub) px-4 pt-8 pb-9" aria-labelledby="pro-sec7-heading">
     <div class="mx-auto w-full max-w-(--container)">
       <strong class="pb-2 font-bold text-2xl leading-9 md:text-3xl md:leading-10 block text-(--main-text) text-center"> 今の広告運用と手数料、本当に適正ですか？ </strong>
-      <p class="text-center pb-0"> まずは、貴社の「手数料コストの適正化診断」から 「手数料ゼロ化のシミュレーション」まで、無料で行います。 </p>
+      <p class="text-center pb-0">まずは、貴社の「手数料コストの適正化診断」から 「手数料ゼロ化のシミュレーション」まで、無料で行います。</p>
     </div>
   </section>
 </Layout>

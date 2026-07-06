@@ -20,7 +20,7 @@ const plan = servicePlans[variant];
 	]}
 >
 	<div class:list={['flex w-full items-center justify-center px-2 pt-2 pb-2.5', plan.headerBgClass]}>
-		<p class="text-center text-2xl leading-[30px] font-bold text-(--white)">{plan.title}</p>
+		<p class="text-center text-2xl leading-[30px] font-bold text-(--white) tracking-widest">{plan.title}</p>
 	</div>
 
 	<div class="relative h-[112px] w-full overflow-hidden">
@@ -38,7 +38,7 @@ const plan = servicePlans[variant];
 		class="flex h-[50px] w-full items-center justify-center gap-2 border-t border-(--border) bg-(--white) px-4"
 	>
 		<svg
-			class="size-[25px] shrink-0 text-(--main-text)"
+			class:list={['size-[25px] shrink-0', plan.iconColorClass]}
 			width="25"
 			height="25"
 			viewBox="0 0 25 25"

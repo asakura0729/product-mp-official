@@ -9,7 +9,6 @@ import PricingNavCard from "../components/ui/PricingNavCard.astro";
 import PlanCompareTable from "../components/ui/PlanCompareTable.astro";
 import PageKeyVisual from "../components/sections/PageKeyVisual.astro";
 import {
-  pricingIntro,
   PRICING_SECTIONS,
   pricingProHash,
   pricingAdvisorHash,
@@ -33,10 +32,9 @@ import {
   <section class="px-4 pt-6 pb-8 md:pb-10" aria-label="プラン案内">
     <div class="mx-auto w-full max-w-(--container)">
       <PDef class="mx-auto max-w-[900px] text-center text-sm leading-6 md:text-base">
-        {pricingIntro}
+        貴社専用の戦略チームとして、 高度な WEB マーケとブランド戦略で、 事業成長に伴走します。
       </PDef>
-
-      <div class="mx-auto mt-6 flex max-w-[880px] flex-col items-center gap-6 md:flex-row md:justify-center md:gap-10">
+      <div class="mx-auto flex max-w-[880px] flex-col items-center gap-6 md:flex-row md:justify-center md:gap-10">
         <PricingNavCard variant="pro" href={pricingProHash} />
         <PricingNavCard variant="advisor" href={pricingAdvisorHash} />
       </div>
