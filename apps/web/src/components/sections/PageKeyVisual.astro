@@ -12,7 +12,7 @@ interface Props {
 const { class: className = "", showBackgroundImage = false, backgroundImage = "/images/bg-office.jpg", waveFill = "#fff" } = Astro.props;
 ---
 
-<header id="page-header" class:list={["page-key-visual relative w-full overflow-hidden cta-section__contact-bg", className]} aria-labelledby="page-header" data-name="page-header">
+<header id="page-header" class:list={["page-key-visual relative w-full overflow-hidden bg-gradation-maincolor", className]} aria-labelledby="page-header" data-name="page-header">
   <div class="relative z-10 mx-auto w-full max-w-(--container) px-4 py-12">
     <slot />
   </div>

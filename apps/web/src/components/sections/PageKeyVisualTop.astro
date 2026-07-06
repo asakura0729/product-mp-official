@@ -1,16 +1,21 @@
 ---
 import CtaContact from "../ui/CtaContact.astro";
+import { SITE_NAME } from "../../data/navigation";
+
+const keyVisualAlt = `「${SITE_NAME}」これまでの常識を一新するWeb広告運用の新しい時代へ`;
 ---
 
 <header id="key-visual" class="relative w-full overflow-x-hidden" aria-label="キービジュアル">
-  <div class="key-visual__stage relative h-[580px] w-full overflow-x-hidden md:h-[480px]">
-    <canvas id="key-visual-inner" class="cta-section__contact-bg absolute inset-0 h-full w-full" aria-hidden="true"></canvas>
+  <div id="key-visual-inner" class="key-visual__stage relative h-[580px] w-full overflow-x-hidden md:h-[480px] bg-(--main-bg) z-10">
+    <canvas id="key-visual-canvas" class="bg-gradation-maincolor absolute inset-0 h-full w-full z-10" aria-hidden="true"></canvas>
 
-    <div class="key-visual__overlay pointer-events-none absolute inset-0 z-10 mx-auto w-full max-w-(--container) overflow-hidden">
-      <div class="absolute top-6 left-[10%] w-[80%] md:top-12 md:left-0 md:flex md:w-[450px] md:items-center md:pb-10 z-40">
-        <img src="/images/keyvisual-home-h1.png" alt="これまでの常識を一新するWeb広告運用の新しい時代へ" class="h-auto w-full" width="520" height="200" loading="eager" />
-      </div>
+    <div class="pointer-events-none absolute inset-0 z-20 mx-auto w-full max-w-(--container) overflow-hidden">
+      <!--見出し -->
+      <h1 class="absolute top-6 left-1/2 -translate-x-1/2 z-40 w-[340px] md:left-5 md:flex md:w-[400px] md:translate-x-0 md:items-center md:top-12 md:pb-10 lg:left-0 lg:w-[450px]">
+        <img src="/images/keyvisual-home-h1.png" alt={keyVisualAlt} class="h-auto w-full crisp-edges" width="520" height="200" loading="eager" />
+      </h1>
 
+      <!--図形：ゼロ -->
       <svg
         class="absolute right-[100px] bottom-[20px] w-[150px] opacity-70 md:w-[200px] md:bottom-[110px] md:right-[240px] md:block z-20"
         viewBox="0 0 600 600"
@@ -22,30 +27,37 @@ import CtaContact from "../ui/CtaContact.astro";
         <path fill="#ffffff" fill-rule="evenodd" d="M300 30a177 270 0 1 1 0 540a177 270 0 1 1 0-540M300 106a86 194 0 1 0 0 388a86 194 0 1 0 0-388"></path>
       </svg>
 
+      <!--写真：女性 -->
       <img
         src="/images/keyvisual-woman.png?v=20260702213220"
         alt="女性"
-        class="absolute right-[-50px] bottom-[-50px] w-[240px] z-30 h-auto md:w-[360px] md:right-0 md:bottom-[-90px]"
+        class="absolute right-[-50px] bottom-[-50px] w-[240px] z-30 h-auto md:right-0 md:bottom-[-90px] md:w-[360px]"
         width="320"
         height="430"
         aria-hidden="true"
       />
 
+      <!--フキダシ：完全定額！運用手数料ゼロ -->
       <img
         src="/images/keyvisual-home-baloon_sp.png"
         alt="完全定額！運用手数料ゼロ"
-        class="absolute w-[120px] bottom-[180px] right-[120px] z-50 md:w-[160px] md:bottom-[350px] md:right-[200px]"
+        class="absolute w-[120px] bottom-[225px] right-[100px] z-50 md:w-[160px] md:bottom-[350px] md:right-[200px]"
         width="150"
         height="80"
         loading="eager"
       />
     </div>
-    <svg class="absolute inset-x-0 bottom-0 z-20 block h-[20px] w-full" viewBox="0 0 1280 21.8" preserveAspectRatio="none" aria-hidden="true">
+
+    <div id="key-visual-loading" class="absolute inset-0 z-[60] h-full w-full bg-(--main-bg) transition-opacity duration-500">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-10 w-10 animate-spin rounded-full border-4 border-white/30 border-t-white" role="status" aria-label="Loading"></div>
+    </div>
+
+    <svg class="absolute inset-x-0 bottom-0 block h-[20px] w-full z-40" viewBox="0 0 1280 21.8" preserveAspectRatio="none" aria-hidden="true">
       <path fill="#ffffff" d="M1280,21.8C1227.6,9.4,961,0,640,0S52.4,9.4,0,21.8h1280Z"></path>
     </svg>
   </div>
 
-  <div class="relative mx-auto w-full max-w-[600px] pt-(--pd-middle) pb-(--pd-large) px-(--pd-middle) md:-mt-[70px] md:pb-10 z-30">
+  <div class="relative mx-auto w-full max-w-[600px] pt-(--pd-middle) pb-(--pd-large) px-(--pd-middle) md:-mt-[70px] md:pb-10 z-20">
     <CtaContact bordered />
   </div>
 </header>
@@ -94,8 +106,54 @@ import CtaContact from "../ui/CtaContact.astro";
     return isMobileViewport() ? MOBILE_CONFIG : DESKTOP_CONFIG;
   }
 
-  const canvas = document.getElementById("key-visual-inner");
+  const canvas = document.getElementById("key-visual-canvas");
   const stage = canvas?.parentElement;
+  const loadingEl = document.getElementById("key-visual-loading");
+  let domImagesReady = false;
+  let loadingHideScheduled = false;
+
+  function tryHideLoading() {
+    if (!domImagesReady || !imagesReady || !loadingEl || loadingHideScheduled) return;
+    loadingHideScheduled = true;
+
+    setTimeout(() => {
+      const hide = () => loadingEl.classList.add("hidden");
+
+      loadingEl.classList.add("opacity-0");
+      loadingEl.addEventListener(
+        "transitionend",
+        (event) => {
+          if (event.propertyName === "opacity") hide();
+        },
+        { once: true },
+      );
+      setTimeout(hide, 600);
+    }, 500);
+  }
+
+  function waitForDomImages(container) {
+    const imgs = container.querySelectorAll("img");
+    return Promise.all(
+      Array.from(imgs).map(
+        (img) =>
+          new Promise((resolve) => {
+            if (img.complete && img.naturalHeight !== 0) {
+              resolve();
+              return;
+            }
+            img.addEventListener("load", resolve, { once: true });
+            img.addEventListener("error", resolve, { once: true });
+          }),
+      ),
+    );
+  }
+
+  if (stage) {
+    waitForDomImages(stage).then(() => {
+      domImagesReady = true;
+      tryHideLoading();
+    });
+  }
 
   let config = getConfigForViewport();
   let isMobile = isMobileViewport();
@@ -195,6 +253,14 @@ import CtaContact from "../ui/CtaContact.astro";
   }
 
   let loadedCount = 0;
+  function markTextureLoaded() {
+    loadedCount++;
+    if (loadedCount === DESKTOP_CONFIG.IMAGE_COUNT) {
+      imagesReady = true;
+      tryHideLoading();
+    }
+  }
+
   for (let i = 1; i <= DESKTOP_CONFIG.IMAGE_COUNT; i++) {
     const id = String(i).padStart(2, "0");
     const index = i - 1;
@@ -207,13 +273,13 @@ import CtaContact from "../ui/CtaContact.astro";
           map: texture,
           side: THREE.DoubleSide,
         });
-        loadedCount++;
-        if (loadedCount === DESKTOP_CONFIG.IMAGE_COUNT) {
-          imagesReady = true;
-        }
+        markTextureLoaded();
       },
       undefined,
-      () => console.error(`Failed to load image/slide-${id}.png`),
+      () => {
+        console.error(`Failed to load image/slide-${id}.png`);
+        markTextureLoaded();
+      },
     );
   }
 
