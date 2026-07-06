@@ -1,6 +1,7 @@
 ---
 import SiteLogo from "./SiteLogo.astro";
 import CtaContact from "../ui/CtaContact.astro";
+import IconHome from "../ui/IconHome.astro";
 import { mobileNavItems } from "../../data/navigation";
 ---
 
@@ -52,16 +53,7 @@ import { mobileNavItems } from "../../data/navigation";
 							@click="$store.layout.closeMenu()"
 						>
 							{item.href === "/" && (
-								<svg
-									class="size-5 shrink-0 text-[#888]"
-									viewBox="0 0 24 24"
-									fill="none"
-									stroke="currentColor"
-									stroke-width="2"
-									aria-hidden="true"
-								>
-									<path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V9.5z" />
-								</svg>
+								<IconHome class="size-5 shrink-0 text-[#888]" />
 							)}
 							<span class="flex-1 text-base">{item.label}</span>
 							{item.external && (

@@ -62,7 +62,7 @@ const pageTitle = isTopPage ? title : `${title} | ${SITE_NAME}`;
     <SiteHeader />
     <MobileNav />
 
-    {breadcrumb && <LayoutBreadcrumb items={[{ label: "ホーム", href: ROUTES.home }, { label: breadcrumb }]} />}
+    {breadcrumb && <LayoutBreadcrumb items={[{ label: "ホーム", href: ROUTES.home, icon: "home" }, { label: breadcrumb }]} />}
 
     <main class="layout__main min-h-[1000px]">
       <slot />

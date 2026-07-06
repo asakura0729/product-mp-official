@@ -1,7 +1,12 @@
 ---
+import IconHome from '../ui/IconHome.astro';
+
 export type BreadcrumbItem = {
+	/** JSON-LD・アクセシビリティ用のラベル */
 	label: string;
 	href?: string;
+	/** 表示をアイコンに差し替える */
+	icon?: 'home';
 };
 
 interface Props {
@@ -55,9 +60,14 @@ const breadcrumbJsonLd = {
 					{item.href ? (
 						<a
 							href={item.href}
-							class="transition-opacity hover:opacity-80"
+							class="inline-flex items-center transition-opacity hover:opacity-80"
+							aria-label={item.icon ? item.label : undefined}
 						>
-							{item.label}
+							{item.icon === 'home' ? (
+								<IconHome class="size-5 shrink-0 text-[#fff]" />
+							) : (
+								item.label
+							)}
 						</a>
 					) : (
 						<span aria-current="page">{item.label}</span>
