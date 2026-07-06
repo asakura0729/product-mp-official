@@ -1,117 +1,88 @@
 ---
 type FeatureItem = {
-	text: string;
+  text: string;
 };
 
 interface Props {
-	/** ヘッダー上段（例: プロ運用） */
-	planLead?: string;
-	/** ヘッダー下段（例: ライトプラン） */
-	planTitle: string;
-	/** キャッチコピー */
-	catchLine: string;
-	/** 月額価格（万円）。priceLabel 未指定時に使用 */
-	price?: string;
-	/** 価格表示をカスタム（例: 案件規模見積） */
-	priceLabel?: string;
-	/** 説明文 */
-	description: string;
-	/** 機能リスト */
-	features: FeatureItem[];
-	/** default: 詳細表示 / summary: キャッチと価格のみ */
-	variant?: 'default' | 'summary';
-	headerBgClass?: string;
-	catchColorClass?: string;
-	bulletColorClass?: string;
-	class?: string;
+  /** ヘッダー上段（例: プロ運用） */
+  planLead?: string;
+  /** ヘッダー下段（例: ライトプラン） */
+  planTitle: string;
+  /** キャッチコピー */
+  catchLine: string;
+  /** 月額価格（万円）。priceLabel 未指定時に使用 */
+  price?: string;
+  /** 価格表示をカスタム（例: 案件規模見積） */
+  priceLabel?: string;
+  /** 説明文 */
+  description: string;
+  /** 機能リスト */
+  features: FeatureItem[];
+  /** default: 詳細表示 / summary: キャッチと価格のみ */
+  variant?: "default" | "summary";
+  headerBgClass?: string;
+  catchColorClass?: string;
+  bulletColorClass?: string;
+  class?: string;
 }
 
 const {
-	planLead,
-	planTitle,
-	catchLine,
-	price,
-	priceLabel,
-	description,
-	features,
-	variant = 'default',
-	headerBgClass = 'bg-(--main-bg)',
-	catchColorClass = 'text-(--main-bg)',
-	bulletColorClass = 'text-(--main-bg)',
-	class: className = '',
+  planLead,
+  planTitle,
+  catchLine,
+  price,
+  priceLabel,
+  description,
+  features,
+  variant = "default",
+  headerBgClass = "bg-(--main-bg)",
+  catchColorClass = "text-(--main-bg)",
+  bulletColorClass = "text-(--main-bg)",
+  class: className = "",
 } = Astro.props;
 ---
 
-<div
-	class:list={[
-		'card-plan w-full overflow-hidden rounded-(--border-radius) border border-(--border) bg-(--base-bg-lgray)',
-		className,
-	]}
-	data-name="card-plan"
->
-	<header
-		class:list={[
-			'w-full p-2 text-center',
-			headerBgClass,
-			variant === 'summary' && 'py-2',
-		]}
-	>
-		{
-			planLead && (
-				<p class="text-base leading-6 font-medium text-(--white)">{planLead}</p>
-			)
-		}
-		<p class="text-lg leading-6 font-medium text-(--white)">{planTitle}</p>
-	</header>
+<div class:list={["card-plan w-full overflow-hidden rounded-(--border-radius) border border-(--border) bg-(--base-bg-lgray)", className]} data-name="card-plan">
+  <header class:list={["w-full p-2 text-center", headerBgClass, variant === "summary" && "py-2"]}>
+    {planLead && <p class="text-base leading-6 font-medium text-(--white)">{planLead}</p>}
+    <p class="text-lg leading-6 font-medium text-(--white)">{planTitle}</p>
+  </header>
 
-	<div
-		class:list={[
-			'w-full px-4 md:min-h-[210px] bg-(--white)',
-			variant === 'summary' ? 'space-y-3 py-6' : 'space-y-4 pt-4 pb-6',
-		]}
-	>
-		<p
-			class:list={[
-				'text-center text-(--base-text) pb-2',
-				variant === 'summary' ? 'text-sm leading-6 font-normal' : ['lg:text-lg leading-6 font-bold', catchColorClass],
-			]}
-		>
-			{catchLine}
-		</p>
+  <div class:list={["w-full px-4 md:min-h-[210px] bg-(--white)", variant === "summary" ? "space-y-3 py-6" : "space-y-4 pt-4 pb-6"]}>
+    <p class:list={["text-center text-(--base-text) pb-2", variant === "summary" ? "text-sm leading-6 font-normal" : ["lg:text-lg leading-6 font-bold", catchColorClass]]}>
+      {catchLine}
+    </p>
 
-		<p class:list={['text-(--base-text)', variant === 'summary' ? 'text-center' : 'text-right']}>
-			{
-				priceLabel ? (
-					<span class:list={['font-bold', variant === 'summary' ? 'text-2xl leading-8' : 'text-2xl leading-5']}>{priceLabel}</span>
-				) : (
-					<>
-						<span class="text-2xl leading-5 font-bold pr-1">月額</span>{' '}
-						<span class="font-family-din text-[48px] leading-5 font-bold text-(--accent-strong)"
-							>{price}</span
-						>{' '}
-						<span class="text-2xl leading-5 font-bold pl-1">万円～</span>
-					</>
-				)
-			}
-		</p>
+    <p class:list={["text-(--base-text)", variant === "summary" ? "text-center" : "text-right"]}>
+      {
+        priceLabel ? (
+          <span class:list={["font-bold", variant === "summary" ? "text-2xl leading-8" : "text-2xl leading-5"]}>{priceLabel}</span>
+        ) : (
+          <>
+            <span class="lg:text-2xl leading-5 font-bold">月額</span>
+            <span class="font-family-din text-4xl lg:text-[48px] leading-5 font-bold text-(--accent-strong)">{price}</span>{" "}
+            <>
+              <span class="lg:text-2xl leading-5 font-bold">万円～</span><span class="text-sm">（税別）</span>
+            </>
+          </>
+        )
+      }
+    </p>
 
-		{variant === 'default' && <p class="text-sm leading-6 text-(--base-text)">{description}</p>}
-	</div>
+    {variant === "default" && <p class="text-sm leading-6 text-(--base-text)">{description}</p>}
+  </div>
 
-	{
-		variant === 'default' && (
-			<div class="w-full px-4 pt-4 pb-6 md:min-h-[210px]">
-				<ul class="list-none text-sm leading-[27px] text-(--base-text)">
-					{
-						features.map((item) => (
-							<li>
-								<span class:list={['leading-[27px]', bulletColorClass]}>●</span>{' '}
-								{item.text}
-							</li>
-						))
-					}
-				</ul>
-			</div>
-		)
-	}
+  {
+    variant === "default" && (
+      <div class="w-full px-4 pt-4 pb-6 md:min-h-[210px]">
+        <ul class="list-none text-sm leading-[27px] text-(--base-text)">
+          {features.map((item) => (
+            <li>
+              <span class:list={["leading-[27px]", bulletColorClass]}>●</span> {item.text}
+            </li>
+          ))}
+        </ul>
+      </div>
+    )
+  }
 </div>

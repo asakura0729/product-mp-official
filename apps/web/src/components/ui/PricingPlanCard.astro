@@ -27,7 +27,7 @@ const { planLead, planTitle, catchLine, price, priceLabel, description, budgetLa
     }
   </div>
 
-  <div class="flex flex-col items-center gap-4 px-3 pt-3 pb-6">
+  <div class="flex flex-col items-center gap-4 px-3 pt-3 pb-6 lg:min-h-[200px]">
     <p class="text-center text-l pb-1 leading-6 font-bold text-(--main-bg)">{catchLine}</p>
     <p class="w-full text-right text-(--base-text)">
       {
@@ -35,8 +35,9 @@ const { planLead, planTitle, catchLine, price, priceLabel, description, budgetLa
           <span class="text-2xl leading-5 font-bold pr-3">{priceLabel}</span>
         ) : (
           <>
-            <span class="text-2xl leading-5 font-bold">月額</span> <span class="font-family-din text-[48px] leading-5 font-bold text-(--accent-strong)">{price}</span>{" "}
-            <span class="text-2xl leading-5 font-bold">万円 ~</span>
+            <span class="lg:text-2xl leading-5 font-bold">月額</span>
+            <span class="font-family-din text-4xl lg:text-[48px] leading-5 font-bold text-(--accent-strong)">{price}</span>{" "}
+            <span class="lg:text-2xl leading-5 font-bold">万円～</span><span class="text-sm">（税別）</span>
           </>
         )
       }
@@ -45,8 +46,8 @@ const { planLead, planTitle, catchLine, price, priceLabel, description, budgetLa
   </div>
 
   <div class="border-t border-(--border) px-4 py-4 text-center">
-    <p class="text-l leading-[21px] font-semibold text-(--base-text)">広告予算目安</p>
-    <p class="mt-2 text-lg leading-7 text-(--base-text)">{budgetLabel}</p>
+    <p class="pb-1 text-l leading-[21px] font-semibold text-(--base-text)">広告予算目安</p>
+    <p class="text-lg leading-7 text-(--base-text)">{budgetLabel}</p>
   </div>
 
   <div class="border-t border-(--border) px-4 py-4 text-center">
@@ -54,6 +55,6 @@ const { planLead, planTitle, catchLine, price, priceLabel, description, budgetLa
     <p class="mt-2 text-(--base-text)">
       <span class="text-[40px] leading-7 font-bold">０</span><span class="text-2xl leading-7 font-bold">円</span>
     </p>
-    <p class="mt-4 text-sm leading-6 text-(--base-text)">※ 広告費は 100% 運用実費に充当</p>
+    <p class="text-xs leading-6 text-(--base-text)">※ 広告費は 100% 運用実費に充当</p>
   </div>
 </div>
