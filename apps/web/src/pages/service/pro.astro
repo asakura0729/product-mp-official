@@ -11,10 +11,11 @@ import CardFaq from "../../components/ui/CardFaq.astro";
 import BtnLink from "../../components/ui/BtnLink.astro";
 import SecPortfolio from "../../components/ui/SecPortfolio.astro";
 import PageKeyVisual from "../../components/sections/PageKeyVisual.astro";
+import { pricingProHref } from "../../data/pricing";
 import { proPlans, apoSteps, onboardingSteps, contractTable, proFaqs, traditionalComparison, apoComparison } from "../../data/pro-light";
 ---
 
-<Layout title="プロ運用プラン | 集客のチカラ" breadcrumb="プロ運用プラン" showCtaSectionIntro={false}>
+<Layout title="プロ運用プラン" breadcrumb="プロ運用プラン" showCtaSectionIntro={false}>
   <PageKeyVisual showBackgroundImage={true} backgroundImage="/images/bg-service-pro.png">
     <div class="relative flex flex-col items-center w-full max-w-[420px] h-[280px] mx-auto pt-1 pb-[350px] text-center z-30 md:ml-auto md:mr-[calc(50%-450px)] md:justify-center md:pt-0 md:pb-0">
       <h1 id="pro-kv-heading" class="font-semibold text-(--white) text-4xl md:text-5xl pb-4 md:pb-6 tracking-widest">プロ運用プラン</h1>
@@ -84,7 +85,9 @@ import { proPlans, apoSteps, onboardingSteps, contractTable, proFaqs, traditiona
         </div>
 
         <div class="flex justify-center">
-          <BtnLink href="/pricing#pricing-pro" label="サービス・料金の詳細はこちら" />
+          <BtnLink href={pricingProHref}>
+            サービス・料金の詳細はこちら
+          </BtnLink>
         </div>
       </div>
     </div>
@@ -356,10 +359,10 @@ import { proPlans, apoSteps, onboardingSteps, contractTable, proFaqs, traditiona
   </section>
 
   <!-- 第7セクション（フッター前） -->
-  <section class="bg-(--main-bg-sub) px-4 py-8" aria-labelledby="pro-sec7-heading">
+  <section class="bg-(--main-bg-sub) px-4 pt-8 pb-9" aria-labelledby="pro-sec7-heading">
     <div class="mx-auto w-full max-w-(--container)">
-      <HeaderH2 id="pro-sec7-heading" class="mx-auto text-(--main-text)"> 今の広告運用と手数料、本当に適正ですか？ </HeaderH2>
-      <PDef class="text-center"> まずは、貴社の「手数料コストの適正化診断」から 「手数料ゼロ化のシミュレーション」まで、無料で行います。 </PDef>
+      <strong class="pb-2 font-bold text-2xl leading-9 md:text-3xl md:leading-10 block text-(--main-text) text-center"> 今の広告運用と手数料、本当に適正ですか？ </strong>
+      <p class="text-center pb-0"> まずは、貴社の「手数料コストの適正化診断」から 「手数料ゼロ化のシミュレーション」まで、無料で行います。 </p>
     </div>
   </section>
 </Layout>

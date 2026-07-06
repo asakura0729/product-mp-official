@@ -1,0 +1,20 @@
+---
+interface Props {
+	/** 見出しの id（aria-labelledby 等に使用） */
+	id?: string;
+	class?: string;
+}
+
+const { id, class: className = '' } = Astro.props;
+
+const titleClasses =
+	'text-3xl leading-10 pb-4 text-center font-semibold text-(--white) md:text-4xl tracking-widest';
+---
+
+<h1
+	id={id}
+	class:list={['header-h1', titleClasses, className]}
+	data-name="header-h1"
+>
+	<slot />
+</h1>

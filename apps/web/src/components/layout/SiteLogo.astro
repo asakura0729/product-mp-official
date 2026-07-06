@@ -1,4 +1,6 @@
 ---
+import { ROUTES } from '../../data/routes';
+
 interface Props {
 	class?: string;
 }
@@ -6,7 +8,7 @@ interface Props {
 const { class: className = '' } = Astro.props;
 ---
 
-<a href="/" class:list={['site-logo inline-block shrink-0', className]}>
+<a href={ROUTES.home} class:list={['site-logo inline-block shrink-0', className]}>
 	<img
 		src="/images/logo-site.png"
 		alt="集客のチカラ"

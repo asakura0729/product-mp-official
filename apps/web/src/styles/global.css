@@ -13,7 +13,8 @@
   --accent-cta: #d27539;
   --border: #dddddd;
   --border-link: #cccccc;
-  --main-text: #2b5696;
+  --main-text: #2f66b7;
+  /*#2b5696*/
   --main-bg: #294c7a;
   --main-bg-sub: #e0f2ff;
   --base-bg-lgray: #f5f5f5;
@@ -68,7 +69,7 @@
   display: none !important;
 }
 
-button{
+button {
   cursor: pointer;
 }
 

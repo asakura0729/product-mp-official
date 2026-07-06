@@ -1,3 +1,5 @@
+import { ROUTES, routeWithHash } from './routes';
+
 export type PlanMark = '●' | '△' | 'ー';
 
 export type PricingPlanDetail = {
@@ -13,6 +15,22 @@ export type PricingPlanDetail = {
 
 export const pricingIntro =
 	'貴社専用の戦略チームとして、 高度な WEB マーケとブランド戦略で、 事業成長に伴走します。';
+
+export const PRICING_SECTIONS = {
+	pro: 'pricing-pro',
+	advisor: 'pricing-advisor',
+} as const;
+
+export const pricingProHref = routeWithHash(
+	ROUTES.pricing,
+	PRICING_SECTIONS.pro,
+);
+export const pricingAdvisorHref = routeWithHash(
+	ROUTES.pricing,
+	PRICING_SECTIONS.advisor,
+);
+export const pricingProHash = `#${PRICING_SECTIONS.pro}`;
+export const pricingAdvisorHash = `#${PRICING_SECTIONS.advisor}`;
 
 export const proPricingPlans: PricingPlanDetail[] = [
 	{

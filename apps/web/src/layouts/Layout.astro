@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { SITE_URL, SITE_NAME, ROUTES } from "../data/navigation";
 import SiteHeader from "../components/layout/SiteHeader.astro";
 import MobileNav from "../components/layout/MobileNav.astro";
 import LayoutBreadcrumb from "../components/layout/LayoutBreadcrumb.astro";
@@ -18,38 +19,50 @@ interface Props {
   showCtaSectionIntro?: boolean;
   /** CTA問い合わせブロックを表示する */
   showCtaSectionContact?: boolean;
+  /** メタディスクリプション */
+  metaDescription?: string;
+  /** ページサムネイル */
+  metaThumbnail?: string;
 }
 
 const {
-  title = "集客のチカラ",
+  title = SITE_NAME,
   breadcrumb,
   showCtaSectionIntro = true,
   showCtaSectionContact = true,
+  metaDescription = `${SITE_NAME}は、WEB広告運用のプロフェッショナルが、貴社の集客を最大化するためのサービスです。`,
+  metaThumbnail = "/images/pagethum-site.png",
 } = Astro.props;
 
 const showCtaSection = showCtaSectionIntro || showCtaSectionContact;
-const ctaSectionLabelledBy =
-  showCtaSectionIntro ? "cta-heading" : "cta-contact-heading";
+const ctaSectionLabelledBy = showCtaSectionIntro ? "cta-heading" : "cta-contact-heading";
+const isTopPage = Astro.url.pathname === "/";
+const pageTitle = isTopPage ? title : `${title} | ${SITE_NAME}`;
 ---
 
 <!doctype html>
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={metaDescription} />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="thumbnail" content={metaThumbnail} />
+    <title>{pageTitle}</title>
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="/svg/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <title>{title}</title>
+    <link rel="canonical" href={SITE_URL} />
   </head>
   <body x-data class="layout min-h-screen bg-white font-sans text-(--base-text) antialiased">
     <SiteHeader />
     <MobileNav />
 
-    {breadcrumb && <LayoutBreadcrumb items={[{ label: "ホーム", href: "/" }, { label: breadcrumb }]} />}
+    {breadcrumb && <LayoutBreadcrumb items={[{ label: "ホーム", href: ROUTES.home }, { label: breadcrumb }]} />}
 
     <main class="layout__main min-h-[1000px]">
       <slot />

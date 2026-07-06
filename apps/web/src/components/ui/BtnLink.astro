@@ -1,13 +1,10 @@
 ---
 interface Props {
 	href: string;
-	/** ボタン表示テキスト（slot 未指定時に使用） */
-	label?: string;
 	class?: string;
 }
 
-const { href, label = '詳細はこちら', class: className = '' } = Astro.props;
-const hasSlot = Astro.slots.has('default');
+const { href, class: className = '' } = Astro.props;
 ---
 
 <a
@@ -32,6 +29,6 @@ const hasSlot = Astro.slots.has('default');
 	</svg>
 
 	<span class="btn-link__label px-8 text-center text-[16px] leading-(--line-height-default) font-medium break-words whitespace-pre-wrap text-(--base-text)">
-		{hasSlot ? <slot /> : label}
+		<slot>詳細はこちら</slot>
 	</span>
 </a>

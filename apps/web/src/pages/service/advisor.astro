@@ -6,10 +6,11 @@ import CardDef from "../../components/ui/CardDef.astro";
 import Fukidashi from "../../components/ui/Fukidashi.astro";
 import BtnLink from "../../components/ui/BtnLink.astro";
 import PageKeyVisual from "../../components/sections/PageKeyVisual.astro";
+import { pricingAdvisorHref } from "../../data/pricing";
 import { advisorConcerns, serviceFeatures } from "../../data/advisor";
 ---
 
-<Layout title="専属顧問プラン | 集客のチカラ" breadcrumb="専属顧問プラン">
+<Layout title="専属顧問プラン" breadcrumb="専属顧問プラン">
   <!-- キービジュアル -->
   <PageKeyVisual showBackgroundImage={true} backgroundImage="/images/bg-service-advisor.png" waveFill="#f5f5f5">
     <div class="relative flex flex-col items-center w-full max-w-[420px] h-[280px] mx-auto pt-1 pb-[350px] text-center z-30 md:ml-auto md:mr-[calc(50%-450px)] md:justify-center md:pt-0 md:pb-0">
@@ -141,7 +142,9 @@ import { advisorConcerns, serviceFeatures } from "../../data/advisor";
         <img src="/images/pic-report_check.png" alt="虫眼鏡のイラスト" class="pointer-events-none size-[61px] shrink-0 object-contain ml-auto" width="61" height="61" aria-hidden="true" />
       </div>
       <div class="mt-6 flex justify-center">
-        <BtnLink href="/pricing#pricing-advisor" label="サービス・料金の詳細はこちら" />
+        <BtnLink href={pricingAdvisorHref}>
+          サービス・料金の詳細はこちら
+        </BtnLink>
       </div>
     </div>
   </section>

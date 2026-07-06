@@ -10,6 +10,28 @@ interface Props {
 }
 
 const { items, class: className = "" } = Astro.props;
+
+const siteOrigin = Astro.url.origin;
+
+function resolveItemUrl(href: string | undefined): string {
+	if (href) {
+		return new URL(href, siteOrigin).href;
+	}
+	return new URL(Astro.url.pathname, siteOrigin).href;
+}
+
+const breadcrumbJsonLd = {
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	itemListElement: items.map((item, index) => ({
+		"@type": "ListItem",
+		position: index + 1,
+		item: {
+			"@id": resolveItemUrl(item.href),
+			name: item.label,
+		},
+	})),
+};
 ---
 
 <nav
@@ -45,3 +67,5 @@ const { items, class: className = "" } = Astro.props;
 		}
 	</ol>
 </nav>
+
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />

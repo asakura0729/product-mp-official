@@ -1,3 +1,8 @@
+import {
+	aboutFixedPricingHref,
+	aboutPortfolioHref,
+} from './about-sections';
+
 export const problems = [
 	{
 		image: '/images/illust-graph-down.png',
@@ -38,14 +43,14 @@ export const features: FeatureCard[] = [
 		imageAlt: 'コストダウンのイラスト',
 		title: '広告運用は完全定額',
 		description: '広告費に連動しない 料金体系で、\n削減分を 貴社の成長投資へ',
-		href: '/about#sec3',
+		href: aboutFixedPricingHref,
 	},
 	{
 		image: '/images/graph-portfolio_1.png',
 		imageAlt: 'ポートフォリオ運用のイラスト',
 		title: '貴社専用のポートフォリオ運用',
 		description: '貴社の目的・目標に合わせて 媒体配分を\n「専用設計」いたします',
-		href: '/about#sec6',
+		href: aboutPortfolioHref,
 	},
 	{
 		image: '/images/illust-mushimegane.png',

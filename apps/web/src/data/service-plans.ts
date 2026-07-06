@@ -1,3 +1,5 @@
+import { ROUTES } from './routes';
+
 export type ServicePlanVariant = 'pro' | 'advisor';
 
 type FeatureItem = {
@@ -25,7 +27,7 @@ export const servicePlans: Record<ServicePlanVariant, ServicePlan> = {
 	pro: {
 		variant: 'pro',
 		dataName: 'btn-service-pro',
-		href: '/service/pro',
+		href: ROUTES.servicePro,
 		title: 'プロ運用プラン',
 		imageSrc: '/images/thum-service-pro_light.png',
 		imageAlt: 'プロ運用プランのイメージ',
@@ -50,7 +52,7 @@ export const servicePlans: Record<ServicePlanVariant, ServicePlan> = {
 	advisor: {
 		variant: 'advisor',
 		dataName: 'btn-service-advisor',
-		href: '/service/advisor',
+		href: ROUTES.serviceAdvisor,
 		title: '専属顧問プラン',
 		imageSrc: '/images/thum-service-exclusive_advisor.png',
 		imageAlt: '専属顧問プランのイメージ',

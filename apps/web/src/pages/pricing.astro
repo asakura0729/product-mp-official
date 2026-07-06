@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import HeaderH1 from "../components/ui/HeaderH1.astro";
 import HeaderH2 from "../components/ui/HeaderH2.astro";
 import HeaderH3 from "../components/ui/HeaderH3.astro";
 import PDef from "../components/ui/PDef.astro";
@@ -9,6 +10,9 @@ import PlanCompareTable from "../components/ui/PlanCompareTable.astro";
 import PageKeyVisual from "../components/sections/PageKeyVisual.astro";
 import {
   pricingIntro,
+  PRICING_SECTIONS,
+  pricingProHash,
+  pricingAdvisorHash,
   proPricingPlans,
   proPlanTableColumns,
   proPlanTableRows,
@@ -20,9 +24,9 @@ import {
 } from "../data/pricing";
 ---
 
-<Layout title="料金について | 集客のチカラ" breadcrumb="料金について">
+<Layout title="料金について" breadcrumb="料金について">
   <PageKeyVisual>
-    <h1 class="text-3xl leading-10 pb-4 text-center font-semibold text-(--white) md:text-4xl tracking-widest">料金について</h1>
+    <HeaderH1>料金について</HeaderH1>
   </PageKeyVisual>
 
   <!-- ローカルナビゲーション -->
@@ -33,16 +37,16 @@ import {
       </PDef>
 
       <div class="mx-auto mt-6 flex max-w-[880px] flex-col items-center gap-6 md:flex-row md:justify-center md:gap-10">
-        <PricingNavCard variant="pro" href="#pricing-pro" />
-        <PricingNavCard variant="advisor" href="#pricing-advisor" />
+        <PricingNavCard variant="pro" href={pricingProHash} />
+        <PricingNavCard variant="advisor" href={pricingAdvisorHash} />
       </div>
     </div>
   </section>
 
   <!-- 第1セクション：プロ運用プラン -->
-  <section id="pricing-pro" class="scroll-mt-20 px-4 py-8 md:py-12" aria-labelledby="pricing-pro-heading">
+  <section id={PRICING_SECTIONS.pro} class="scroll-mt-20 px-4 py-8 md:py-12" aria-labelledby={`${PRICING_SECTIONS.pro}-heading`}>
     <div class="mx-auto w-full max-w-(--container)">
-      <HeaderH2 id="pricing-pro-heading" class="mx-auto">
+      <HeaderH2 id={`${PRICING_SECTIONS.pro}-heading`} class="mx-auto">
         プロ運用プラン
         <Fragment slot="summary"> 広告代理 手数料を ゼロに！WEB広告運用をプロが全面サポート </Fragment>
       </HeaderH2>
@@ -75,9 +79,9 @@ import {
   </section>
 
   <!-- 第2セクション：専属顧問プラン -->
-  <section id="pricing-advisor" class="scroll-mt-20 bg-(--base-bg-lgray) px-4 py-8 md:py-12" aria-labelledby="pricing-advisor-heading">
+  <section id={PRICING_SECTIONS.advisor} class="scroll-mt-20 bg-(--base-bg-lgray) px-4 py-8 md:py-12" aria-labelledby={`${PRICING_SECTIONS.advisor}-heading`}>
     <div class="mx-auto w-full max-w-(--container)">
-      <HeaderH2 id="pricing-advisor-heading" class="mx-auto">
+      <HeaderH2 id={`${PRICING_SECTIONS.advisor}-heading`} class="mx-auto">
         専属顧問プラン
         <Fragment slot="summary"> WEB 広告運用のプロフェッショナルによる 「専属顧問」という、新しい正解 </Fragment>
       </HeaderH2>
