@@ -16,6 +16,8 @@ interface Props {
 	emailLabelSp?: string;
 	/** 電話タップでモーダルを開く（false の場合は tel: リンク） */
 	openContactModal?: boolean;
+	/** 女性の写真を表示する */
+	dispImage?: boolean;
 	/** 外枠にオレンジボーダーを表示 */
 	bordered?: boolean;
 	class?: string;
@@ -29,6 +31,7 @@ const {
 	phoneLabelSp = '電話のお問い合わせはこちら',
 	emailLabelSp = 'メールでのお問い合わせはこちら',
 	openContactModal = true,
+	dispImage = true,
 	bordered = false,
 	class: className = '',
 } = Astro.props;
@@ -80,7 +83,7 @@ const telHref = `tel:${phoneNumber.replace(/-/g, '')}`;
 						)
 					}
 
-					<div class="absolute top-[15px] left-0 z-10 flex w-[74%] flex-col items-end gap-1">
+					<div class:list={['absolute top-[15px] left-0 z-10 flex flex-col items-end gap-1', dispImage ? 'w-[74%]' : 'w-[90%]']}>
 						<p
 							class="w-full pr-1 text-right text-(length:--font-size-small) font-semibold whitespace-nowrap text-(--base-text)"
 						>
@@ -101,14 +104,18 @@ const telHref = `tel:${phoneNumber.replace(/-/g, '')}`;
 						<p class="w-full text-right text-xs font-medium text-(--base-text)">{phoneHours}</p>
 					</div>
 
-					<img
-						src="/images/pic-woman-cta.png"
-						alt=""
-						class="pointer-events-none absolute top-[15px] right-[-12px] z-0 w-[94px] object-cover"
-						width="94"
-						height="116"
-						aria-hidden="true"
-					/>
+					{
+						dispImage && (
+							<img
+								src="/images/pic-woman-cta.png"
+								alt="女性の写真"
+								class="pointer-events-none absolute top-[15px] right-[-12px] z-0 w-[94px] object-cover"
+								width="94"
+								height="116"
+								aria-hidden="true"
+							/>
+						)
+					}
 				</div>
 			</div>
 		</div>
