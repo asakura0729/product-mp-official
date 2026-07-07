@@ -94,6 +94,15 @@
   padding: 12px 14px;
 }
 
+@media (min-width: 1024px) {
+  .desktop-form-checkbox-group {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 20px;
+  }
+}
+
 .desktop-form-checkbox-item {
   display: flex;
   align-items: center;
