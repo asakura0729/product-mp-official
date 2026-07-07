@@ -30,7 +30,8 @@
 
   /* Layout */
   --container: 900px;
-  --header-height: 50px;
+  --header-height-pc: 50px;
+  --header-height-sp: 60px;
   --min-width: 360px;
   --border-radius: 8px;
 

@@ -15,11 +15,9 @@ import {
   proPricingPlans,
   proPlanTableColumns,
   proPlanTableRows,
-  proPlanTableNotes,
   advisorPricingSummary,
   advisorPlanTableColumns,
   advisorPlanTableRows,
-  advisorPlanTableNotes,
 } from "../data/pricing";
 ---
 
@@ -31,7 +29,7 @@ import {
   <!-- ローカルナビゲーション -->
   <section class="px-4 pt-6 pb-8 md:pb-10" aria-label="プラン案内">
     <div class="mx-auto w-full max-w-(--container)">
-      <PDef class="mx-auto max-w-[900px] text-center text-sm leading-6 md:text-base">
+      <PDef class="mx-auto  md:text-center text-sm leading-6 md:text-base">
         貴社専用の戦略チームとして、 高度な WEB マーケとブランド戦略で、 事業成長に伴走します。
       </PDef>
       <div class="mx-auto flex max-w-[880px] flex-col items-center gap-6 md:flex-row md:justify-center md:gap-10">
@@ -46,10 +44,10 @@ import {
     <div class="mx-auto w-full max-w-(--container)">
       <HeaderH2 id={`${PRICING_SECTIONS.pro}-heading`} class="mx-auto">
         プロ運用プラン
-        <Fragment slot="summary"> 広告代理 手数料を ゼロに！WEB広告運用をプロが全面サポート </Fragment>
+        <Fragment slot="summary"> 広告代理 手数料を ゼロに！<br class="md:hidden" />WEB広告運用をプロが全面サポート </Fragment>
       </HeaderH2>
 
-      <div class="mx-auto grid max-w-[900px] grid-cols-1 gap-4 md:grid-cols-3">
+      <div class="mx-auto grid  grid-cols-1 gap-4 md:grid-cols-3">
         {
           proPricingPlans.map((plan) => (
             <CardPricingPlan
@@ -65,13 +63,13 @@ import {
         }
       </div>
 
-      <HeaderH3 align="center" class="mx-auto mt-10 max-w-[900px]"> サービス内容・プラン詳細 </HeaderH3>
+      <HeaderH3 align="center" class="mx-auto mt-10 "> サービス内容・プラン詳細 </HeaderH3>
 
-      <PlanCompareTable class="mx-auto max-w-[900px]" columns={proPlanTableColumns} rows={proPlanTableRows} />
+      <PlanCompareTable class="mx-auto " columns={proPlanTableColumns} rows={proPlanTableRows} />
 
-      <div class="mx-auto flex max-w-[900px] flex-col gap-2 text-sm leading-6 text-(--base-text) md:flex-row md:gap-4">
-        <p class="md:w-[40%]">{proPlanTableNotes.left}</p>
-        <p class="md:flex-1 md:text-center">{proPlanTableNotes.right}</p>
+      <div class="mx-auto flex flex-col gap-2 text-xs pt-2 leading-6 text-(--base-text) md:flex-row md:gap-4">
+        <p class="md:w-[40%]">※テンプレート以外の制作は別途お見積りとなります。</p>
+        <p class="md:flex-1 md:text-center"><span class="text-(--main-text)">●</span>：標準対応（※プランにより内容は異なります） ／ <span class="text-(--main-text)">△</span>：オプション ／ <span class="text-(--main-text)">ー</span>：対象外</p>
       </div>
     </div>
   </section>
@@ -84,7 +82,7 @@ import {
         <Fragment slot="summary"> WEB 広告運用のプロフェッショナルによる 「専属顧問」という、新しい正解 </Fragment>
       </HeaderH2>
 
-      <div class="mx-auto flex max-w-[900px] flex-col gap-6 lg:flex-row lg:items-start lg:gap-6">
+      <div class="mx-auto flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-6">
         <div class="w-full shrink-0 rounded-(--border-radius) border border-(--border) bg-(--white) px-4 py-6 lg:w-[289px]">
           <p class="text-right text-(--base-text)">
             <span class="text-2xl leading-5 font-bold">月額</span>{" "}
@@ -97,13 +95,13 @@ import {
         </div>
 
         <div class="min-w-0 flex-1 overflow-hidden rounded-(--border-radius) border border-(--border) bg-(--white)">
-          <PlanCompareTable columns={advisorPlanTableColumns} rows={advisorPlanTableRows} />
+          <PlanCompareTable columns={advisorPlanTableColumns} rows={advisorPlanTableRows} minWidth={500} />
         </div>
       </div>
 
-      <div class="mx-auto mt-4 flex max-w-[900px] flex-col gap-2 text-sm leading-6 text-(--base-text) md:flex-row md:gap-4">
-        <p class="md:w-[40%]">{advisorPlanTableNotes.left}</p>
-        <p class="md:flex-1 md:text-center">{advisorPlanTableNotes.right}</p>
+      <div class="mx-auto mt-4 flex  flex-col gap-2 text-xs leading-6 text-(--base-text) md:flex-row md:gap-4">
+        <p class="md:w-[40%]">※テンプレート以外の制作は別途お見積りとなります。</p>
+        <p class="md:flex-1 md:text-center"><span class="text-(--main-text)">●</span>：標準対応（※プランにより内容は異なります） ／ <span class="text-(--main-text)">△</span>：オプション ／ <span class="text-(--main-text)">ー</span>：対象外</p>
       </div>
     </div>
   </section>

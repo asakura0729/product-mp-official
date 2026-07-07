@@ -162,11 +162,6 @@ export const proPlanTableRows: ProTableRow[] = [
 	},
 ];
 
-export const proPlanTableNotes = {
-	left: '※テンプレート以外の制作は別途お見積りとなります。',
-	right: '●：標準対応（※プランにより内容は異なります） △：オプション　ー：対象外',
-};
-
 export const advisorPricingSummary = {
 	price: '5',
 	description: '複数アカウントの運用やスポット診断など、貴社に最適なプランをご提案します',
@@ -201,5 +196,3 @@ export const advisorPlanTableRows: AdvisorTableRow[] = [
 	{ type: 'category', label: '制作その他サービス' },
 	{ type: 'item', label: '・バナー・広告クリエイティブ制作', values: ['△'] },
 ];
-
-export const advisorPlanTableNotes = proPlanTableNotes;

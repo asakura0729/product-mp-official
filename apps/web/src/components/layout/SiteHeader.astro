@@ -7,7 +7,7 @@ const currentPath = Astro.url.pathname;
 ---
 
 <header id="site_header" class="site-header sticky top-0 z-(--z-index-header) border-b border-[#ddd] bg-white z-[100]">
-	<div class="site-header__inner mx-auto flex h-(--header-height) max-w-7xl items-center justify-between px-4 lg:px-8">
+	<div class="site-header__inner mx-auto flex h-(--header-height-sp) md:h-(--header-height-pc) max-w-7xl items-center justify-between px-4 lg:px-8">
 		<SiteLogo />
 
 		<!-- PC ナビ -->
@@ -49,7 +49,7 @@ const currentPath = Astro.url.pathname;
 		<button
 			id="site_header-menu_btn"
 			type="button"
-			class="site-header__menu-btn relative size-11 shrink-0 lg:hidden"
+			class="site-header__menu-btn relative size-12 h-full shrink-0 lg:hidden"
 			@click="$store.layout.menuOpen ? $store.layout.closeMenu() : $store.layout.openMenu()"
 			:aria-label="$store.layout.menuOpen ? 'メニューを閉じる' : 'メニューを開く'"
 			:aria-expanded="$store.layout.menuOpen"

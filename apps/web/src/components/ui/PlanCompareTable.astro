@@ -9,22 +9,27 @@ interface Props {
 	columns: readonly string[];
 	rows: TableRow[];
 	class?: string;
+	/** SP 時のテーブル最小幅（px）。既定 900 */
+	minWidth?: number;
 }
 
-const { columns, rows, class: className = '' } = Astro.props;
+const { columns, rows, class: className = '', minWidth = 900 } = Astro.props;
 
 const labelColClass =
 	columns.length === 1
-		? 'w-[45%] min-w-[200px] md:min-w-0'
-		: 'w-[40%] min-w-[220px] md:min-w-0';
+		? 'w-[70%] min-w-[200px] md:min-w-0'
+		: 'w-[30%] min-w-[220px] md:min-w-0';
 const valueColClass =
 	columns.length === 1
 		? 'w-[55%] min-w-[120px] md:min-w-0'
 		: 'w-[20%] min-w-[100px] md:min-w-0';
 ---
 
-<div class:list={['plan-compare-table max-md:overflow-x-auto md:overflow-x-clip', className]}>
-	<table class="w-full min-w-[720px] border-collapse text-base leading-6 md:min-w-0 md:table-fixed">
+<div
+	class:list={['plan-compare-table max-md:overflow-x-auto md:overflow-x-clip', className]}
+	style={`--plan-compare-min-width: ${minWidth}px`}
+>
+	<table class="plan-compare-table__grid w-full border-collapse text-base leading-6 md:table-fixed">
 		<thead>
 			<tr>
 				<th
@@ -90,3 +95,15 @@ const valueColClass =
 		</tbody>
 	</table>
 </div>
+
+<style>
+	.plan-compare-table__grid {
+		min-width: var(--plan-compare-min-width, 900px);
+	}
+
+	@media (min-width: 768px) {
+		.plan-compare-table__grid {
+			min-width: 0;
+		}
+	}
+</style>
