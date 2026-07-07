@@ -1,6 +1,7 @@
 ---
 import SiteLogo from './SiteLogo.astro';
 import { headerNavItems, ROUTES } from '../../data/navigation';
+import { isSamePath } from '../../data/routes';
 
 const inquiryPath = ROUTES.contact;
 const currentPath = Astro.url.pathname;
@@ -15,7 +16,7 @@ const currentPath = Astro.url.pathname;
 			<ul class="flex items-center gap-2 h-full pb-[2px] pr-2">
 				{
 					headerNavItems.map((item) => {
-						const isActive = !item.external && currentPath === item.href;
+						const isActive = !item.external && isSamePath(currentPath, item.href);
 						return (
 						<li class="h-full">
 							<a

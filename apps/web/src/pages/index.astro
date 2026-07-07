@@ -18,7 +18,7 @@ const problemSolutionPairs = problems.map((problem, index) => ({
 }));
 ---
 
-<Layout title="集客のチカラ" showCtaSectionIntro={false} showCtaSectionContact={false}>
+<Layout showCtaSectionIntro={false} showCtaSectionContact={false}>
   <KeyVisual />
 
   <section class="section-problem px-4 pb-10" aria-labelledby="section-problem-heading">
@@ -229,13 +229,13 @@ const problemSolutionPairs = problems.map((problem, index) => ({
           </div>
         </div>
       </div>
-      <div class="mt-6 w-full h-[200px] relative">
+      <div class="pt-6 w-full md:h-[240px] relative">
         <img
           src="/images/pic-meeting.png"
           alt="会議をするチームの写真"
-          class="block w-[500px] lg:w-[600px] h-auto absolute right-[-50px] bottom-[-50px] lg:bottom-[-120px] pointer-events-none"
-          width="900"
-          height="420"
+          class="pointer-events-none block w-full opacity-70 md:absolute md:w-[600px] md:right-[-25px] md:bottom-[-120px]"
+          width="578"
+          height="329"
           loading="lazy"
         />
       </div>

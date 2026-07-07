@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import { SITE_URL, SITE_NAME, ROUTES } from "../data/navigation";
+import { normalizePath } from "../data/routes";
 import SiteHeader from "../components/layout/SiteHeader.astro";
 import MobileNav from "../components/layout/MobileNav.astro";
 import LayoutBreadcrumb from "../components/layout/LayoutBreadcrumb.astro";
@@ -36,7 +37,7 @@ const {
 
 const showCtaSection = showCtaSectionIntro || showCtaSectionContact;
 const ctaSectionLabelledBy = showCtaSectionIntro ? "cta-heading" : "cta-contact-heading";
-const isTopPage = Astro.url.pathname === "/";
+const isTopPage = normalizePath(Astro.url.pathname) === "/";
 const pageTitle = isTopPage ? title : `${title} | ${SITE_NAME}`;
 ---
 
@@ -62,7 +63,7 @@ const pageTitle = isTopPage ? title : `${title} | ${SITE_NAME}`;
     <SiteHeader />
     <MobileNav />
 
-    {breadcrumb && <LayoutBreadcrumb items={[{ label: "ホーム", href: ROUTES.home, icon: "home" }, { label: breadcrumb }]} />}
+    {!isTopPage && breadcrumb && <LayoutBreadcrumb items={[{ label: "ホーム", href: ROUTES.home, icon: "home" }, { label: breadcrumb }]} />}
 
     <main class="layout__main min-h-[1000px]">
       <slot />
