@@ -74,7 +74,7 @@ import { proPlans, apoSteps, onboardingSteps, contractTable, proFaqs, traditiona
   <!-- 第1セクション -->
   <section class="px-4 pb-10 pt-8 md:pb-12" aria-labelledby="pro-sec1-heading">
     <div class="relative mx-auto w-full max-w-(--container)">
-      <img src="/images/fig-text-0.png" alt="代理店 手数料ゼロ！" class="pointer-events-none absolute top-6 right-4 w-[80px] object-contain md:top-[-20px] md:right-[25%]" width="101" height="101" />
+      <img src="/images/fig-text-0.png" alt="代理店 手数料ゼロ！" class="pointer-events-none absolute top-[-25px] right-2 w-[80px] object-contain md:top-[-20px] md:right-[25%]" width="101" height="101" />
 
       <div class="relative z-10">
         <HeaderH2 id="pro-sec1-heading" class="relative mx-auto z-10">
@@ -83,13 +83,15 @@ import { proPlans, apoSteps, onboardingSteps, contractTable, proFaqs, traditiona
         </HeaderH2>
 
         <div class="md:hidden">
-          <div class="flex gap-2 overflow-x-auto pb-2">
+          <div class="flex w-full gap-1 pb-2">
             {
               proPlans.map((plan) => (
-                <div class="shrink-0 border border-(--border) bg-(--white) px-3 py-2 text-xs leading-5 text-center">
+                <div class="min-w-0 flex-1 border border-(--border) bg-(--white) px-1 py-2 text-xs leading-4 text-center">
                   プロ運用
                   <br />
-                  {plan.tabLabel}
+                  {plan.tabLabel.replace("プラン", "")}
+                  <br />
+                  プラン
                 </div>
               ))
             }
@@ -130,7 +132,7 @@ import { proPlans, apoSteps, onboardingSteps, contractTable, proFaqs, traditiona
         広告費に比例して膨らむ、その<br class="md:hidden" /><span class="text-(--main-text)">手数料をゼロに</span>
       </HeaderH2>
       <PDef class="mx-auto max-w-[826px] md:text-center px-4">
-        中間マージンは、元々「<span class="text-(--main-text)">マスメディア時代のモデル</span>」。<br />
+        中間マージンは、元々「<span class="font-bold">マスメディア時代のモデル</span>」。<br />
         広告費に比例して手数料が増えるコスト構造は、「世界の常識」とかけ離れた仕組みです。
       </PDef>
       <div class="mx-auto mt-8 flex flex-col items-center gap-6 md:flex-row md:gap-8">
@@ -321,8 +323,8 @@ import { proPlans, apoSteps, onboardingSteps, contractTable, proFaqs, traditiona
   <section class="px-4" aria-labelledby="pro-sec5-heading">
     <div class="mx-auto w-full max-w-(--container)">
       <HeaderH2 id="pro-sec5-heading" class="mx-auto">
-        <Fragment slot="lead">透明な契約体系で、 無駄のない</Fragment>
-        「新スタンダード」 の広告運用を
+        <Fragment slot="lead">透明な契約体系で、無駄のない</Fragment>
+        「新スタンダード」<br class="md:hidden" />の広告運用を
       </HeaderH2>
       <section class="pb-6">
         <HeaderH3 align="left" class="mx-auto max-w-[900px]">ご契約条件</HeaderH3>
@@ -387,7 +389,7 @@ import { proPlans, apoSteps, onboardingSteps, contractTable, proFaqs, traditiona
   <!-- 第7セクション（フッター前） -->
   <section class="bg-(--main-bg-sub) px-4 pt-8 pb-9" aria-labelledby="pro-sec7-heading">
     <div class="mx-auto w-full max-w-(--container)">
-      <strong class="pb-2 font-bold text-2xl leading-9 md:text-3xl md:leading-10 block text-(--main-bg) text-center"> 今の広告運用と手数料、本当に適正ですか？ </strong>
+      <strong class="pb-2 font-bold text-2xl leading-9 md:text-3xl md:leading-10 block text-(--main-bg) text-center"> 今の広告運用と手数料、<br class="md:hidden" />本当に適正ですか？ </strong>
       <p class="md:text-center pb-0">まずは、貴社の「手数料コストの適正化診断」から 「手数料ゼロ化のシミュレーション」まで、無料で行います。</p>
     </div>
   </section>
