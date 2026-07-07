@@ -1,58 +1,36 @@
 ---
-import { EMAIL_CONTACT_PATH, PHONE_HOURS, PHONE_NUMBER } from '../../data/navigation';
+import { EMAIL_CONTACT_PATH, PHONE_HOURS, PHONE_NUMBER } from "../../data/navigation";
 ---
 
-<div
-	class="contact-modal fixed inset-0 z-[70] flex items-center justify-center p-4"
-	x-show="$store.layout.contactModalOpen"
-	x-cloak
-	@keydown.escape.window="$store.layout.closeContactModal()"
->
-	<div
-		class="contact-modal__overlay absolute inset-0 bg-black/50"
-		@click="$store.layout.closeContactModal()"
-		x-show="$store.layout.contactModalOpen"
-		x-transition.opacity
-	></div>
+<div class="contact-modal fixed inset-0 z-[70] flex items-center justify-center p-4" x-show="$store.layout.contactModalOpen" x-cloak @keydown.escape.window="$store.layout.closeContactModal()">
+  <div class="contact-modal__overlay absolute inset-0 bg-black/50" @click="$store.layout.closeContactModal()" x-show="$store.layout.contactModalOpen" x-transition.opacity></div>
 
-	<div
-		class="contact-modal__dialog relative w-full max-w-md rounded-xl bg-white p-4 shadow-xl"
-		role="dialog"
-		aria-modal="true"
-		aria-labelledby="contact-modal-title"
-		x-show="$store.layout.contactModalOpen"
-		x-transition
-	>
-		<button
-			type="button"
-			class="absolute right-4 top-4"
-			@click="$store.layout.closeContactModal()"
-			aria-label="閉じる"
-		>
-			<img src="/svg/btn-close.svg" alt="" class="size-8" width="32" height="32" />
-		</button>
+  <div
+    class="contact-modal__dialog relative w-full max-w-md rounded-xl bg-white p-4 shadow-xl"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="contact-modal-title"
+    x-show="$store.layout.contactModalOpen"
+    x-transition
+  >
+    <button type="button" class="absolute right-4 top-4" @click="$store.layout.closeContactModal()" aria-label="閉じる">
+      <img src="/svg/btn-close.svg" alt="" class="size-8" width="32" height="32" />
+    </button>
 
-		<h2 id="contact-modal-title" class="mb-4 pr-8 text-lg font-bold text-center">
-			お問い合わせ
-		</h2>
+    <h2 id="contact-modal-title" class="mb-4 text-lg font-bold text-center">電話のお問い合わせ</h2>
 
-		<p class="mb-6 text-sm leading-relaxed text-center">
-			お電話またはメールにてお気軽にご相談ください。<br>専門スタッフが対応いたします。
-		</p>
+    <p class="mb-6 text-sm leading-relaxed text-center">
+      まずはお気軽にご相談ください。<br />専門スタッフが対応いたします。
+    </p>
 
-		<div class="space-y-4">
-			<a
-				href={`tel:${PHONE_NUMBER.replace(/-/g, '')}`}
-				class="block rounded-lg border border-(--cta_tel) bg-(--white) p-4 text-center border-3 transition-opacity hover:opacity-90"
-				aria-label={`お電話でのお問い合わせ ${PHONE_NUMBER}`}
-			>
-				<p class="mb-2 text-sm font-semibold">お電話でのお問い合わせ</p>
-				<span class="inline-flex items-center gap-2 font-famly-din text-3xl text-(--cta_tel)">
-					<img src="/svg/icon-tel.svg" alt="" class="size-7" width="28" height="28" />
-					{PHONE_NUMBER}
-				</span>
-				<p class="mt-2 text-xs">{PHONE_HOURS}</p>
-			</a>
-		</div>
-	</div>
+    <div class="space-y-4">
+      <a
+        href={`tel:${PHONE_NUMBER.replace(/-/g, "")}`}
+        class="block rounded-lg border border-(--cta_tel) text-xl bg-(--cta_tel) text-(--white) p-4 text-center border-3 transition-opacity shadow-[0_2px_1px_rgba(0,0,0,0.25)] hover:opacity-90"
+        aria-label={`お電話でのお問い合わせ ${PHONE_NUMBER}`}
+      >
+        電話をかける
+      </a>
+    </div>
+  </div>
 </div>
