@@ -31,6 +31,7 @@ export const footerNavItems = navItems.filter((item) => item.href !== ROUTES.hom
 
 export const SITE_NAME = '集客のチカラ'
 export const SITE_URL = 'https://www.product-mp.com/';
+export const SITE_CATCHCOPY = 'WEB広告運用の新トレンド';
 export const PHONE_NUMBER = '03-6831-3209';
 export const PHONE_HOURS = '[受付時間]　9:30～18:30（平日）';
 export const EMAIL_CONTACT_PATH = ROUTES.contact;

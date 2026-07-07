@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-import { SITE_URL, SITE_NAME, ROUTES } from "../data/navigation";
+import { SITE_URL, SITE_NAME, ROUTES, SITE_CATCHCOPY } from "../data/navigation";
 import { normalizePath } from "../data/routes";
 import SiteHeader from "../components/layout/SiteHeader.astro";
 import MobileNav from "../components/layout/MobileNav.astro";
@@ -38,7 +38,7 @@ const {
 const showCtaSection = showCtaSectionIntro || showCtaSectionContact;
 const ctaSectionLabelledBy = showCtaSectionIntro ? "cta-heading" : "cta-contact-heading";
 const isTopPage = normalizePath(Astro.url.pathname) === "/";
-const pageTitle = isTopPage ? title : `${title} | ${SITE_NAME}`;
+const pageTitle = isTopPage ? `${title} | ${SITE_CATCHCOPY}`: `${title} | ${SITE_NAME}`;
 ---
 
 <!doctype html>
